@@ -1,0 +1,72 @@
+{
+    "items": [{
+            "name": "Company",
+            "children": [{
+                "name": "About-us",
+                "link": "/"
+            }]
+        },
+        {
+            "name": "Support",
+            "children": [{
+                    "name": "Return Policy",
+                    "link": "/return-policy"
+                },
+                {
+                    "name": "Privacy Policy",
+                    "link": "/privacy-policy"
+                },
+                {
+                    "name": "Terms of Use",
+                    "link": "/terms-and-conditions"
+                }
+            ]
+        },
+        {
+            "name": "Categories",
+            "children": [{
+                    "name": "Women",
+                    "link": "/"
+                },
+                {
+                    "name": "Shoes",
+                    "link": "/"
+                },
+                {
+                    "name": "Men",
+                    "link": "/"
+                },
+                {
+                    "name": "Accessories",
+                    "link": "/"
+                },
+                {
+                    "name": "Kids",
+                    "link": "/"
+                },
+                {
+                    "name": "Clothes",
+                    "link": "/"
+                }
+            ]
+        },
+        {
+            "name": "Special Pages",
+            "children": [{
+                    "name": "New Arrivals",
+                    "link": "/"
+                },
+                {
+                    "name": "Popular Items",
+                    "link": "/"
+                },
+                {
+                    "name": "Sales",
+                    "link": "/"
+                }
+            ]
+        }
+
+
+    ]
+}

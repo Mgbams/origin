@@ -3,14 +3,16 @@ import { PrivacyPolicyComponent  } from './privacy-policy.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../shared/shared.module';
+import { PolicyFooterModule } from './../policy-footer/policy-footer.module';
 
 
 @NgModule({
-  declarations: [PrivacyPolicyComponent ],
+  declarations: [PrivacyPolicyComponent],
   imports: [
     CommonModule,
     SharedModule,
-    PrivacyPolicyRoutingModule
+    PrivacyPolicyRoutingModule,
+    PolicyFooterModule
   ]
 })
 export class PrivacyPolicyModule { }
