@@ -1,0 +1,51 @@
+<!-- I wrapped the contents in ion-content and set it's overflow-y in css to auto to help add scrolling-->
+<ion-app>
+  <ion-menu
+    side="start"
+    menuId="first"
+    contentId="content1"
+    type="overlay"
+    swipe-gesture="true"
+  >
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content id="sidemenu">
+      <ion-list>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item
+            routerLink=""
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon name="" slot="start"></ion-icon>
+            <ion-label></ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title> 
+        <ion-row>
+          <ion-col size="2" offset="9">
+            <ion-badge color="primary" class="item-badge"> 0</ion-badge> <br />
+            <a routerLink="/account-setup"> <ion-icon name="cart-outline" class="cart-icon"></ion-icon></a> 
+          </ion-col>
+        </ion-row>
+        
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>
