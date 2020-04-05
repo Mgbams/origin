@@ -1,12 +1,83 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  Am number one
-</ion-content>
 
+    <ion-slides #slides class="firstSlide" pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesDidLoad(slider)" loop="true">
+        <ion-slide>
+            <div class="slide-page-one ">
+                <img src="./../../assets/images/img1.jpg" />
+            </div>
+
+        </ion-slide>
+
+        <ion-slide>
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img2.jpg" />
+            </div>
+        </ion-slide>
+
+
+        <ion-slide>
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img3.jpg" />
+            </div>
+
+        </ion-slide>
+
+
+        <ion-slide>
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img4.jpg" />
+            </div>
+
+        </ion-slide>
+    </ion-slides>
+
+
+
+    <ion-slides #slides2 pager="true" class="sliderBelow" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
+        <ion-slide class="secondSlide">
+            <div class="slide-page-one">
+                <img src="./../../assets/images/img1.jpg" />
+            </div>
+
+        </ion-slide>
+
+        <ion-slide class="secondSlide">
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img2.jpg" />
+            </div>
+        </ion-slide>
+
+
+        <ion-slide class="secondSlide">
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img3.jpg" />
+            </div>
+
+        </ion-slide>
+
+
+        <ion-slide class="secondSlide">
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img4.jpg" />
+            </div>
+
+        </ion-slide>
+
+
+        <ion-slide class="secondSlide">
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img4.jpg" />
+            </div>
+
+        </ion-slide>
+
+
+        <ion-slide class="secondSlide">
+            <div class="slide-page-two ">
+                <img src="./../../assets/images/img4.jpg" />
+            </div>
+
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>

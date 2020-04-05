@@ -1,3 +1,29 @@
 ion-content ion-toolbar {
-  --background: translucent;
+    --background: translucent;
+}
+
+ion-slides {
+    margin-top: 70px;
+    width: 100vw;
+    height: 40vh;
+    margin-bottom: 18px;
+    ion-slides img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.sliderBelow {
+    margin: auto;
+    width: 90%;
+    height: 20vh;
+    .sliderBelow img {
+        // width: 35%;
+        height: 100%;
+        margin: 0px 2%;
+    }
+}
+
+.secondSlide {
+    margin-right: 2%;
 }
