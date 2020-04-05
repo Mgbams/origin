@@ -13,7 +13,7 @@ export class PolicyFooterComponent implements OnInit {
   constructor( private http: HttpClient) {
     this.http.get('./../../assets/data/accordion-data.json').subscribe(res=> {
       this.information = res['items'];
-      this.information[0].open = true;
+      // this.information[0].open = true;
     });
    }
 

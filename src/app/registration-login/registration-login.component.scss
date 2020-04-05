@@ -1,14 +1,35 @@
 .closeRegisterForm {
     margin-top: 60px;
-
     .closeFormIcon {
         font-size: 3rem;
     }
 }
+
 ion-content .centerFormContents {
     width: 90%;
     margin: auto;
 }
+
 small {
     font-size: .90rem;
+}
+
+.originSpacing {
+    letter-spacing: 0.5rem;
+}
+
+// Formatting the name ORIGIN with different colours
+.color1,
+.color4 {
+    color: #AD2266;
+}
+
+.color2,
+.color5 {
+    color: #13693B;
+}
+
+.color3,
+.color6 {
+    color: #1a28b3;
 }

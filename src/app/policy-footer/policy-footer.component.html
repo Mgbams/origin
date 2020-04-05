@@ -1,21 +1,8 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>
-            Origin Footer
-        </ion-title>
-        <ion-buttons slot="end">
-            <ion-button (click)="automaticClose = !automaticClose">
-                <ion-icon slot="icon-only" name="close" *ngIf="automaticClose"></ion-icon>
-                <ion-icon slot="icon-only" name="resize" *ngIf="!automaticClose"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content>
     <ion-list *ngFor="let item of information; let i = index" class="accordion-list" detail="false" no-padding>
         <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
-            <ion-icon slot="end" name="chevron-down-outline" *ngIf="!item.open"></ion-icon>
+            <ion-icon slot="end" class="down-arrow" name="chevron-down-outline" *ngIf="!item.open"></ion-icon>
+            <ion-icon slot="end" class="up-arrow" name="chevron-up-outline" *ngIf="item.open"></ion-icon>
             <ion-label>
                 {{item.name}}
             </ion-label>
@@ -31,6 +18,46 @@
 
             </ion-list>
         </div>
-
     </ion-list>
+
+    <div>
+        <ion-grid>
+            <ion-row>
+                <ion-col class="ion-text-center">
+                    <h6>Follow Origin on</h6>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col>
+                    <ion-icon class="socials" name="logo-facebook"></ion-icon>
+                </ion-col>
+
+                <ion-col>
+                    <ion-icon class="socials" name="logo-linkedin"></ion-icon>
+                </ion-col>
+
+                <ion-col>
+                    <ion-icon class="socials" name="logo-github"></ion-icon>
+                </ion-col>
+
+                <ion-col>
+                    <ion-icon class="socials" name="logo-twitter"></ion-icon>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="desktop-site-row">
+                <ion-col class="ion-text-center">
+                    <a class="desktop-site" href="#">View desktop site</a>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col>
+                    &#169; 2020 Origin shopping. All rights reserved
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+    </div>
 </ion-content>

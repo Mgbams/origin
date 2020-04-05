@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'account-info', component: AccountInfoComponent
   }
-]
+];
 
 
 @NgModule({

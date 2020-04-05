@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent implements OnInit {
-
-  constructor() { }
+  public forgetPasswordForm;
+  constructor(private formBuilder: FormBuilder) {
+    this.forgetPasswordForm = this.formBuilder.group({
+      personalEmail: ['']
+    });
+   }
 
   ngOnInit() {}
 

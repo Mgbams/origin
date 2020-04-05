@@ -1,81 +1,68 @@
 <ion-content>
-  <div class="centerFormContents">
-    <ion-grid>
-      <ion-row class="ion-justify-content-end closeRegisterForm">
-        <ion-col size="2">
-          <div>
-            <ion-icon
-              class="closeFormIcon"
-              name="close-circle-outline"
-            ></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>
+    <div class="centerFormContents">
+        <ion-grid>
+            <ion-row class="ion-justify-content-end closeRegisterForm">
+                <ion-col size="2">
+                    <div>
+                        <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
+                    </div>
+                </ion-col>
+            </ion-row>
 
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="6">
-          <p>Welcome to</p>
-        </ion-col>
-      </ion-row>
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="6">
+                    <p>Welcome to</p>
+                </ion-col>
+            </ion-row>
 
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="6">
-          <h2>Origin</h2>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="8">
+                    <h2 class="originSpacing">
+                        <span class="color1">O</span>
+                        <span class="color2">R</span>
+                        <span class="color3">I</span>
+                        <span class="color1">G</span>
+                        <span class="color2">I</span>
+                        <span class="color3">N</span>
+                    </h2>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
-    <form [formGroup]="loginRegisterForm">
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input
-          formControlName="email"
-          name="email"
-          autofocus="true"
-          type="email"
-        ></ion-input>
-      </ion-item>
+        <form [formGroup]="loginRegisterForm">
+            <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input formControlName="email" name="email" autofocus="true" type="email"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input
-          formControlName="password"
-          name="password"
-          type="password"
-        ></ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input formControlName="password" name="password" type="password"></ion-input>
+            </ion-item>
 
-      <ion-button
-        class="ion-activatable ripple-parent ion-margin-top"
-        expand="block"
-        type="submit"
-      >
-        Sign in
-        <ion-ripple-effect type="bounded"></ion-ripple-effect>
-      </ion-button>
+            <ion-button class="ion-activatable ripple-parent ion-margin-top" expand="block" type="submit">
+                Sign in
+                <ion-ripple-effect type="bounded"></ion-ripple-effect>
+            </ion-button>
 
-      <ion-row class="ion-justify-content-end">
-        <ion-col size="5">
-          <p><small>Forgot Password?</small></p>
-        </ion-col>
-      </ion-row>
+            <ion-row class="ion-justify-content-end">
+                <ion-col size="5">
+                    <p><small><a routerLink="/forgot-password">Forgot Password?</a></small></p>
+                </ion-col>
+            </ion-row>
 
-      <div>
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="5">
-            <p>Not a member?</p>
-          </ion-col>
-        </ion-row>
+            <div>
+                <ion-row class="ion-justify-content-center">
+                    <ion-col size="5">
+                        <p>Not a member?</p>
+                    </ion-col>
+                </ion-row>
 
-        <ion-button
-          class="ion-activatable ripple-parent"
-          expand="block"
-          type="submit"
-        >
-          Register now
-          <ion-ripple-effect type="bounded"></ion-ripple-effect>
-        </ion-button>
-      </div>
-    </form>
-  </div>
+                <ion-button class="ion-activatable ripple-parent" expand="block" type="submit" routerLink="/account-setup">
+                    Register now
+                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                </ion-button>
+            </div>
+        </form>
+    </div>
 </ion-content>

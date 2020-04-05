@@ -1,3 +1,4 @@
+import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
 import { ContactInfoModule } from './contact-info/contact-info.module';
 import { AccountInfoModule } from './account-info/account-info.module';
 import { AccountSetupModule } from './account-setup/account-setup.module';
@@ -30,6 +31,7 @@ import { AppComponent } from './app.component';
     TermsAndConditionsModule,
     ReturnPolicyModule,
     PrivacyPolicyModule,
+    ForgotPasswordModule,
     AppRoutingModule
   ],
   providers: [
