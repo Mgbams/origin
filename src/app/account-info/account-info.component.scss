@@ -1,19 +1,21 @@
 .centerFormContents {
     padding-top: 60px;
-
     .closeFormIcon {
         font-size: 3rem;
     }
 }
+
 ion-content .centerFormContents {
     width: 90%;
     margin: auto;
 }
+
 .accountSteps {
     display: flex;
     align-items: center;
 }
-.accountSteps > div:nth-child(odd) {
+
+.accountSteps>div:nth-child(odd) {
     border-radius: 50%;
     padding: 10px;
     width: 60px;
@@ -23,18 +25,27 @@ ion-content .centerFormContents {
     align-items: center;
     border: 1px solid gray;
 }
-.accountSteps > div:nth-child(even) {
+
+.accountSteps>div:nth-child(even) {
     width: 30vw;
     height: 1px;
     border: 1px solid gray;
     background-color: gray;
 }
+
 .activeTab {
     background-color: palevioletred;
 }
+
 small {
     color: palevioletred;
 }
+
 .formIntroText {
     line-height: 1.6rem;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }

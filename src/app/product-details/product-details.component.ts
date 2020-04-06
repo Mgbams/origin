@@ -10,6 +10,7 @@ import { products } from './../../products'; // to be deleted once database is s
 })
 export class ProductDetailsComponent implements OnInit {
   public product;
+  // localhost:800/origin/src/entity/featuredproducts.php
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute) { }
 
   ngOnInit() {
