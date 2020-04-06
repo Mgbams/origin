@@ -1,0 +1,26 @@
+<ion-content>
+    <div class="firstParagraph">
+
+        <ion-card *ngIf="product">
+            <ion-card-header>
+                <ion-card-title>
+                    <h2>Product Details</h2>
+                </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <h3>{{ product.name }}</h3>
+                <h4>{{ product.price | currency }}</h4>
+                <p>{{ product.description }}</p>
+
+                <ion-button class="ion-activatable ripple-parent">
+                    Details
+                    <ion-ripple-effect></ion-ripple-effect>
+                </ion-button>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+    <div class="space-creator"></div>
+    <app-policy-footer></app-policy-footer>
+</ion-content>

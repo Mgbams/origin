@@ -27,3 +27,16 @@ ion-slides {
 .secondSlide {
     margin-right: 2%;
 }
+
+// Featured products starts here
+.featured-products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.featured-products ion-card {
+    width: 44%;
+}

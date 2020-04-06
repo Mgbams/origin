@@ -80,4 +80,35 @@
         </ion-slide>
     </ion-slides>
 
+    <!--Featured products-->
+
+    <h2 class="ion-text-center">Featured products</h2>
+
+    <div class="featured-products">
+
+        <ion-card *ngFor="let product of products; index as productId">
+            <ion-card-header>
+                <ion-card-title>
+                    <h3>
+                        <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+                        {{ product.name }}
+                    </a>
+                    </h3>
+                </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <p *ngIf="product.description">
+                    Description: {{ product.description }}
+                </p>
+
+                <ion-button class="ion-activatable ripple-parent">
+                    Details
+                    <ion-ripple-effect></ion-ripple-effect>
+                </ion-button>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+
 </ion-content>

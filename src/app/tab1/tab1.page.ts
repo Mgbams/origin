@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+import { products } from './../../products';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,7 @@ import { IonSlides } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  public products = products; // To be deleted once i get data from database
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
   slideOpts: any;

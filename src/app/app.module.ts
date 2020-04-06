@@ -1,3 +1,4 @@
+import { ProductDetailsModule } from './product-details/product-details.module';
 import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
 import { ContactInfoModule } from './contact-info/contact-info.module';
 import { AccountInfoModule } from './account-info/account-info.module';
@@ -32,6 +33,7 @@ import { AppComponent } from './app.component';
     ReturnPolicyModule,
     PrivacyPolicyModule,
     ForgotPasswordModule,
+    ProductDetailsModule,
     AppRoutingModule
   ],
   providers: [
