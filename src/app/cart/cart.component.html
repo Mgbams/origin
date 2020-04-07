@@ -1,0 +1,15 @@
+<ion-content>
+    <div class="addedProducts">
+        <h3>Origin Cart</h3>
+
+
+        <p>
+            <a routerLink="/shipping">Shipping Prices</a>
+        </p>
+
+        <div *ngFor="let product of productLists">
+            <span>{{ product.name }} </span>
+            <span> {{ product.price | currency }}</span>
+        </div>
+    </div>
+</ion-content>

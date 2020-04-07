@@ -28,11 +28,18 @@
             </ion-buttons>
             <ion-title>
                 <ion-row>
-                    <ion-col size="2" offset="9">
-                        <ion-badge color="primary" class="item-badge"> 0</ion-badge> <br />
-                        <a routerLink="/register-login">
-                            <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
-                        </a>
+                    <ion-col class="topBarContents">
+                        <div class="signin">
+                            <a routerLink="/register-login">
+                                <ion-icon name="create-outline"></ion-icon> <br />Sign in
+                            </a>
+                        </div>
+                        <div>
+                            <ion-badge color="primary" class="item-badge"> 0</ion-badge> <br />
+                            <a routerLink="/cart">
+                                <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+                            </a>
+                        </div>
                     </ion-col>
                 </ion-row>
 

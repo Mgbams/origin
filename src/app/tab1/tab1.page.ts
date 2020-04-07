@@ -29,7 +29,7 @@ export class Tab1Page {
       speed: 1000
     };
 
-    this.getFeaturedProducts(); // modify the position after
+   // this.getFeaturedProducts(); // modify the position after
   }
 
   slidesDidLoad(slides: IonSlides) {

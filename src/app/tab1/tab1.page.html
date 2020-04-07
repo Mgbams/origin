@@ -90,9 +90,7 @@
             <ion-card-header>
                 <ion-card-title>
                     <h3>
-                        <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
                         {{ product.name }}
-                    </a>
                     </h3>
                 </ion-card-title>
             </ion-card-header>
@@ -102,7 +100,7 @@
                     Description: {{ product.description }}
                 </p>
 
-                <ion-button class="ion-activatable ripple-parent">
+                <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
                     Details
                     <ion-ripple-effect></ion-ripple-effect>
                 </ion-button>

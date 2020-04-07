@@ -1,3 +1,5 @@
+import { ShippingModule } from './shipping/shipping.module';
+import { CartModule } from './cart/cart.module';
 import { ProductDetailsModule } from './product-details/product-details.module';
 import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
 import { ContactInfoModule } from './contact-info/contact-info.module';
@@ -12,12 +14,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CompletedRegistrationModule } from './completed-registration/completed-registration.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +37,9 @@ import { AppComponent } from './app.component';
     PrivacyPolicyModule,
     ForgotPasswordModule,
     ProductDetailsModule,
+    CompletedRegistrationModule,
+    CartModule,
+    ShippingModule,
     AppRoutingModule
   ],
   providers: [

@@ -13,7 +13,7 @@
                 <h4>{{ product.price | currency }}</h4>
                 <p>{{ product.description }}</p>
 
-                <ion-button class="ion-activatable ripple-parent">
+                <ion-button class="ion-activatable ripple-parent" (click)="addToCart(product)">
                     ADD TO CART
                     <ion-ripple-effect></ion-ripple-effect>
                 </ion-button>

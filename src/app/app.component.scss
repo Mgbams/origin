@@ -1,9 +1,27 @@
 .cart-icon {
     font-size: 2rem;
     cursor: pointer;
-    color:white;
+    color: white;
 }
+
 .item-badge {
     background-color: brown;
     margin-left: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.topBarContents {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.signin {
+    margin-right: 10%;
+    text-align: center;
 }
