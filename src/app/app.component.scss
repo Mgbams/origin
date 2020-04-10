@@ -1,3 +1,12 @@
+ion-content {
+    margin: 0px !important;
+    padding: 0px !important;
+    .sidemenu_list {
+        margin-left: -20px !important;
+        padding: 0px !important;
+    }
+}
+
 .cart-icon {
     font-size: 2rem;
     cursor: pointer;
@@ -24,4 +33,39 @@ a {
 .signin {
     margin-right: 10%;
     text-align: center;
+}
+
+// categories start
+.categories {
+    width: 115px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(128, 128, 128);
+}
+
+.categories_link {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+ion-avatar {
+    font-size: 2rem;
+}
+
+.catItems {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+    ion-label {
+        margin-top: -25px;
+    }
+}
+
+.ionItems {
+    --background: rgb(128, 128, 128);
+    p {
+        text-transform: capitalize;
+    }
 }

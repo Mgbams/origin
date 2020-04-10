@@ -13,7 +13,7 @@ export class FeaturedProductsService {
 
   public getFeaturedProducts(): Promise< FeaturedProducts[] > {
     return this.http.get < FeaturedProducts[] >
-    (`http://localhost:800/origin/src/entity/featuredproducts.php`)
+    (`http://localhost/origin/src/entity/featuredproducts.php`)
     .toPromise();
    }
 }

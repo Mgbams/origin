@@ -1,23 +1,28 @@
 import { Tab1Page } from './tab1/tab1.page';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ViewChild } from '@angular/core';
+import { ProductCategories } from './shared/models/productCategories';
+import {  CategoriesService } from './shared/services/categories.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   public name: string;
+  public categories: ProductCategories[] = [];
+
   @ViewChild( Tab1Page, {static: false}) tab1Page: Tab1Page;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private categoriesService: CategoriesService
   ) {
     this.initializeApp();
   }
@@ -29,5 +34,18 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {}
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    // Get product categories from database
+    this.categoriesService
+        .getCategories()
+        .then((data: ProductCategories[]) => {
+          this.categories = data;
+          console.log(this.categories);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  }
 }
