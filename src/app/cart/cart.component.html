@@ -1,15 +1,65 @@
 <ion-content>
-    <div class="addedProducts">
-        <h3>Origin Cart</h3>
+    <div class="cart_container">
+        <div class="cart_title">
+            <div class="backArrow">
+                <a routerLink="/products/:productId">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </a>
+            </div>
+            <div>
+                <h3>MY CART</h3>
+            </div>
+        </div>
+        <div class="addedProducts" *ngIf="productLists">
 
+            <ion-card *ngFor="let product of productLists">
+                <ion-card-content>
+                    <div class="item_image">
+                        <img [src]="product.product_images" />
+                    </div>
 
-        <p>
-            <a routerLink="/shipping">Shipping Prices</a>
-        </p>
+                    <div class="info_div">
+                        <div class="productinfo">
+                            <p>{{ product.product_name }}</p>
+                            <p>
+                                <ion-button fill="clear">
+                                    <ion-icon class="deleteItem" name="close-outline"></ion-icon>
+                                </ion-button>
+                            </p>
+                        </div>
 
-        <div *ngFor="let product of productLists">
-            <span>{{ product.name }} </span>
-            <span> {{ product.price | currency }}</span>
+                        <div>
+                            <p>Color: blue</p>
+                            <p>Size: X </p>
+                        </div>
+
+                        <div>
+                            <div>
+                                {{ product.product_price }}
+                            </div>
+                            <div>
+                                <ion-icon name="remove-circle-outline"> 5 </ion-icon>
+                                <ion-icon name="add-circle-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                </ion-card-content>
+            </ion-card>
+
+            <div class="cart_bottom">
+                <div>
+                    <p>TOTAL</p>
+                    <p>$500</p>
+                </div>
+                <div>
+                    <ion-button class="ion-activatable ripple-parent checkoutButton">
+                        Checkout
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                        <ion-ripple-effect></ion-ripple-effect>
+                    </ion-button>
+                </div>
+            </div>
         </div>
     </div>
 </ion-content>

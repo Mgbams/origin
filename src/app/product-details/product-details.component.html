@@ -1,25 +1,28 @@
 <ion-content>
     <div class="firstParagraph">
+        <ng-container>
+            <ion-card *ngIf="product">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h2>Product Details</h2>
+                    </ion-card-title>
+                </ion-card-header>
 
-        <ion-card *ngIf="product">
-            <ion-card-header>
-                <ion-card-title>
-                    <h2>Product Details</h2>
-                </ion-card-title>
-            </ion-card-header>
+                <ion-card-content>
+                    <h3>{{ product.product_name }}</h3>
+                    <h4>{{ product.product_price | currency }}</h4>
+                    <p *ngIf="product.product_description">
+                        {{ product.product_description }}
+                    </p>
 
-            <ion-card-content>
-                <h3>{{ product.name }}</h3>
-                <h4>{{ product.price | currency }}</h4>
-                <p>{{ product.description }}</p>
+                    <ion-button class="ion-activatable ripple-parent" (click)="addToCart(product)">
+                        ADD TO CART
+                        <ion-ripple-effect></ion-ripple-effect>
+                    </ion-button>
+                </ion-card-content>
+            </ion-card>
 
-                <ion-button class="ion-activatable ripple-parent" (click)="addToCart(product)">
-                    ADD TO CART
-                    <ion-ripple-effect></ion-ripple-effect>
-                </ion-button>
-            </ion-card-content>
-        </ion-card>
-
+        </ng-container>
     </div>
     <div class="space-creator"></div>
     <app-policy-footer></app-policy-footer>

@@ -1,3 +1,71 @@
+.cart_container {
+    width: 90%;
+    margin: auto;
+}
+
 .addedProducts {
-    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    .cart_bottom,
+    ion-card-content {
+        display: flex;
+        justify-content: space-between;
+    }
+    .info_div {
+        width: 60%;
+    }
+    .item_image {
+        width: 38%;
+    }
+    .item_image img {
+        height: 90px;
+    }
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+.cart_title {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+        color: black;
+    }
+    .backArrow {
+        margin-right: 54%;
+        ion-icon {
+            font-size: 2rem;
+        }
+    }
+}
+
+.productinfo {
+    display: flex;
+    justify-content: space-between;
+    .deleteItem {
+        font-size: 1.5rem;
+        margin-right: 5%;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.checkoutButton ion-icon {
+    color: white;
+}
+
+.checkoutButton {
+    --background: #9E15BF !important;
+    --border-top-right-radius: 50% !important;
+    --border-bottom-right-radius: 50% !important;
+    --border-top-left-radius: 50% !important;
+    --border-bottom-left-radius: 50% !important;
+}
+
+ion-card {
+    --background: rgba(128, 128, 128, 0.05);
 }

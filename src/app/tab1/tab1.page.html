@@ -88,18 +88,16 @@
 
         <ion-card *ngFor="let product of products; index as productId">
             <ion-card-header>
+                <img class="featuredProductsImages" [src]="product.product_images" />
+
                 <ion-card-title>
                     <h3>
-                        {{ product.name }}
+                        {{ product.product_name }}
                     </h3>
                 </ion-card-title>
             </ion-card-header>
 
             <ion-card-content>
-                <p *ngIf="product.description">
-                    Description: {{ product.description }}
-                </p>
-
                 <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
                     Details
                     <ion-ripple-effect></ion-ripple-effect>

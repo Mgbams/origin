@@ -40,3 +40,13 @@ ion-slides {
 .featured-products ion-card {
     width: 44%;
 }
+
+p,
+h3 {
+    text-transform: capitalize;
+}
+
+.featuredProductsImages {
+    height: 70px;
+    width: 100%;
+}

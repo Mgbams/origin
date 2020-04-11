@@ -1,17 +1,17 @@
-import { FeaturedProductsService } from './shared/services/featured-products.service';
-import { Component, ViewChild } from '@angular/core';
+import { FeaturedProductsService } from './../shared/services/featured-products.service';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { products } from './../../products';
-import { FeaturedProducts } from './shared/models/featured-products';
+import { AllProducts } from './../shared/models/allProducts';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
-  public displayFeaturedProducts: FeaturedProducts[] = [];
-  public products = products; // To be deleted once i get data from database
+export class Tab1Page implements OnInit {
+  // public displayFeaturedProducts: AllProducts[] = [];
+  public products: AllProducts[] = [];
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
   slideOpts: any;
@@ -28,8 +28,6 @@ export class Tab1Page {
       slidesPerView: 3,
       speed: 1000
     };
-
-   // this.getFeaturedProducts(); // modify the position after
   }
 
   slidesDidLoad(slides: IonSlides) {
@@ -40,19 +38,25 @@ export class Tab1Page {
     this.slides2.startAutoplay();
   }
 
+  ngOnInit() {
+    this.getFeaturedProducts();
+  }
+
 
   getFeaturedProducts() {
     this.featuredProductsService
         .getFeaturedProducts()
-        .then((data: FeaturedProducts[]) => {
-        console.log('Display data', data);
-        this.displayFeaturedProducts = data;
-        console.log('Display featuredproducts', this.displayFeaturedProducts);
-        console.log('welcome', this.displayFeaturedProducts[0].product_name);
+        .then((data: AllProducts[]) => {
+        this.products = data;
+        console.log('Display featuredproducts', this.products);
     })
       .catch((error) => {
         console.log(error);
     });
+  }
+
+  filterProductDetails() {
+
   }
 
 }
