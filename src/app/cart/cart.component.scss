@@ -28,15 +28,15 @@
 .cart_title {
     margin-top: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     a {
-        color: black;
+        text-decoration: none;
     }
     .backArrow {
-        margin-right: 54%;
         ion-icon {
             font-size: 2rem;
+            color:  #9E15BF;
         }
     }
 }
@@ -60,10 +60,8 @@ a {
 
 .checkoutButton {
     --background: #9E15BF !important;
-    --border-top-right-radius: 50% !important;
-    --border-bottom-right-radius: 50% !important;
-    --border-top-left-radius: 50% !important;
-    --border-bottom-left-radius: 50% !important;
+    --border-radius: 50px !important;
+    --box-shadow: 0px 10px 10px rgba(157, 21, 191, 0.5);
 }
 
 ion-card {

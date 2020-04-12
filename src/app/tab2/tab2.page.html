@@ -1,11 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-i am tab 2
+    <div class="shop-wrapper">
+        <div class="arrow_container">
+            <div class="backArrow">
+                <a routerLink="/tabs/tab1">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </a>
+            </div>
+            <div class="shop_title">
+                <h1 class="ion-text-center">Products</h1>
+            </div>
+            <div></div>
+        </div>
+
+        <div class="all-products">
+
+            <ion-card *ngFor="let product of products; index as productId">
+                <ion-card-header>
+                    <img class="productsImage" [src]="product.product_images" />
+
+                    <ion-card-title>
+                        <h3>
+                            {{ product.product_name }}
+                        </h3>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                        Details
+                        <ion-ripple-effect></ion-ripple-effect>
+                    </ion-button>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
 </ion-content>

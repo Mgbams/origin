@@ -1,5 +1,5 @@
 .firstParagraph {
-    margin-top: 75px;
+    margin-top: 10px;
 }
 
 .firstParagraph ion-card {
@@ -9,4 +9,62 @@
 
 .space-creator {
     margin-bottom: 20px;
+}
+
+ion-button {
+    --background: #9E15BF !important;
+    --border-radius: 50px !important;
+    --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
+}
+
+ion-slides {
+    margin-top: 71px;
+    width: 100vw;
+    height: 40vh;
+    margin-bottom: 18px;
+    ion-slides img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.sliderBelow {
+    margin: auto;
+    width: 90%;
+    height: 32vh;
+    .sliderBelow img {
+        // width: 35%;
+        height: 100%;
+        margin: 0px 2%;
+    }
+}
+
+.secondSlide {
+    margin-right: 2%;
+}
+
+.product_details_card {
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    --background: rgba(128, 128, 128, 0.05);
+    p {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.7rem;
+    }
+}
+
+.suggestedProductsSection {
+    height: 40vh;
+    .suggestedProductsImages {
+        height: 70px;
+        width: 100%;
+    }
+    .suggested_products ion-card {
+        h3 {
+            text-transform: capitalize;
+            font-size: 0.9rem;
+        }
+    }
 }

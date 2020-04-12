@@ -1,7 +1,7 @@
 import { FeaturedProductsService } from './../shared/services/featured-products.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { products } from './../../products';
+// import { products } from './../../products';
 import { AllProducts } from './../shared/models/allProducts';
 
 @Component({
@@ -10,7 +10,6 @@ import { AllProducts } from './../shared/models/allProducts';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  // public displayFeaturedProducts: AllProducts[] = [];
   public products: AllProducts[] = [];
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;

@@ -1,16 +1,34 @@
-<ion-content>
-    <div class="firstParagraph">
-        <ng-container>
-            <ion-card *ngIf="product">
-                <ion-card-header>
-                    <ion-card-title>
-                        <h2>Product Details</h2>
-                    </ion-card-title>
-                </ion-card-header>
+<ion-content *ngIf="product">
+    <ion-slides #slides class="firstSlide" pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesDidLoad(slider)" loop="true">
+        <ion-slide>
+            <div class="slide-page-one ">
+                <img [src]="product.product_images" [alt]="product.product_name" />
+            </div>
 
+        </ion-slide>
+
+        <ion-slide>
+            <div class="slide-page-two ">
+                <img [src]="product.product_images" [alt]="product.product_name" />
+            </div>
+        </ion-slide>
+
+
+        <ion-slide>
+            <div class="slide-page-two ">
+                <img [src]="product.product_images" [alt]="product.product_name" />
+            </div>
+
+        </ion-slide>
+
+    </ion-slides>
+    <div class="firstParagraph">
+        <h1 class="ion-text-center">Product Details</h1>
+        <ng-container>
+            <ion-card class="product_details_card">
                 <ion-card-content>
                     <h3>{{ product.product_name }}</h3>
-                    <h4>{{ product.product_price | currency }}</h4>
+                    <p>{{ product.product_price | currency }}</p>
                     <p *ngIf="product.product_description">
                         {{ product.product_description }}
                     </p>
@@ -23,6 +41,35 @@
             </ion-card>
 
         </ng-container>
+    </div>
+
+    <div class="suggestedProductsSection">
+        <h3 class="ion-text-center">PRODUCTS YOU MIGHT LIKE</h3>
+        <ion-slides #slides2 pager="true" class="sliderBelow" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
+            <ion-slide class="secondSlide" *ngFor="let product of productDetails; index as productId">
+                <div class="suggested_products">
+                    <ion-card>
+                        <ion-card-header>
+                            <img class="suggestedProductsImages" [src]="product.product_images" [alt]="product.product_name" />
+
+                            <ion-card-title>
+                                <h3>
+                                    {{ product.product_name }}
+                                </h3>
+                            </ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                                Details
+                                <ion-ripple-effect></ion-ripple-effect>
+                            </ion-button>
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+
+            </ion-slide>
+        </ion-slides>
     </div>
     <div class="space-creator"></div>
     <app-policy-footer></app-policy-footer>

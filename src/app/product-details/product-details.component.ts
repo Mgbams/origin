@@ -1,9 +1,10 @@
 import { FeaturedProductsService } from './../shared/services/featured-products.service';
 import { CartService } from './../shared/services/cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AllProducts } from './../shared/models/allProducts';
+import { IonSlides } from '@ionic/angular';
 
 
 @Component({
@@ -14,14 +15,38 @@ import { AllProducts } from './../shared/models/allProducts';
 export class ProductDetailsComponent implements OnInit {
   public product;
   public productDetails: AllProducts[] = [];
+  @ViewChild('slides', {static: false}) slides: IonSlides;
+  @ViewChild('slides2', {static: false}) slides2: IonSlides;
+  slideOpts: any;
+  secondSlideOpts: any;
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
     private featuredProductsService: FeaturedProductsService
-    ) { }
+    ) {
+      this.slideOpts = {
+        initialSlide: 0,
+        slidesPerView: 1,
+        speed: 800
+      };
+
+      this.secondSlideOpts = {
+        initialSlide: 0,
+        slidesPerView: 3,
+        speed: 1000
+      };
+     }
 
   ngOnInit() {
     this.getFeaturedProducts();
+  }
+
+  slidesDidLoad(slides: IonSlides) {
+    this.slides.startAutoplay();
+  }
+
+  slidesDidLoad2(slides2: IonSlides) {
+    this.slides2.startAutoplay();
   }
 
   getFeaturedProducts() {
@@ -44,7 +69,7 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product) {
     this.cartService.addProductToCart(product);
-    console.log('not adding to cart')
+    console.log('not adding to cart');
   }
 
 }

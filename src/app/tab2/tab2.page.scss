@@ -1,3 +1,52 @@
 ion-content ion-toolbar {
-  --background: translucent;
+    --background: translucent;
+}
+
+.shop-wrapper {
+    margin-top: 70px;
+}
+
+// All products starts here
+.all-products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.all-products ion-card {
+    width: 44%;
+}
+
+p,
+h3 {
+    text-transform: capitalize;
+}
+
+.productsImage {
+    height: 70px;
+    width: 100%;
+}
+
+.arrow_container {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+        color: #9E15BF;
+        text-decoration: none;
+    }
+    .backArrow {
+        ion-icon {
+            font-size: 2rem;
+        }
+    }
+}
+
+ion-button {
+    --background: #9E15BF !important;
+    --border-radius: 50px !important;
+    --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
 }
