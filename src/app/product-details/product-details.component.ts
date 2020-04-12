@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AllProducts } from './../shared/models/allProducts';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -20,6 +20,7 @@ export class ProductDetailsComponent implements OnInit {
   slideOpts: any;
   secondSlideOpts: any;
   constructor(
+    private toastController: ToastController,
     private route: ActivatedRoute,
     private cartService: CartService,
     private featuredProductsService: FeaturedProductsService
@@ -69,7 +70,17 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product) {
     this.cartService.addProductToCart(product);
-    console.log('not adding to cart');
+    // Creating a toast that displays a message when the product is added to the cart
+    const toast = this.toastController.create({
+      message: product.product_name + ' has been added to your cart',
+      position: 'top',
+      duration: 3500,
+      cssClass: 'toast-bg',
+      color: 'success'
+    });
+    toast.then((toastMessage) => {
+      toastMessage.present();
+    });
   }
 
 }

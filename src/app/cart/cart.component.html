@@ -23,7 +23,7 @@
                         <div class="productinfo">
                             <p>{{ product.product_name }}</p>
                             <p>
-                                <ion-button fill="clear">
+                                <ion-button fill="clear" (click)="removeItem(i)">
                                     <ion-icon class="deleteItem" name="close-outline"></ion-icon>
                                 </ion-button>
                             </p>

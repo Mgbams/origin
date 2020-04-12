@@ -33,5 +33,49 @@
                 </ion-card-content>
             </ion-card>
         </div>
+
+        <!-- Pagination code starts here-->
+        <div class="pagination-container">
+            <ion-row>
+                <ion-col size="12" class="ion-text-center">
+                    {{ page + 1 }} of {{ totalPages }}
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="pagination">
+                <ion-col size="2">
+                    <ion-button fill="clear" (click)="firstPage()">
+                        <ion-icon name="play-back" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-col>
+                <ion-col size="2">
+                    <ion-button fill="clear" (click)="prevPage()">
+                        <ion-icon name="chevron-back" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-col>
+
+                <ion-icon size="4" class="ion-text-center">
+                    <ion-select interface="popover" [(ngModel)]="resultsCount" (ionChange)="getAllProducts()">
+                        <ion-select-option [value]="5">5</ion-select-option>
+                        <ion-select-option [value]="10">10</ion-select-option>
+                        <ion-select-option [value]="25">25</ion-select-option>
+                        <ion-select-option [value]="50">50</ion-select-option>
+                    </ion-select>
+                </ion-icon>
+
+                <ion-col size="2">
+                    <ion-button fill="clear" (click)="nextPage()">
+                        <ion-icon name="chevron-forward" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-col>
+                <ion-col size="2">
+                    <ion-button fill="clear" (click)="lastPage()">
+                        <ion-icon name="play-forward" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-col>
+
+            </ion-row>
+        </div>
+        <!-- Pagination code stops here-->
     </div>
 </ion-content>
