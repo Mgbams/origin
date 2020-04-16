@@ -67,14 +67,14 @@ export class ProductDetailsComponent implements OnInit {
         console.log(error);
     });
   }
-
+  
   addToCart(product) {
     this.cartService.addProductToCart(product);
     // Creating a toast that displays a message when the product is added to the cart
     const toast = this.toastController.create({
       message: product.product_name + ' has been added to your cart',
       position: 'top',
-      duration: 3500,
+      duration: 2000,
       cssClass: 'toast-bg',
       color: 'success'
     });

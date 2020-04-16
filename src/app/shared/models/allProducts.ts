@@ -8,7 +8,14 @@ export interface AllProducts {
     product_featured: number;
     product_sizes: string;
     product_colors: string;
-    product_quantities: number;
+    units_in_stock: number;
     product_images: string;
     product_promo: number;
+    category_id: number;
+    supplier_id: number;
+    suggested_sales_price: number;
+    units_on_order: number;
+    reorder_level: number;
+    product_available: number;
+    unit_price: number;
 }

@@ -12,10 +12,10 @@
         justify-content: space-between;
     }
     .info_div {
-        width: 60%;
+        width: 65%;
     }
     .item_image {
-        width: 38%;
+        width: 33%;
     }
     .item_image img {
         height: 90px;
@@ -36,7 +36,7 @@
     .backArrow {
         ion-icon {
             font-size: 2rem;
-            color:  #9E15BF;
+            color: #9E15BF;
         }
     }
 }
@@ -44,9 +44,14 @@
 .productinfo {
     display: flex;
     justify-content: space-between;
-    .deleteItem {
-        font-size: 1.5rem;
-        margin-right: 5%;
+    .delete-container {
+        position: relative;
+        bottom: 10px;
+        left: 14px;
+        .deleteItem {
+            color: red;
+            font-size: 1.7rem;
+        }
     }
 }
 
@@ -66,4 +71,40 @@ a {
 
 ion-card {
     --background: rgba(128, 128, 128, 0.05);
+}
+
+// price and quantity css starts here
+.price-quantity-wrapper {
+    display: flex;
+    justify-content: space-between;
+    .quantity-add-sub {
+        display: flex;
+        align-items: center;
+        position: relative;
+        right: 17%;
+        width: 50%;
+        ion-icon {
+            font-size: 1.6rem;
+        }
+        ion-button {
+            margin: 0px;
+            padding: 0px;
+        }
+        .quantity-container {
+            border: 1px solid gray;
+            background-color: white;
+            color: black;
+            height: auto;
+            padding: 0px 8px;
+            font-size: 1.4rem;
+        }
+    }
+    .price {
+        font-size: 1rem;
+        color: #9E15BF;
+    }
+}
+
+.total-price {
+    color: #9E15BF;
 }

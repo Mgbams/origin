@@ -1,5 +1,7 @@
+import { CartComponent } from './cart/cart.component';
 import { Tab1Page } from './tab1/tab1.page';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { CartService } from './shared/services/cart.service';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -22,7 +24,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private cartService: CartService
   ) {
     this.initializeApp();
   }

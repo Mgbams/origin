@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-account-setup',
@@ -8,15 +9,19 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AccountSetupComponent implements OnInit {
   public accountSetupForm;
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder) {
     this.accountSetupForm = this.formBuilder.group({
-      email: [''],
-      password: [''],
-      retypedEmail: [''],
-      retypedPassword: ['']
+      email: ['', Validators.required],
+      retypedEmail: ['', Validators.required],
+      password: ['', Validators.required],
+      retypedPassword: ['', Validators.required]
     });
   }
 
   ngOnInit() {}
+
+  onSubmit() {
+    console.log('submitted');
+  }
 
 }

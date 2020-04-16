@@ -40,16 +40,36 @@
 
         </ion-grid>
 
-        <form [formGroup]="accountSetupForm">
+        <form [formGroup]="accountSetupForm" novalidate (ngSubmit)="onSubmit()">
             <ion-item>
                 <ion-label position="floating">Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                 <ion-input formControlName="email" name="email" autofocus="true" type="email"></ion-input>
             </ion-item>
 
+            <!-- Shows error message when Email field is left blank starts here-->
+
+            <div *ngIf="accountSetupForm.controls['email'].invalid && (accountSetupForm.controls['email'].dirty || accountSetupForm.controls['email'].touched)" color="danger">
+                <div *ngIf="accountSetupForm.controls['email'].errors.required">
+                    Email is required.
+                </div>
+            </div>
+
+            <!-- Shows error message when Email field is left blank STOPS here-->
+
             <ion-item>
                 <ion-label position="floating">Re-type Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                 <ion-input formControlName="retypedEmail" name="retypedEmail" type="email"></ion-input>
             </ion-item>
+
+            <!-- Shows error message when retyped Email field is left blank starts here-->
+
+            <div *ngIf="accountSetupForm.controls['retypedEmail'].invalid && (accountSetupForm.controls['retypedEmail'].dirty || accountSetupForm.controls['retypedEmail'].touched)" color="danger">
+                <div *ngIf="accountSetupForm.controls['retypedEmail'].errors.required">
+                    Enter the same Email here.
+                </div>
+            </div>
+
+            <!-- Shows error message when retyped Email field is left blank STOPS here-->
 
             <div>
                 <p>Your password must meet the below requirements</p>
@@ -64,20 +84,44 @@
 
             </div>
 
+
             <ion-item>
                 <ion-label position="floating">Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="password" name="password" type="password"></ion-input>
+                <ion-input formControlName="password" name="password" type="password">
+                </ion-input>
             </ion-item>
+
+            <!-- Shows error message when password field is left blank starts here-->
+
+            <div *ngIf="accountSetupForm.controls['password'].invalid && (accountSetupForm.controls['password'].dirty || accountSetupForm.controls['password'].touched)" color="danger">
+                <div *ngIf="accountSetupForm.controls['password'].errors.required" color="danger">
+                    Password is required.
+                </div>
+            </div>
+
+            <!-- Shows error message when password field is left blank stops here-->
 
             <ion-item>
                 <ion-label position="floating">Re-type Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="retypedPassword" name="retypedPassword" type="password"></ion-input>
+                <ion-input formControlName="retypedPassword" appConfirmEqualityValidator="password" name="retypedPassword" type="password"></ion-input>
             </ion-item>
+
+            <!-- Shows error message when retypedpassword field is left blank starts here-->
+
+            <div *ngIf="accountSetupForm.controls['retypedPassword'].invalid && (accountSetupForm.controls['retypedPassword'].dirty || accountSetupForm.controls['retypedPassword'].touched)" color="danger">
+                <div *ngIf="accountSetupForm.controls['retypedPassword'].errors.required">
+                    Retype password is required.
+                </div>
+            </div>
+            <div *ngIf="accountSetupForm.controls['retypedPassword'].touched && accountSetupForm.controls['retypedPassword'].errors?.notEqual && !accountSetupForm.controls['retypedPassword'].errors?.required">
+                Passwords do not match
+            </div>
+            <!-- Shows error message when  retypedpassword field is left blank stops here-->
 
             <div>
                 <ion-row class="ion-justify-content-end">
                     <ion-col size="4">
-                        <ion-button class="ion-activatable ripple-parent" expand="block" type="submit" routerLink="/account-info">
+                        <ion-button class="ion-activatable ripple-parent" expand="block" type="submit" [disabled]="accountSetupForm.pristine || accountSetupForm.invalid" routerLink="/account-info">
                             Next
                             <ion-ripple-effect type="bounded"></ion-ripple-effect>
                         </ion-button>
