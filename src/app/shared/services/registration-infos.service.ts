@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, defineInjectable } from '@angular/core';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
 
 const HttpUploadOptions = {
@@ -15,6 +15,10 @@ export class RegistrationInfosService {
 
   addCustomerInfo(details) {
     this.customerInfos.push(details);
+  }
+
+   deleteLastEnteredCustomerInfo() {
+    this.customerInfos.pop();
   }
 
   /* create(invoice: Invoice){
@@ -87,4 +91,55 @@ export class RegistrationInfosService {
     </form>
     <br />
   </div>
+*/
+
+/*
+
+// in component.ts
+uploadFile(event) {
+  let elem = event.target;
+  if(elem.files.length > 0 ) {
+    console.log(elem.files[0]);
+    let formData = new FormData();
+    formData.append('file', elem.files[0]);
+    this.http.post('http://localhost/script.php', formData)
+    .then((data) => {
+      console.log('got some data', data);
+    }
+    );
+  }
+}
+
+// in html
+<label>
+upload file
+  <div>
+    <input type="file" hidden (change)="uploadFile($event)">
+  </div>
+</label>
+
+// in php file
+ header('Access-Control-Allow-Origin: *');
+ var_dump($_Files); // just to check if upload worked
+ define('PUBLIC_KEY', 'awrfghhjhhh');
+ $tempPath = $_FILES['file']['tmp_name'];
+ $actualName =  $_FILES['file']['name'];
+
+$actualPath = dirname(_FILE_)."\\temp\\".$actualName;
+move_uploaded_file($tempPath, $actualPath);
+
+$ch = curl_init();
+$post = [
+  'UPLOADCARE_PUB_KEY'=>PUBLIC_KEY,
+  'UPLOADCARE_STORE'=> 1,
+  'file'=>curl_file_create($actualPath)
+]
+
+curl_setopt($ch, CURLOPT_URL, 'https://upload.uploadcare.com/base/');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+$response = curl_exec($ch);
+
 */

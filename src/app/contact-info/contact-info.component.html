@@ -42,7 +42,7 @@
       </ion-row>
     </ion-grid>
 
-    <form [formGroup]="contactInfoForm">
+    <form [formGroup]="contactInfoForm" novalidate (ngSubmit)="onSubmit()">
       <ion-item>
         <ion-label position="floating"
           >Country<sup><ion-text color="danger"> *</ion-text></sup></ion-label
@@ -77,11 +77,12 @@
         <ion-row class="ion-justify-content-between">
           <ion-col size="4">
             <ion-button
-              class="ion-activatable ripple-parent"
+              class="ion-activatable ripple-parent back_button"
               expand="block"
               type="submit"
               fill="outline"
               routerLink="/account-info"
+              (click)="clickedBackButton()"
             >
               Back
               <ion-ripple-effect type="bounded"></ion-ripple-effect>
@@ -90,9 +91,10 @@
 
           <ion-col size="4">
             <ion-button
-              class="ion-activatable ripple-parent"
+              class="ion-activatable ripple-parent register_button"
               expand="block"
               type="submit"
+              [disabled]="contactInfoForm.pristine || contactInfoForm.invalid"
               routerLink="/completed-registration"
             >
               Register

@@ -58,7 +58,7 @@
 
             <ion-item>
                 <ion-label position="floating">Re-type Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="retypedEmail" name="retypedEmail" type="email"></ion-input>
+                <ion-input formControlName="retypedEmail" appConfirmEqualityValidator="email" name="retypedEmail" type="email"></ion-input>
             </ion-item>
 
             <!-- Shows error message when retyped Email field is left blank starts here-->
@@ -67,6 +67,9 @@
                 <div *ngIf="accountSetupForm.controls['retypedEmail'].errors.required">
                     Enter the same Email here.
                 </div>
+            </div>
+            <div *ngIf="accountSetupForm.controls['retypedEmail'].touched && accountSetupForm.controls['retypedEmail'].errors?.notEqual && !accountSetupForm.controls['retypedEmail'].errors?.required" class="errorMessages">
+                Emails do not match
             </div>
 
             <!-- Shows error message when retyped Email field is left blank STOPS here-->
@@ -113,7 +116,7 @@
                     Retype password is required.
                 </div>
             </div>
-            <div *ngIf="accountSetupForm.controls['retypedPassword'].touched && accountSetupForm.controls['retypedPassword'].errors?.notEqual && !accountSetupForm.controls['retypedPassword'].errors?.required">
+            <div *ngIf="accountSetupForm.controls['retypedPassword'].touched && accountSetupForm.controls['retypedPassword'].errors?.notEqual && !accountSetupForm.controls['retypedPassword'].errors?.required" class="errorMessages">
                 Passwords do not match
             </div>
             <!-- Shows error message when  retypedpassword field is left blank stops here-->

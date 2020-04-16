@@ -40,7 +40,7 @@
 
         </ion-grid>
 
-        <form [formGroup]="accountInfoForm">
+        <form [formGroup]="accountInfoForm" novalidate (ngSubmit)="onSubmit()">
             <ion-item>
                 <ion-label position="floating">First Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                 <ion-input formControlName="firstName" name="firstName" autofocus="true" type="text"></ion-input>
@@ -54,14 +54,23 @@
             <div class="ion-margin-top">
                 <ion-row class="ion-justify-content-between">
                     <ion-col size="4">
-                        <ion-button class="ion-activatable ripple-parent" expand="block" type="submit" fill="outline" routerLink="/account-setup">
+                        <ion-button 
+                        class="ion-activatable ripple-parent back_button" 
+                        expand="block" type="submit"
+                        (click)="clickedBackButton()" 
+                        fill="outline" 
+                        routerLink="/account-setup">
                             Back
                             <ion-ripple-effect type="bounded"></ion-ripple-effect>
                         </ion-button>
                     </ion-col>
 
                     <ion-col size="4">
-                        <ion-button class="ion-activatable ripple-parent" expand="block" type="submit" routerLink="/contact-info">
+                        <ion-button 
+                        class="ion-activatable ripple-parent next_button" 
+                        expand="block" type="submit" 
+                        [disabled]="accountInfoForm.pristine || accountInfoForm.invalid"
+                        routerLink="/contact-info">
                             Next
                             <ion-ripple-effect type="bounded"></ion-ripple-effect>
                         </ion-button>
