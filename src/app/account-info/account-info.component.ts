@@ -19,14 +19,13 @@ export class AccountInfoComponent implements OnInit {
   ngOnInit() {}
 
    onSubmit() {
-    let fname =  this.accountInfoForm.get('firstName').value;
-    let lname =  this.accountInfoForm.get('lastName').value;
+    const fname =  this.accountInfoForm.get('firstName').value;
+    const lname =  this.accountInfoForm.get('lastName').value;
     if (fname === '' || lname === '') {
       return;
     }
     const accountInfos = this.accountInfoForm.value;
     this.registrationInfo.addCustomerInfo(accountInfos);
-    console.log('that is pushed data from ACCOUNT_INFO',  this.registrationInfo.customerInfos);
   }
 
   clickedBackButton() {

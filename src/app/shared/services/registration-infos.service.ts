@@ -3,13 +3,14 @@ import { HttpClient,  HttpHeaders } from '@angular/common/http';
 
 const HttpUploadOptions = {
   headers: new HttpHeaders({ 'Accept': 'application/json' })
-}
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationInfosService {
   public customerInfos = [];
+  serverUrl = 'http://localhost/origin/src/application/controllers/';
 
   constructor(private http: HttpClient) { }
 
@@ -21,41 +22,11 @@ export class RegistrationInfosService {
     this.customerInfos.pop();
   }
 
-  /* create(invoice: Invoice){
-    let payload=new FormData();
-    payload.append('amount', invoice.amount);
-    payload.append('debtor', invoice.debtor);
-    payload.append('serial', invoice.serial);
-    payload.append('dateout', invoice.dateout);
-    payload.append('expiration', invoice.expiration);
-    payload.append('invoicefile', invoice.invoicefile);
-    return this.http.post('/api/v1/invoices/', invoice, HttpUploadOptions)
-  } */
-
-  /* 
-    export class Invoice {
-    id: any;
-    serial: any;
-    amount: any;
-    debtor: any;
-    dateout: any;
-    expiration: any;
-    fid: any;
-    invoicefile: File;
-}
-
-
-  ngOnInit() {
-    this.registerForm = new FormGroup({
-      serial: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5)]),
-      amount: new FormControl('', [<any>Validators.required, <any>Validators.minLength(4)]),
-      debtor: new FormControl('', [<any>Validators.required, <any>Validators.minLength(10)]),
-      dateout: new FormControl('', [<any>Validators.required, <any>Validators.minLength(8)]),
-      expiration: new FormControl('', [<any>Validators.required, <any>Validators.minLength(8)]),
-    });
-  }
-  
-  */
+  public sendtToDatabase(data) {
+   return this.http
+              .post(this.serverUrl + 'user-registration.php', data, {responseType: 'text'})
+              .toPromise();
+   }
 
   getCustomerInfo() {
     return this.customerInfos;
@@ -143,3 +114,44 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 $response = curl_exec($ch);
 
 */
+/* create(invoice: Invoice){
+    let payload=new FormData();
+    payload.append('amount', invoice.amount);
+    payload.append('debtor', invoice.debtor);
+    payload.append('serial', invoice.serial);
+    payload.append('dateout', invoice.dateout);
+    payload.append('expiration', invoice.expiration);
+    payload.append('invoicefile', invoice.invoicefile);
+    return this.http.post('/api/v1/invoices/', invoice, HttpUploadOptions)
+  } */
+
+  /* 
+    export class Invoice {
+    id: any;
+    serial: any;
+    amount: any;
+    debtor: any;
+    dateout: any;
+    expiration: any;
+    fid: any;
+    invoicefile: File;
+}
+
+
+  ngOnInit() {
+    this.registerForm = new FormGroup({
+      serial: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5)]),
+      amount: new FormControl('', [<any>Validators.required, <any>Validators.minLength(4)]),
+      debtor: new FormControl('', [<any>Validators.required, <any>Validators.minLength(10)]),
+      dateout: new FormControl('', [<any>Validators.required, <any>Validators.minLength(8)]),
+      expiration: new FormControl('', [<any>Validators.required, <any>Validators.minLength(8)]),
+    });
+  }
+   const HttpUploadOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json'
+        }
+        )
+     }; 
+    */

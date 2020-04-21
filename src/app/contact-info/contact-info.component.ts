@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {  RegistrationInfosService } from './../shared/services/registration-infos.service';
 
+
+/* const HttpUploadOptions = {
+  headers: new HttpHeaders(
+    { 'Accept': 'application/json'}
+    )
+}; */
+
+
 @Component({
   selector: 'app-contact-info',
   templateUrl: './contact-info.component.html',
@@ -10,7 +18,10 @@ import {  RegistrationInfosService } from './../shared/services/registration-inf
 export class ContactInfoComponent implements OnInit {
   public contactInfoForm;
 
-  constructor(private formBuilder: FormBuilder, private registrationInfo: RegistrationInfosService) { 
+  constructor(
+    private formBuilder: FormBuilder,
+    private registrationInfo: RegistrationInfosService
+    ) {
     // Remember to add validations later
     this.contactInfoForm = this.formBuilder.group({
       country: ['', Validators.required],
@@ -22,14 +33,19 @@ export class ContactInfoComponent implements OnInit {
   ngOnInit() {}
 
    onSubmit() {
-    let userCountry =  this.contactInfoForm.get('country').value;
-    let userState =  this.contactInfoForm.get('state').value;
+    const userCountry =  this.contactInfoForm.get('country').value;
+    const userState =  this.contactInfoForm.get('state').value;
     if (userCountry  === '' || userState === '') {
       return;
     }
     const contactInfos = this.contactInfoForm.value;
     this.registrationInfo.addCustomerInfo(contactInfos);
-    console.log('that is pushed data from CONTACT_INFO',  this.registrationInfo.customerInfos);
+
+    // formatting data before pushing to database
+    const formdata = {
+      dataInfos: this.registrationInfo.customerInfos
+    };
+    this.sendPostRequest(formdata);
   }
 
   clickedBackButton() {
@@ -37,4 +53,14 @@ export class ContactInfoComponent implements OnInit {
     this.registrationInfo.deleteLastEnteredCustomerInfo();
   }
 
+
+  sendPostRequest(data) {
+     this.registrationInfo.sendtToDatabase(data)
+                          .then(res => {
+                            console.log(res);
+                          })
+                          .catch(err => {
+                            console.log(err);
+                          });
+  }
 }

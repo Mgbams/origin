@@ -38,3 +38,15 @@ a {
 .color6 {
     color: #1a28b3;
 }
+
+// CSS of the two buttons of the page
+.signIn_button {
+    --background: #9E15BF !important;
+    --border-radius: 50px !important;
+    --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
+}
+
+.register_button {
+   --border-radius: 50px !important;
+    --box-shadow: 0px 8px 4px gray; 
+}

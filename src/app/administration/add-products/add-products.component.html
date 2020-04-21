@@ -1,0 +1,106 @@
+<ion-content>
+
+    <div class="add-product-container">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title class="ion-text-center">Add Product</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <form [formGroup]="addProductfoForm" novalidate (ngSubmit)="onSubmit()">
+                    <ion-item>
+                        <ion-label position="floating">Product Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="productName" name="productName" type="text"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Product Description<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-textarea formControlName="productDesc" name="productDesc" type="text" rows="6" cols="20"></ion-textarea>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Product Number<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="productNumber" name="productNumber" type="number"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Selling Price<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="sellingPrice" name="sellingPrice" type="number" min="1"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="stacked">Unit Price<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="unitPrice" name="unitPrice" type="text"></ion-input>
+                    </ion-item>
+
+
+                    <ion-item>
+                        <ion-label position="stacked">Cost Price<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="costPrice" name="costPrice" type="number"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Product Quantity<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="productQty" name="productQty" type="number" min="1"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Select Category</ion-label>
+                        <ion-select formControlName="productCategory" name="productCategory">
+                            <ion-select-option *ngFor="let category of productCategories; index as categoryId" value="category.category_name">
+                                {{ category.category_name }}
+                            </ion-select-option>
+                        </ion-select>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Select Supplier</ion-label>
+                        <ion-select formControlName="productSupplier" name="productSupplier">
+                            <ion-select-option *ngFor="let supplier of productSuppliers; index as supplierId" value="supplier.company_name">
+                                {{ supplier.company_name }}
+                            </ion-select-option>
+                        </ion-select>
+                    </ion-item>
+
+
+                    <ion-item>
+                        <ion-label position="floating">Product Discount<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="productDiscount" name="productDiscount" type="number" min="1"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Product Featured<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="productFeatured" name="productFeatured" type="text"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="fixed">Colors<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="colors" name="colors" type="text"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Sizes<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="sizes" name="sizes" type="text"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Promo<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="promo" name="promo" type="text"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Product Available<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="available" name="available" type="text"></ion-input>
+                    </ion-item>
+
+                    <div>
+                        <ion-button class="ion-activatable ripple-parent add-product-button" expand="block" type="submit" [disabled]="addProductfoForm.pristine || addProductfoForm.invalid">
+                            Add Product
+                            <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                        </ion-button>
+                    </div>
+                </form>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

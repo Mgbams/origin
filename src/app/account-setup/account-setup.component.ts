@@ -34,7 +34,6 @@ export class AccountSetupComponent implements OnInit {
     }
     const accountInfos = this.accountSetupForm.value;
     this.registrationInfo.addCustomerInfo(accountInfos);
-    console.log('That is pushed from ACCOUNT_SETUP',  this.registrationInfo.customerInfos);
   }
 
 }

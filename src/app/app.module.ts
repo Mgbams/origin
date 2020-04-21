@@ -21,6 +21,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompletedRegistrationModule } from './completed-registration/completed-registration.module';
+import { CategoriesModule } from './administration/categories/categories.module';
+import { AddProductsModule } from './administration/add-products/add-products.module';
+import { AddSupplierModule } from './administration/add-supplier/add-supplier.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,6 +43,9 @@ import { CompletedRegistrationModule } from './completed-registration/completed-
     CompletedRegistrationModule,
     CartModule,
     ShippingModule,
+    CategoriesModule,
+    AddProductsModule,
+    AddSupplierModule,
     AppRoutingModule
   ],
   providers: [
