@@ -7,7 +7,7 @@
             </ion-card-header>
 
             <ion-card-content>
-                <form [formGroup]="addProductfoForm" novalidate (ngSubmit)="onSubmit()">
+                <form [formGroup]="addProductForm" novalidate (ngSubmit)="submitForm()" enctype="multipart/form-data">
                     <ion-item>
                         <ion-label position="floating">Product Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                         <ion-input formControlName="productName" name="productName" type="text"></ion-input>
@@ -46,8 +46,8 @@
 
                     <ion-item>
                         <ion-label position="floating">Select Category</ion-label>
-                        <ion-select formControlName="productCategory" name="productCategory">
-                            <ion-select-option *ngFor="let category of productCategories; index as categoryId" value="category.category_name">
+                        <ion-select formControlName="productCategory" name="productCategory" (ionChange)="changeHandler($event)">
+                            <ion-select-option *ngFor="let category of productCategories; index as categoryId" [value]="category.category_id" selected>
                                 {{ category.category_name }}
                             </ion-select-option>
                         </ion-select>
@@ -55,8 +55,8 @@
 
                     <ion-item>
                         <ion-label position="floating">Select Supplier</ion-label>
-                        <ion-select formControlName="productSupplier" name="productSupplier">
-                            <ion-select-option *ngFor="let supplier of productSuppliers; index as supplierId" value="supplier.company_name">
+                        <ion-select formControlName="productSupplier" name="productSupplier" (ionChange)="changeHandler($event)">
+                            <ion-select-option *ngFor="let supplier of productSuppliers; index as supplierId" [value]="supplier.supplier_id" selected>
                                 {{ supplier.company_name }}
                             </ion-select-option>
                         </ion-select>
@@ -73,15 +73,40 @@
                         <ion-input formControlName="productFeatured" name="productFeatured" type="text"></ion-input>
                     </ion-item>
 
-                    <ion-item>
-                        <ion-label position="fixed">Colors<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="colors" name="colors" type="text"></ion-input>
-                    </ion-item>
+                    <ion-item-group>
+                        <ion-item-divider class="ion-margin-top">
+                            <ion-label>Upload product images and add colors</ion-label>
+                        </ion-item-divider>
 
-                    <ion-item>
-                        <ion-label position="floating">Sizes<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="sizes" name="sizes" type="text"></ion-input>
-                    </ion-item>
+                        <div class="form-group">
+                            <div class="upload-image">
+                                <div *ngIf="uploadResponse">
+                                    <div class="product-images-wrapper">
+                                        <div *ngFor="let upload of imageArr; index as imageID" class="displayed-image">
+                                            <img [src]="'http://localhost/origin/uploadedPhotos/' + upload" width="40px" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="browse-btn">
+                                    <input type="file" name="productImages" id="cameraImg" (change)="onFileSelect($event)" multiple />
+                                    <div class="browse-image">
+                                        <img src="./../../../assets/images/upload_image.jpg" width="40px" />
+                                        <p>Browse image</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ion-item>
+                            <ion-label position="floating">Colors<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="colors" name="colors" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Sizes<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="sizes" name="sizes" type="text"></ion-input>
+                        </ion-item>
+                    </ion-item-group>
 
                     <ion-item>
                         <ion-label position="floating">Promo<sup><ion-text color="danger">*</ion-text></sup></ion-label>
@@ -94,7 +119,7 @@
                     </ion-item>
 
                     <div>
-                        <ion-button class="ion-activatable ripple-parent add-product-button" expand="block" type="submit" [disabled]="addProductfoForm.pristine || addProductfoForm.invalid">
+                        <ion-button class="ion-activatable ripple-parent add-product-button" expand="block" type="submit" [disabled]="addProductForm.pristine || addProductForm.invalid">
                             Add Product
                             <ion-ripple-effect type="bounded"></ion-ripple-effect>
                         </ion-button>
