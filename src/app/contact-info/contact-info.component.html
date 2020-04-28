@@ -8,9 +8,9 @@
 
                 <ion-col size="1">
                     <div class="closeRegisterForm">
-                    <a routerLink="/account-info">
-                        <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
-                     </a>
+                        <a routerLink="/account-info">
+                            <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
+                        </a>
                     </div>
                 </ion-col>
             </ion-row>
@@ -81,7 +81,7 @@
             </ion-col>
 
             <ion-col size="4">
-                <ion-button class="ion-activatable ripple-parent register_button" expand="block" type="submit" [disabled]="contactInfoForm.pristine || contactInfoForm.invalid" routerLink="/completed-registration">
+                <ion-button class="ion-activatable ripple-parent register_button" (click)="guardRoute()" expand="block" type="submit" [disabled]="contactInfoForm.pristine || contactInfoForm.invalid" routerLink="/completed-registration">
                     Register
                     <ion-ripple-effect type="bounded"></ion-ripple-effect>
                 </ion-button>

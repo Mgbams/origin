@@ -1,3 +1,4 @@
+import { CanEnterAccountSetupGuard } from './../authentication-guards/can-enter-account-setup.guard';
 import { AccountSetupRoutingModule } from './account-setup-routing.module';
 import { AccountSetupComponent } from './account-setup.component';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,9 @@ import { ConfirmEqualityValidatorDirective } from './../shared/confirm-equality-
     CommonModule,
     SharedModule,
     AccountSetupRoutingModule
+  ],
+  providers: [
+    CanEnterAccountSetupGuard
   ]
 })
 export class AccountSetupModule { }

@@ -51,6 +51,7 @@ export class ContactInfoComponent implements OnInit {
   clickedBackButton() {
     // used to delete last entered data to avoid duplication of data when the back button is clicked
     this.registrationInfo.deleteLastEnteredCustomerInfo();
+    this.registrationInfo.accessGranted = true; // granting access to account info page on clicking back button
   }
 
 
@@ -63,4 +64,9 @@ export class ContactInfoComponent implements OnInit {
                             console.log(err);
                           });
   }
+
+  guardRoute() {
+    this.registrationInfo.completedRegistrationAccess = true;
+  }
+
 }

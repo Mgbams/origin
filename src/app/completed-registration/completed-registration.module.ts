@@ -1,3 +1,4 @@
+import { CanEnterCompletedRegistrationGuard } from './../authentication-guards/can-enter-completed-registration.guard';
 import { CompletedRegistrationRoutingModule } from './completed-registration-routing.module';
 import { CompletedRegistrationComponent } from './completed-registration.component';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,9 @@ import { SharedModule } from './../shared/shared.module';
     CommonModule,
     SharedModule,
     CompletedRegistrationRoutingModule
+  ],
+  providers: [
+    CanEnterCompletedRegistrationGuard
   ]
 })
 export class CompletedRegistrationModule { }

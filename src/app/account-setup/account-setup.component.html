@@ -124,7 +124,7 @@
             <div>
                 <ion-row class="ion-justify-content-end">
                     <ion-col size="4">
-                        <ion-button class="ion-activatable ripple-parent" expand="block" type="submit" [disabled]="accountSetupForm.pristine || accountSetupForm.invalid" routerLink="/account-info">
+                        <ion-button class="ion-activatable ripple-parent" (click)="guardRoute()" expand="block" type="submit" [disabled]="accountSetupForm.pristine || accountSetupForm.invalid" routerLink="/account-info">
                             Next
                             <ion-ripple-effect type="bounded"></ion-ripple-effect>
                         </ion-button>

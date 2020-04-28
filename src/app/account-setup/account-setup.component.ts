@@ -25,15 +25,20 @@ export class AccountSetupComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    let enteredEmail =  this.accountSetupForm.get('email').value;
-    let confirmedEmail =  this.accountSetupForm.get('retypedEmail').value;
-    let enteredPassword =  this.accountSetupForm.get('password').value;
-    let confirmedPassword =  this.accountSetupForm.get('retypedPassword').value;
+    const enteredEmail =  this.accountSetupForm.get('email').value;
+    const confirmedEmail =  this.accountSetupForm.get('retypedEmail').value;
+    const enteredPassword =  this.accountSetupForm.get('password').value;
+    const confirmedPassword =  this.accountSetupForm.get('retypedPassword').value;
     if (enteredEmail === '' || confirmedEmail === '' || enteredPassword === '' || confirmedPassword === '') {
       return;
     }
     const accountInfos = this.accountSetupForm.value;
     this.registrationInfo.addCustomerInfo(accountInfos);
+    console.log('customerinfo', this.registrationInfo.customerInfos);
+  }
+
+  guardRoute() {
+    this.registrationInfo.accessGranted = true;
   }
 
 }

@@ -60,7 +60,7 @@
                     </ion-col>
                 </ion-row>
 
-                <ion-button class="ion-activatable ripple-parent register_button" expand="block" type="submit" color="dark" routerLink="/account-setup">
+                <ion-button class="ion-activatable ripple-parent register_button" (click)="guardRoute()" expand="block" type="submit" color="dark" routerLink="/account-setup">
                     Register now
                     <ion-ripple-effect type="bounded"></ion-ripple-effect>
                 </ion-button>
