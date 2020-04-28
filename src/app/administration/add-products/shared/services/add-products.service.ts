@@ -44,8 +44,7 @@ export class AddProductsService {
   }
 
   saveProduct(formData) {
-    return this.http
-      .post<any>(this.serverUrl + 'postproduct.php', formData)
+    return this.http.post(this.serverUrl + 'postproduct.php', formData, {responseType: 'text' })
       .toPromise();
   }
 }

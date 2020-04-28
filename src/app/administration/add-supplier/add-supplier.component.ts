@@ -1,6 +1,6 @@
 import { Suppliers } from './../../shared/models/suppliers';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { SuppliersService } from './../../shared/services/suppliers.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class AddSupplierComponent implements OnInit {
   public supplierPost: Suppliers;
   public error: string;
   public showPostForm = false;
-  public addSuppliersForm;
+  public addSuppliersForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,

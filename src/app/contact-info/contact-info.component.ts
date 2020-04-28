@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {  RegistrationInfosService } from './../shared/services/registration-infos.service';
 
 
@@ -16,7 +16,7 @@ import {  RegistrationInfosService } from './../shared/services/registration-inf
   styleUrls: ['./contact-info.component.scss'],
 })
 export class ContactInfoComponent implements OnInit {
-  public contactInfoForm;
+  public contactInfoForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,7 +26,7 @@ export class ContactInfoComponent implements OnInit {
     this.contactInfoForm = this.formBuilder.group({
       country: ['', Validators.required],
       state: ['', Validators.required],
-      agreeToTerms: [Validators.required]
+      agreeToTerms: [false, Validators.requiredTrue]
     });
   }
 

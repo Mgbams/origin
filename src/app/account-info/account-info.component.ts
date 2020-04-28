@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {  RegistrationInfosService } from './../shared/services/registration-infos.service';
 
 @Component({
@@ -8,7 +8,7 @@ import {  RegistrationInfosService } from './../shared/services/registration-inf
   styleUrls: ['./account-info.component.scss'],
 })
 export class AccountInfoComponent implements OnInit {
-  public accountInfoForm;
+  public accountInfoForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private registrationInfo: RegistrationInfosService) { 
     this.accountInfoForm = this.formBuilder.group({
       firstName: ['', Validators.required],

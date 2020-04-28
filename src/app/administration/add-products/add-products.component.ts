@@ -25,6 +25,7 @@ export class AddProductsComponent implements OnInit {
   public uploadResponse: UploadedImages[] = [];
   public myFiles: string[] = [];
   public imageArr = [];
+  public lastInsertedImageId: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,12 +44,12 @@ export class AddProductsComponent implements OnInit {
       productQty: ['', Validators.required],
       productNumber: ['', Validators.required],
       productDiscount: [''],
-      productFeatured: [''],
+      productFeatured: [false],
       productImages: [''],
       colors: ['', Validators.required],
       sizes: ['', Validators.required],
-      promo: [''],
-      available: [''],
+      promo: [false],
+      available: [true],
     });
   }
 
@@ -102,8 +103,10 @@ export class AddProductsComponent implements OnInit {
           .getImages()
           .then((data: UploadedImages[]) => {
             this.uploadResponse = data;
+            this.lastInsertedImageId = this.uploadResponse[0]; // getting the imageId of the last stored images
+            console.log('last image id', this.lastInsertedImageId);
             console.log('try it', this.uploadResponse);
-            this.imageArr = this.uploadResponse[0].image.split(',');
+            this.imageArr = this.uploadResponse[0].image.split(','); // splittingreceived images into array formats
             console.log('imgArray', this.imageArr);
           })
           .catch((err) => {
@@ -171,9 +174,13 @@ export class AddProductsComponent implements OnInit {
     formData.append('sizes', this.addProductForm.get('sizes').value);
     formData.append('promo', this.addProductForm.get('promo').value);
     formData.append('available', this.addProductForm.get('available').value);
+    formData.append('productImages', this.lastInsertedImageId);
+
+    ///////////////////////////
+    console.log('formdata values', formData);
 
     this.addProductsService
-      .saveProduct(formData)
+      .saveProduct([this.addProductForm.value, this.lastInsertedImageId])
       .then((data) => {
         console.log(data);
       })

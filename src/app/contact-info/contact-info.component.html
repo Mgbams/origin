@@ -1,108 +1,93 @@
 <ion-content>
-  <div class="centerFormContents">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="10">
-          <p>Customer Registration</p>
-        </ion-col>
+    <div class="centerFormContents">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="10">
+                    <p>Customer Registration</p>
+                </ion-col>
 
-        <ion-col size="1">
-          <div class="closeRegisterForm">
-            <ion-icon
-              class="closeFormIcon"
-              name="close-circle-outline"
-            ></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>
+                <ion-col size="1">
+                    <div class="closeRegisterForm">
+                    <a routerLink="/account-info">
+                        <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
+                     </a>
+                    </div>
+                </ion-col>
+            </ion-row>
 
-      <ion-row>
-        <ion-col size="10">
-          <p class="formIntroText">
-            Create your account and discover Origin, the great shopping site
-            that delivers original products to your doorstep
-          </p>
-        </ion-col>
-      </ion-row>
+            <ion-row>
+                <ion-col size="10">
+                    <p class="formIntroText">
+                        Create your account and discover Origin, the great shopping site that delivers original products to your doorstep
+                    </p>
+                </ion-col>
+            </ion-row>
 
-      <ion-row>
-        <ion-col class="accountSteps" size="8">
-          <div class="activeTab">1</div>
-          <div></div>
-          <div class="activeTab">2</div>
-          <div></div>
-          <div class="activeTab">3</div>
-        </ion-col>
-      </ion-row>
+            <ion-row>
+                <ion-col class="accountSteps" size="8">
+                    <div class="activeTab">1</div>
+                    <div></div>
+                    <div class="activeTab">2</div>
+                    <div></div>
+                    <div class="activeTab">3</div>
+                </ion-col>
+            </ion-row>
 
-      <ion-row class="ion-justify-content-end">
-        <ion-col size="6">
-          <small>Contact Info</small>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+            <ion-row class="ion-justify-content-end">
+                <ion-col size="6">
+                    <small>Contact Info</small>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
-    <form [formGroup]="contactInfoForm" novalidate (ngSubmit)="onSubmit()">
-      <ion-item>
-        <ion-label position="floating"
-          >Country<sup><ion-text color="danger"> *</ion-text></sup></ion-label
-        >
-        <ion-input
-          formControlName="country"
-          name="country"
-          autofocus="true"
-          type="text"
-        ></ion-input>
-      </ion-item>
+        <form [formGroup]="contactInfoForm" novalidate (ngSubmit)="onSubmit()">
+            <ion-item>
+                <ion-label position="floating">Country<sup><ion-text color="danger"> *</ion-text></sup></ion-label>
+                <ion-input formControlName="country" name="country" autofocus="true" type="text"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label position="floating"
-          >State/Province<sup
-            ><ion-text color="danger"> *</ion-text></sup
+            <ion-item>
+                <ion-label position="floating">State/Province<sup><ion-text color="danger"> *</ion-text></sup
           ></ion-label
         >
         <ion-input formControlName="state" name="state" type="text"></ion-input>
       </ion-item>
 
       <div class="ion-margin-top">
-            <ion-checkbox ></ion-checkbox>
-            <ion-label>
-            <sup><ion-text color="danger"> *</ion-text></sup>
-              I have read and agreed to <a routerLink="/terms-and-conditions"><span>Terms of Use</span></a>,
-              <a routerLink="/privacy-policy"><span>Privacy Policy</span></a> and <a routerLink="/return-policy"><span>Return Policy</span></a>
-        </ion-label>
-      </div>
+        <ion-checkbox
+          formControlName="agreeToTerms"
+          name="agreeToTerms"
+        ></ion-checkbox>
+        <ion-label>
+          <sup>
+            <ion-text color="danger"> *</ion-text>
+          </sup> I have read and agreed to
+                    <a routerLink="/terms-and-conditions">
+                        <span>Terms of Use</span> </a>, <a routerLink="/privacy-policy"><span>Privacy Policy</span></a> and
+                    <a routerLink="/return-policy"><span>Return Policy</span></a>
+                </ion-label>
+    </div>
+    <div *ngIf="contactInfoForm.get('agreeToTerms').invalid">
+        Accept Terms & Conditions.
+    </div>
 
-      <div class="ion-margin-top">
+    <div class="ion-margin-top">
         <ion-row class="ion-justify-content-between">
-          <ion-col size="4">
-            <ion-button
-              class="ion-activatable ripple-parent back_button"
-              expand="block"
-              type="submit"
-              fill="outline"
-              routerLink="/account-info"
-              (click)="clickedBackButton()"
-            >
-              Back
-              <ion-ripple-effect type="bounded"></ion-ripple-effect>
-            </ion-button>
-          </ion-col>
+            <ion-col size="4">
+                <ion-button class="ion-activatable ripple-parent back_button" expand="block" type="submit" fill="outline" routerLink="/account-info" (click)="clickedBackButton()">
+                    Back
+                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                </ion-button>
+            </ion-col>
 
-          <ion-col size="4">
-            <ion-button
-              class="ion-activatable ripple-parent register_button"
-              expand="block"
-              type="submit"
-              [disabled]="contactInfoForm.pristine || contactInfoForm.invalid"
-              routerLink="/completed-registration"
-            >
-              Register
-              <ion-ripple-effect type="bounded"></ion-ripple-effect>
-            </ion-button>
-          </ion-col>
+            <ion-col size="4">
+                <ion-button class="ion-activatable ripple-parent register_button" expand="block" type="submit" [disabled]="contactInfoForm.pristine || contactInfoForm.invalid" routerLink="/completed-registration">
+                    Register
+                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                </ion-button>
+            </ion-col>
         </ion-row>
-      </div>
+    </div>
     </form>
-  </div>
+    </div>
 </ion-content>

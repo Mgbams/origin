@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {  RegistrationInfosService } from './../shared/services/registration-infos.service';
 
 
@@ -9,7 +9,7 @@ import {  RegistrationInfosService } from './../shared/services/registration-inf
   styleUrls: ['./account-setup.component.scss'],
 })
 export class AccountSetupComponent implements OnInit {
-  public accountSetupForm;
+  public accountSetupForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder, 
     private registrationInfo: RegistrationInfosService
@@ -17,8 +17,8 @@ export class AccountSetupComponent implements OnInit {
     this.accountSetupForm = this.formBuilder.group({
       email: ['', Validators.required],
       retypedEmail: ['', Validators.required],
-      password: ['', Validators.required],
-      retypedPassword: ['', Validators.required]
+      password: ['', Validators.compose([Validators.required, Validators.minLength(8),  Validators.maxLength(30)])],
+      retypedPassword: ['', Validators.compose([Validators.required, Validators.minLength(8),  Validators.maxLength(30)])]
     });
   }
 
