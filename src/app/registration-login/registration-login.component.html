@@ -31,7 +31,7 @@
             </ion-row>
         </ion-grid>
 
-        <form [formGroup]="loginRegisterForm">
+        <form [formGroup]="loginRegisterForm" (ngSubmit)="postdata(loginRegisterForm)">
             <ion-item>
                 <ion-label position="floating">Email</ion-label>
                 <ion-input formControlName="email" name="email" autofocus="true" type="email"></ion-input>
@@ -60,7 +60,7 @@
                     </ion-col>
                 </ion-row>
 
-                <ion-button class="ion-activatable ripple-parent register_button" (click)="guardRoute()" expand="block" type="submit" color="dark" routerLink="/account-setup">
+                <ion-button class="ion-activatable ripple-parent register_button" (click)="guardRoute()" expand="block" color="dark" routerLink="/account-setup">
                     Register now
                     <ion-ripple-effect type="bounded"></ion-ripple-effect>
                 </ion-button>

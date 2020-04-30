@@ -15,8 +15,8 @@ export class AccountSetupComponent implements OnInit {
     private registrationInfo: RegistrationInfosService
     ) {
     this.accountSetupForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      retypedEmail: ['', Validators.required],
+      email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
+      retypedEmail: ['', [Validators.required,Validators.minLength(1), Validators.email]],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8),  Validators.maxLength(30)])],
       retypedPassword: ['', Validators.compose([Validators.required, Validators.minLength(8),  Validators.maxLength(30)])]
     });

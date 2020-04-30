@@ -15,24 +15,15 @@ export class RegistrationLoginGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // return true;
-    /* if (!this.auth.isLoggedIn) {
-      this.router.navigate(['/tabs/tab1']);
-    }
-    return this.auth.isLoggedIn; */ // for session
-
-    if (this.loginService.isLoggedIn) {
-      return true;
-    }
-    return this.loginService.loggedIn().pipe(map(res => {
-      if (res) {
-        this.loginService.setLoggedIn(true);
-        return true;
-      } else {
-        this.router.navigate(['/tabs/tab1']);
-        return false;
-      }
-    }));
+      const routeurl: string = state.url;
+      return this.isLogin(routeurl);
   }
-  
+
+  isLogin(routeurl: string) {
+    if (this.loginService.isLoggedIn()) {
+    return true;
+    }
+    this.loginService.redirectUrl = routeurl;
+    this.router.navigate(['/login'], {queryParams: { returnUrl: routeurl }} );
+    }
 }
