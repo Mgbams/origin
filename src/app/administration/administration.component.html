@@ -1,0 +1,421 @@
+<ion-content>
+    <div class="content-wrapper">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="3">
+                    <div class="orders-bg expenditures-wrapper">
+                        <div class="ion-text-start">
+                            <h4 class="ion-text-uppercase">new orders</h4>
+                            <p>25666</p>
+                            <small>2.00% (30 days)</small>
+                        </div>
+                        <div>
+                            <div class="round-dollar-outer-container ion-justify-content-center">
+                                <div class="dollar-icon-inner-container">
+                                    <ion-icon name="basket-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+
+                <ion-col size="3">
+                    <div class="income expenditures-wrapper">
+                        <div class="ion-text-start">
+                            <h4 class="ion-text-uppercase">total income</h4>
+                            <p> &#36; 25666</p>
+                            <small> Increased by 7.23%</small>
+                        </div>
+                        <div class="income-ion-bg">
+                            <div class="round-dollar-outer-container ion-justify-content-center">
+                                <div class="dollar-icon-inner-container">
+                                    $
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+
+                <ion-col size="3">
+                    <div class="expense-bg expenditures-wrapper">
+                        <div class="ion-text-start">
+                            <h4 class="ion-text-uppercase">total expense</h4>
+                            <p>25666</p>
+                            <small>Increased by 3.5%</small>
+                        </div>
+                        <div>
+                            <div class="round-dollar-outer-container ion-justify-content-center">
+                                <div class="dollar-icon-inner-container">
+                                    <ion-icon name="wallet-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+
+                <ion-col size="3">
+                    <div class="new-users-bg expenditures-wrapper">
+                        <div class="ion-text-start">
+                            <h4 class="ion-text-uppercase">new users</h4>
+                            <p>25666</p>
+                            <small>3.5% less earnings</small>
+                        </div>
+                        <div>
+                            <div class="round-dollar-outer-container ion-justify-content-center">
+                                <div class="dollar-icon-inner-container">
+                                    <ion-icon name="person-circle-outline" size="3.5rem"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <!--Second row starts here-->
+
+            <ion-row>
+                <ion-col size="6">
+                    <ion-card class="summary-card">
+                        <ion-card-header>
+                            <ion-card-title class="ion-text-capitalize">summary</ion-card-title>
+                            <ion-toolbar>
+                                <ion-segment [(ngModel)]="page" color="secondary">
+
+                                    <ion-segment-button value="Products" click="selectedTab(0)">
+                                        <ion-icon name="camera"></ion-icon>
+                                    </ion-segment-button>
+
+                                    <ion-segment-button value="Sales" click="selectedTab(0)">
+                                        <ion-icon name="bookmark"></ion-icon>
+                                    </ion-segment-button>
+
+                                    <ion-segment-button value="Costs" click="selectedTab(0)">
+                                        <ion-icon name="camera"></ion-icon>
+                                    </ion-segment-button>
+
+                                    <ion-segment-button value="Revenues" click="selectedTab(0)">
+                                        <ion-icon name="bookmark"></ion-icon>
+                                    </ion-segment-button>
+
+                                </ion-segment>
+                            </ion-toolbar>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            <ion-slides #slides pager="true" [options]="slideOpts">
+
+                                <ion-slide>
+                                    <div>
+                                        <img src="https://i.pinimg.com/originals/e8/98/98/e89898def21a04d96ff876bbf61c4ce4.png" alt="product sales chart representation" />
+                                    </div>
+                                </ion-slide>
+
+                                <ion-slide>
+                                    Tab 2
+                                </ion-slide>
+
+                                <ion-slide>
+                                    Tab 3
+                                </ion-slide>
+
+                                <ion-slide>
+                                    Tab 4
+                                </ion-slide>
+
+                            </ion-slides>
+
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+
+                <ion-col size="6">
+                    <ion-card class="top-products-card">
+
+                        <ion-card-header>
+                            <ion-list-header lines="full">
+                                <h4 class="ion-text-capitalize">top selling products</h4>
+                            </ion-list-header>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            <ion-list>
+
+                                <ion-item class="product-sales-container" lines="full">
+                                    <div class="product-image">
+                                        <ion-icon name="alarm-outline"></ion-icon>
+                                    </div>
+                                    <div class="product-description">
+                                        <ion-label>
+                                            <h4> Product name</h4>
+                                            <p>product description</p>
+                                        </ion-label>
+                                    </div>
+                                    <div class="product-price">
+                                        <p>$ 2340</p>
+                                        <small class="ion-text-capitalize">sales</small>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="product-sales-container" lines="full">
+                                    <div class="product-image">
+                                        <ion-icon name="alarm-outline"></ion-icon>
+                                    </div>
+                                    <div class="product-description">
+                                        <ion-label>
+                                            <h4> Product name</h4>
+                                            <p>product description</p>
+                                        </ion-label>
+                                    </div>
+                                    <div class="product-price">
+                                        <p>$ 2340</p>
+                                        <small class="ion-text-capitalize">sales</small>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="product-sales-container" lines="full">
+                                    <div class="product-image">
+                                        <ion-icon name="alarm-outline"></ion-icon>
+                                    </div>
+                                    <div class="product-description">
+                                        <ion-label>
+                                            <h4> Product name</h4>
+                                            <p>product description</p>
+                                        </ion-label>
+                                    </div>
+                                    <div class="product-price">
+                                        <p>$ 2340</p>
+                                        <small class="ion-text-capitalize">sales</small>
+                                    </div>
+                                </ion-item>
+
+                            </ion-list>
+
+                        </ion-card-content>
+
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+
+            <!-- Third row starts here-->
+
+            <ion-row>
+                <ion-col size="4">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-title>Order Activity</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            <ion-list>
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="product-image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="product-description">
+                                            <ion-label>
+                                                <h4> Product name</h4>
+                                                <p>product description</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <p>$ 2340</p>
+                                        <small class="ion-text-capitalize">sales</small>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="product-image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="product-description">
+                                            <ion-label>
+                                                <h4> Product name</h4>
+                                                <p>product description</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <p>$ 2340</p>
+                                        <small class="ion-text-capitalize">sales</small>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="product-image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="product-description">
+                                            <ion-label>
+                                                <h4> Product name</h4>
+                                                <p>product description</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <p>$ 2340</p>
+                                        <small class="ion-text-capitalize">sales</small>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="product-image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="product-description">
+                                            <ion-label>
+                                                <h4> Product name</h4>
+                                                <p>product description</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <p>$ 2340</p>
+                                        <small class="ion-text-capitalize">sales</small>
+                                    </div>
+                                </ion-item>
+                            </ion-list>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+
+                <ion-col size="4">
+                    <ion-card class="product-slider">
+                        <ion-card-header>
+                            <ion-card-title>Recent Products</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            <ion-list>
+                                <ion-item lines="none">
+                                    <ion-slides #slides2 class="firstSlide" pager="true" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
+                                        <ion-slide>
+                                            <div class="slide-page-one ">
+                                                <img src="https://static3.cilory.com/273124-thickbox_default/nologo-navy-casual-shirt.jpg" alt="product images" />
+                                            </div>
+                                        </ion-slide>
+
+                                        <ion-slide>
+                                            <div class="slide-page-two ">
+                                                <img src="http://i.ytimg.com/vi/U_WZd_QVv8c/maxresdefault.jpg" alt="product images" />
+                                            </div>
+                                        </ion-slide>
+
+
+                                        <ion-slide>
+                                            <div class="slide-page-two ">
+                                                <img src="https://th.bing.com/th/id/OIP.qr1rjQYPpIL8qqdMiZtQ_wHaE0?pid=Api&rs=1" alt="product images" />
+                                            </div>
+                                        </ion-slide>
+
+
+                                        <ion-slide>
+                                            <div class="slide-page-two ">
+                                                <img src="https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_2591000/altimages/ff_2591478alt1_full.jpg&w=900" alt="product images" />
+                                            </div>
+                                        </ion-slide>
+
+                                    </ion-slides>
+                                </ion-item>
+                            </ion-list>
+
+                        </ion-card-content>
+
+                    </ion-card>
+                </ion-col>
+
+
+                <ion-col size="4">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-title>Order Activity</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            <ion-list>
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="client_image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="client_description">
+                                            <ion-label>
+                                                <h4> Client name</h4>
+                                                <p>order number</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="item-images">
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="client_image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="client_description">
+                                            <ion-label>
+                                                <h4> client name</h4>
+                                                <p>order number</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="item-images">
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="client_image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="client_description">
+                                            <ion-label>
+                                                <h4> client name</h4>
+                                                <p>order number</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="item-images">
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                    </div>
+                                </ion-item>
+
+                                <ion-item class="item-organiser" lines="none">
+                                    <div class="item-wrapper">
+                                        <div class="client_image">
+                                            <ion-icon name="alarm-outline"></ion-icon>
+                                        </div>
+                                        <div class="client_description">
+                                            <ion-label>
+                                                <h4> client name</h4>
+                                                <p>order number</p>
+                                            </ion-label>
+                                        </div>
+                                    </div>
+                                    <div class="item-images">
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                        <ion-icon name="shirt-outline"></ion-icon>
+                                    </div>
+                                </ion-item>
+
+                            </ion-list>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+
+            </ion-row>
+
+        </ion-grid>
+    </div>
+</ion-content>

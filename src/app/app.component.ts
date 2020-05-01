@@ -1,12 +1,12 @@
-import { CartComponent } from './cart/cart.component';
-import { Tab1Page } from './tab1/tab1.page';
+// import { CartComponent } from './cart/cart.component';
+// import { Tab1Page } from './tab1/tab1.page';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { CartService } from './shared/services/cart.service';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { ViewChild } from '@angular/core';
+// import { ViewChild } from '@angular/core';
 import { ProductCategories } from './shared/models/productCategories';
 import {  CategoriesService } from './shared/services/categories.service';
 
@@ -19,7 +19,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   public name: string;
   public categories: ProductCategories[] = [];
 
-  @ViewChild( Tab1Page, {static: false}) tab1Page: Tab1Page;
+  // @ViewChild( Tab1Page, {static: false}) tab1Page: Tab1Page;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

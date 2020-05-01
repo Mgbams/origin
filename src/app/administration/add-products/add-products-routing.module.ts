@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'add-products', component: AddProductsComponent
+    path: 'administration-panel/add-products', component: AddProductsComponent
   }
 ];
 

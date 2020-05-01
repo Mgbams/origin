@@ -1,3 +1,4 @@
+import { AdministrationModule } from './administration/administration.module';
 import { ShippingModule } from './shipping/shipping.module';
 import { CartModule } from './cart/cart.module';
 import { ProductDetailsModule } from './product-details/product-details.module';
@@ -45,6 +46,7 @@ import { AddSupplierModule } from './administration/add-supplier/add-supplier.mo
     ShippingModule,
     CategoriesModule,
     AddProductsModule,
+    AdministrationModule,
     AddSupplierModule,
     AppRoutingModule
   ],

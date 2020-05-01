@@ -1,0 +1,128 @@
+.content-wrapper {
+    margin-top: 73px;
+    .expenditures-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    .round-dollar-outer-container {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        .dollar-icon-inner-container {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+    }
+}
+
+.orders-bg {
+    background: #1E392A;
+    color: white;
+    padding: 10px;
+    .dollar-icon-inner-container {
+        background: #1E392A;
+    }
+}
+
+.income {
+    background: #985E6D;
+    color: white;
+    padding: 10px;
+    .dollar-icon-inner-container {
+        background: #985E6D;
+    }
+}
+
+.expense-bg {
+    background: #056571;
+    color: white;
+    padding: 10px;
+    .dollar-icon-inner-container {
+        background: #056571;
+    }
+}
+
+.new-users-bg {
+    background: #CDA34F;
+    color: white;
+    padding: 10px;
+    .dollar-icon-inner-container {
+        background: #CDA34F;
+    }
+}
+
+// second row css starts here 
+.top-products-card,
+.summary-card {
+    height: 55vh;
+}
+
+.product-sales-container {
+    width: 100%;
+    .product-image {
+        width: 15%;
+    }
+    .product-description {
+        width: 60%;
+        text-align: start;
+    }
+    .product-price {
+        width: 20%;
+        text-align: end;
+        small {
+            position: relative;
+            bottom: 9px;
+        }
+    }
+}
+
+// Third row css starts here
+.item-organiser {
+    display: flex;
+    justify-content: space-between;
+    height: 9vh;
+}
+
+.product-slider {
+    height: 50.5vh;
+}
+
+.product-price,
+.item-images {
+    // border: 1px solid yellow;
+    width: 40%;
+    text-align: end;
+}
+
+.product-description {
+    width: 60%;
+    text-align: start;
+}
+
+.item-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+    // border: 3px solid green;
+}
+
+.product-image {
+    width: 30%;
+    //  border: 1px solid red;
+}
+
+ion-icon {
+    font-size: 3rem;
+}
+
+h4 {
+    margin-top: 0px;
+}

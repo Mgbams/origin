@@ -1,0 +1,122 @@
+<!-- I wrapped the contents in ion-content and set it's overflow-y in css to auto to help add scrolling-->
+<ion-app>
+    <ion-menu side="start" menuId="first" contentId="content1" type="overlay" swipe-gesture="true">
+        <ion-header>
+            <ion-toolbar color="dark">
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title></ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content id="sidemenu">
+            <ion-list>
+                <ion-menu-toggle auto-hide="true">
+                    <ion-item routerLink="" routerDirection="root" routerLinkActive="active">
+                        <ion-label>
+                            <ng-container *ngIf="categories[0]" class="sidemenu_list">
+                                <ion-list class="categories">
+                                    <ion-item class="ionItems">
+                                        <div class="catItems">
+                                            <div>
+                                                <ion-avatar slot="start">
+                                                    <a class="categories_link">
+                                                        <ion-icon name="body-outline"></ion-icon>
+                                                    </a>
+                                                </ion-avatar>
+                                            </div>
+                                            <div>
+                                                <ion-label>
+                                                    <p><a class="categories_link">{{categories[0].category_name}}</a></p>
+                                                </ion-label>
+                                            </div>
+                                        </div>
+                                    </ion-item>
+
+                                    <ion-item class="ionItems">
+                                        <div class="catItems">
+                                            <div>
+                                                <ion-avatar slot="start">
+                                                    <a class="categories_link">
+                                                        <ion-icon name="woman-outline"></ion-icon>
+                                                    </a>
+                                                </ion-avatar>
+                                            </div>
+                                            <div>
+                                                <ion-label>
+                                                    <p><a class="categories_link">{{categories[1].category_name}}</a></p>
+                                                </ion-label>
+                                            </div>
+                                        </div>
+                                    </ion-item>
+
+
+                                    <ion-item class="ionItems">
+                                        <div class="catItems">
+                                            <div>
+                                                <ion-avatar slot="start">
+                                                    <a class="categories_link">
+                                                        <ion-icon name="people-outline"></ion-icon>
+                                                    </a>
+                                                </ion-avatar>
+                                            </div>
+                                            <div>
+                                                <ion-label>
+                                                    <p><a class="categories_link">{{categories[2].category_name}}</a></p>
+                                                </ion-label>
+                                            </div>
+                                        </div>
+                                    </ion-item>
+
+                                    <ion-item class="ionItems" lines="none">
+                                        <div class="catItems">
+                                            <div>
+                                                <ion-avatar slot="start">
+                                                    <a class="categories_link">
+                                                        <ion-icon name="watch-outline"></ion-icon>
+                                                    </a>
+                                                </ion-avatar>
+                                            </div>
+                                            <div>
+                                                <ion-label>
+                                                    <p><a class="categories_link">{{categories[3].category_name}}</a></p>
+                                                </ion-label>
+                                            </div>
+                                        </div>
+                                    </ion-item>
+                                </ion-list>
+                            </ng-container>
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <ion-header>
+        <ion-toolbar color="dark">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+                <ion-row>
+                    <ion-col class="topBarContents">
+                        <div class="signin">
+                            <a routerLink="/register-login">
+                                <ion-icon name="create-outline"></ion-icon> <br />Sign in
+                            </a>
+                        </div>
+                        <div>
+                            <ion-badge color="primary" class="item-badge"> 0 </ion-badge> <br />
+                            <a routerLink="/cart">
+                                <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+                            </a>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>
