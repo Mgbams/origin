@@ -1,3 +1,4 @@
+import { SideMenuModule } from './../side-menu/side-menu.module';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     IonicModule,
     CommonModule,
     FormsModule,
+    SideMenuModule,
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],

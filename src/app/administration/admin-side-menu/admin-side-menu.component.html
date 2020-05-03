@@ -1,3 +1,58 @@
-<p>
-  admin-side-menu works!
-</p>
+<!-- I wrapped the contents in ion-content and set it's overflow-y in css to auto to help add scrolling-->
+<ion-app>
+    <ion-menu side="start" menuId="first" contentId="content1" type="overlay" swipe-gesture="true">
+        <ion-header>
+            <ion-toolbar color="dark">
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title></ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content id="sidemenu">
+            <ion-list>
+                <ion-menu-toggle auto-hide="true">
+                    <ion-item routerLink="" routerDirection="root" routerLinkActive="active">
+                        <ion-header>
+                            <ion-navbar color="primary">
+                                <ion-title>Popovers</ion-title>
+                                <ion-buttons end>
+                                    <a ion-button icon-only (click)="openPopover($event)">
+                                        <ion-icon name="more"></ion-icon>
+                                    </a>
+                                </ion-buttons>
+                            </ion-navbar>
+                        </ion-header>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <ion-header>
+        <ion-toolbar color="dark">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+                <ion-row>
+                    <ion-col class="topBarContents">
+                        <div class="signin">
+                            <a routerLink="/register-login">
+                                <ion-icon name="create-outline"></ion-icon> <br />Sign in
+                            </a>
+                        </div>
+                        <div>
+                            <ion-badge color="primary" class="item-badge"> 0 </ion-badge> <br />
+                            <a routerLink="/cart">
+                                <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+                            </a>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>

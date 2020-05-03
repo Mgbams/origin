@@ -1,0 +1,116 @@
+.footer-header {
+    display: flex;
+    justify-content: center;
+    background-color: #AC3B61;
+    color: white;
+    ion-icon {
+        color: yellow;
+        font-size: 1.5rem;
+    }
+}
+
+// logo of my origin website
+.website-logo {
+    font-size: 1.5rem;
+    color: yellow;
+}
+
+.website-logo-name {
+    margin-left: 8px
+}
+
+.footer-body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #19181A;
+    padding: 0px 5px;
+    color: white;
+}
+
+.footer-body>div {
+    width: 22%;
+}
+
+.payment-cards {
+    display: flex;
+    justify-content: space-between;
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.social-network {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #AC3B61;
+    padding: 5px;
+    .logos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ion-icon {
+            font-size: 2rem;
+            color: yellow;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.contact {
+    ion-icon {
+        font-size: 1.5rem;
+        color: yellow;
+    }
+    ion-label {
+        color: white;
+    }
+}
+
+.ion-item-divider {
+    margin: 5px 0px;
+    background-color: #86C232;
+    height: 3px;
+}
+
+.social-network>div {
+    width: 35%;
+}
+
+h6 {
+    color: #AC3B61;
+}
+
+span {
+    color: #86C232;
+}
+
+.brands-logos {
+    display: flex;
+    justify-content: space-between;
+    img {
+        width: 60px;
+        height: 40px;
+    }
+}
+
+.verified-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.copyright {
+    color: white;
+}
