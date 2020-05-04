@@ -1,3 +1,4 @@
+import { AdminFooterModule } from './../admin-footer/admin-footer.module';
 import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoriesComponent } from './categories.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import { SharedModule } from './../../shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
+    AdminFooterModule,
     CategoriesRoutingModule
   ],
   exports: [

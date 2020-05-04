@@ -1,0 +1,126 @@
+<ion-content>
+    <div class="edit-customer-container">
+        <form>
+            <ion-grid>
+                <ion-row>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>Customer Id</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>First Name</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>Last Name</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>Address</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>City</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <div class="country-phone">
+                            <div>
+                                <ion-label>Country</ion-label>
+                            </div>
+                            <div>
+                                <ion-label>Phone</ion-label>
+                            </div>
+                        </div>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>Email</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>Card No</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>Credit Card Id</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>CardExp Date</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>Actions</ion-label>
+                    </ion-col>
+
+                </ion-row>
+
+                <ion-row *ngFor="let customer of customers; index as customerId">
+                    <ion-col>
+                        <ion-label>{{customer.customer_id}}</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>{{customer.first_name}}</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>{{customer.last_name}}</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>{{customer.address}}</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <ion-label>{{customer.city}}</ion-label>
+                    </ion-col>
+
+                    <ion-col class="ion-text-center">
+                        <div class="country-phone">
+                            <div>
+                                <ion-label>{{customer.country}}</ion-label>
+                            </div>
+                            <div>
+                                <ion-label>{{customer.phone}}</ion-label>
+                            </div>
+                        </div>
+                    </ion-col>
+
+                    <ion-col>
+                        <ion-label>{{customer.email}}</ion-label>
+                    </ion-col>
+
+                    <ion-col>
+                        <ion-label>{{customer.credit_card}}</ion-label>
+                    </ion-col>
+
+                    <ion-col>
+                        <ion-label>{{customer.credit_card_type_id}}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{customer.card_exp_month}} / {{customer.card_exp_year}}</ion-label>
+                    </ion-col>
+
+                    <ion-col>
+                        <div class="actions-button">
+                            <div>
+                                <a href="#">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#">
+                                    <ion-icon name="pencil-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </form>
+    </div>
+    <app-admin-footer></app-admin-footer>
+</ion-content>

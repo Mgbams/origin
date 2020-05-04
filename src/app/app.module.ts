@@ -1,3 +1,7 @@
+import { EditSuppliersModule } from './administration/edit-suppliers/edit-suppliers.module';
+import { EditProductsModule } from './administration/edit-products/edit-products.module';
+import { EditCustomersModule } from './administration/edit-customers/edit-customers.module';
+import { EditCategoriesModule } from './administration/edit-categories/edit-categories.module';
 import { AdministrationModule } from './administration/administration.module';
 import { ShippingModule } from './shipping/shipping.module';
 import { CartModule } from './cart/cart.module';
@@ -48,6 +52,10 @@ import { AddSupplierModule } from './administration/add-supplier/add-supplier.mo
     AddProductsModule,
     AdministrationModule,
     AddSupplierModule,
+    EditCategoriesModule,
+    EditCustomersModule,
+    EditProductsModule,
+    EditSuppliersModule,
     AppRoutingModule
   ],
   providers: [

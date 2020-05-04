@@ -7,6 +7,12 @@ ion-content {
     }
 }
 
+ion-list,
+ion-item {
+    margin: 0px;
+    padding: 0px;
+}
+
 .cart-icon {
     font-size: 2rem;
     cursor: pointer;
@@ -18,10 +24,26 @@ ion-content {
     margin-left: 8px;
 }
 
-a {
+.signin-link {
     text-decoration: none;
     color: white;
     cursor: pointer;
+}
+
+.admin-links {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.admin-links:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.admin-links:active {
+    color: orange;
+    text-decoration: underline;
 }
 
 .topBarContents {
@@ -41,12 +63,11 @@ a {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: rgb(128, 128, 128);
 }
 
 .categories_link {
     text-decoration: none;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -57,14 +78,14 @@ ion-avatar {
 .catItems {
     display: flex;
     flex-direction: column;
-    margin: 20px 10px;
+    margin: 20px 0px;
     ion-label {
         margin-top: -25px;
     }
 }
 
 .ionItems {
-    --background: rgb(128, 128, 128);
+    //  --background: rgb(128, 128, 128);
     p {
         text-transform: capitalize;
     }

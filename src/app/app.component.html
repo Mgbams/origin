@@ -14,7 +14,7 @@
                 <ion-menu-toggle auto-hide="true">
                     <ion-item routerLink="" routerDirection="root" routerLinkActive="active">
                         <ion-label>
-                            <ng-container *ngIf="categories[0]" class="sidemenu_list">
+                            <ng-container *ngIf="categories[0] && loginStatus !== 'kingsley'" class="sidemenu_list">
                                 <ion-list class="categories">
                                     <ion-item class="ionItems">
                                         <div class="catItems">
@@ -86,10 +86,22 @@
                                     </ion-item>
                                 </ion-list>
                             </ng-container>
+
                         </ion-label>
                     </ion-item>
+
                 </ion-menu-toggle>
             </ion-list>
+
+            <ion-menu-toggle auto-hide="true">
+                <ng-container *ngIf="categories[0] && loginStatus === 'kingsley'" class="sidemenu_list">
+                    <h3>Dashboard</h3>
+                    <p><a class="admin-links" routerLink="/administration-panel/add-products">Add Product</a></p>
+                    <p><a class="admin-links" routerLink="/administration-panel/add-categories">Add Category</a></p>
+                    <p><a class="admin-links" routerLink="/administration-panel/add-suppliers">Add Supplier</a></p>
+                </ng-container>
+            </ion-menu-toggle>
+
         </ion-content>
     </ion-menu>
 
@@ -102,7 +114,7 @@
                 <ion-row>
                     <ion-col class="topBarContents">
                         <div class="signin">
-                            <a routerLink="/register-login">
+                            <a class="signin-link" routerLink="/register-login">
                                 <ion-icon name="create-outline"></ion-icon> <br />Sign in
                             </a>
                         </div>

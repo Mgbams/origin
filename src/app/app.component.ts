@@ -1,3 +1,4 @@
+import { LoginService } from './shared/services/login.service';
 // import { CartComponent } from './cart/cart.component';
 // import { Tab1Page } from './tab1/tab1.page';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
@@ -18,6 +19,7 @@ import {  CategoriesService } from './shared/services/categories.service';
 export class AppComponent implements AfterViewInit, OnInit {
   public name: string;
   public categories: ProductCategories[] = [];
+  public loginStatus;
 
   // @ViewChild( Tab1Page, {static: false}) tab1Page: Tab1Page;
   constructor(
@@ -25,7 +27,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private categoriesService: CategoriesService,
-    private cartService: CartService
+    private cartService: CartService,
+    private loginService: LoginService
   ) {
     this.initializeApp();
   }
@@ -37,7 +40,9 @@ export class AppComponent implements AfterViewInit, OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginStatus = this.loginService.getToken();
+  }
 
   ngAfterViewInit() {
     // Get product categories from database

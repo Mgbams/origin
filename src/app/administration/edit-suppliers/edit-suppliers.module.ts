@@ -1,22 +1,17 @@
 import { AdminFooterModule } from './../admin-footer/admin-footer.module';
-import {  AddProductsRoutingModule } from './add-products-routing.module';
-import { AddProductsComponent } from './add-products.component';
+import { EditSuppliersComponent } from './edit-suppliers.component';
+import { EditSuppliersRoutingModule } from './edit-suppliers-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../../shared/shared.module';
 
-
-
 @NgModule({
-  declarations: [ AddProductsComponent ],
+  declarations: [EditSuppliersComponent],
   imports: [
     CommonModule,
     SharedModule,
     AdminFooterModule,
-    AddProductsRoutingModule
-  ],
-  exports: [
-    AddProductsComponent
+    EditSuppliersRoutingModule
   ]
 })
-export class AddProductsModule { }
+export class EditSuppliersModule { }
