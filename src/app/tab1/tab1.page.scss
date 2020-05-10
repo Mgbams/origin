@@ -5,7 +5,7 @@ ion-content ion-toolbar {
 .firstSlide {
     margin-top: 70px;
     width: 100vw;
-    height: 65vh;
+    height: 69vh;
     margin-bottom: 18px;
     img {
         width: 100%;
@@ -19,13 +19,8 @@ ion-content ion-toolbar {
     height: 32vh;
     padding: 0px;
     .sliderBelow img {
-        // width: 30%;
         height: 100%;
     }
-}
-
-.secondSlide:not(:last-child) {
-    margin-right: 5px;
 }
 
 // Featured products starts here
@@ -159,11 +154,61 @@ a:hover {
     width: 90%;
     height: 55vh;
     margin: auto;
-    border: 2px solid red;
     img {
         height: 35vh;
     }
-    .thirdSlide-slide {
-        border: 1px solid green;
-    }
+}
+
+.latest-arrivals {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solde-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    height: 70vh;
+    background-color: rgba(255, 192, 203, 0.623);
+}
+
+.solde-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 40vh;
+    position: relative;
+    top: 3%;
+    left: 15%;
+}
+
+.solde-design-box {
+    width: 40%;
+    height: 46vh;
+    border: 1px solid pink;
+    background-color: pink;
+    align-self: center;
+}
+
+.outer-solde-image-container {
+    width: 50%;
+    height: 60vh;
+    border: 1px solid yellow;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0px;
+}
+
+.inner-solde-image-container {
+    width: 86%;
+    height: 55vh;
+    border: 1px solid green;
+    background-color: green;
 }

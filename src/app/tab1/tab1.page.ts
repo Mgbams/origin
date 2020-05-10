@@ -27,7 +27,8 @@ export class Tab1Page implements OnInit {
     this.secondSlideOpts = {
       initialSlide: 0,
       slidesPerView: 4,
-      speed: 1000
+      speed: 1000,
+      spaceBetween: 10
     };
 
     this.thirdSlideOpts = {

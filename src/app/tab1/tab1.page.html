@@ -98,7 +98,7 @@
 
             <!--Featured products-->
 
-            <h1 class="ion-text-center">Featured products</h1>
+            <h2 class="ion-text-center">Featured products</h2>
 
             <div class="featured-products">
                 <ion-grid>
@@ -186,6 +186,10 @@
                     </ion-col>
                 </ion-row>
 
+                <ion-row class="latest-arrivals">
+                    <h2 class="ion-text-center">LATEST ARRIVALS</h2>
+                </ion-row>
+
                 <ion-row>
                     <ion-slides #slides3 pager="true" class="thirdSlide" [options]="thirdSlideOpts">
                         <ion-slide class="thirdSlide-slide" *ngFor="let product of products; index as productId">
@@ -217,8 +221,30 @@
 
                     </ion-slides>
                 </ion-row>
+                <ion-row>
+                    <div class="solde-container">
+                        <div class="solde-texts">
+                            <h5> Discover Origin Soldes</h5>
+                            <label class="ion-text-wrap">
+                                Extensive mind blowing offers that would put smile to your faces.
+                                Get yourself quality products at give away prices. Hurry!.
+                            </label>
+                            <ion-button class="ion-activatable ripple-parent">
+                                SHOP NOW
+                                <ion-ripple-effect></ion-ripple-effect>
+                            </ion-button>
+                        </div>
+                        <div class="solde-design-box"></div>
+                        <div class="outer-solde-image-container">
+                            <div class="inner-solde-image-container">
+                                1
+                            </div>
+                        </div>
+                    </div>
+                </ion-row>
             </ion-grid>
 
         </div>
+        <app-admin-footer></app-admin-footer>
     </ion-content>
 </ion-app>
