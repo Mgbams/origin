@@ -60,6 +60,7 @@ export interface AllProducts {
     category_description: string;
     image_id: number;
     image: string;
+    subcategory_id: number;
 }
 
 */

@@ -44,23 +44,40 @@
                         <ion-input formControlName="productQty" name="productQty" type="number" min="1"></ion-input>
                     </ion-item>
 
-                    <ion-item>
-                        <ion-label position="floating">Select Category</ion-label>
-                        <ion-select formControlName="productCategory" name="productCategory" (ionChange)="changeHandler($event)">
-                            <ion-select-option *ngFor="let category of productCategories; index as categoryId" [value]="category.category_id" selected>
-                                {{ category.category_name }}
-                            </ion-select-option>
-                        </ion-select>
-                    </ion-item>
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-item>
+                                <ion-label position="floating">Category</ion-label>
+                                <ion-select formControlName="productCategory" name="productCategory" (ionChange)="changeHandler($event)">
+                                    <ion-select-option *ngFor="let category of productCategories; index as categoryId" [value]="category.category_id" selected>
+                                        {{ category.category_name }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
 
-                    <ion-item>
-                        <ion-label position="floating">Select Supplier</ion-label>
-                        <ion-select formControlName="productSupplier" name="productSupplier" (ionChange)="changeHandler($event)">
-                            <ion-select-option *ngFor="let supplier of productSuppliers; index as supplierId" [value]="supplier.supplier_id" selected>
-                                {{ supplier.company_name }}
-                            </ion-select-option>
-                        </ion-select>
-                    </ion-item>
+                        <ion-col size="4">
+                            <ion-item>
+                                <ion-label position="floating">SubCategory</ion-label>
+                                <ion-select formControlName="productSubCategory" name="productSubCategory" (ionChange)="changeHandler($event)">
+                                    <ion-select-option *ngFor="let subCategory of subCategories; index as subCategoryId" [value]=" subCategory.subcategory_id" selected>
+                                        {{ subCategory.subcategory_name}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+
+                        <ion-col size="4">
+                            <ion-item>
+                                <ion-label position="floating">Supplier</ion-label>
+                                <ion-select formControlName="productSupplier" name="productSupplier" (ionChange)="changeHandler($event)">
+                                    <ion-select-option *ngFor="let supplier of productSuppliers; index as supplierId" [value]="supplier.supplier_id" selected>
+                                        {{ supplier.company_name }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
 
 
                     <ion-item>

@@ -1,6 +1,4 @@
 import { LoginService } from './shared/services/login.service';
-// import { CartComponent } from './cart/cart.component';
-// import { Tab1Page } from './tab1/tab1.page';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { CartService } from './shared/services/cart.service';
 
@@ -10,6 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 // import { ViewChild } from '@angular/core';
 import { ProductCategories } from './shared/models/productCategories';
 import {  CategoriesService } from './shared/services/categories.service';
+import { SubCategory } from './administration/add-subcategory/shared/models/subcategory';
+import { SubcategoryService } from './shared/services/subcategory.service';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   public name: string;
   public categories: ProductCategories[] = [];
   public loginStatus;
+  public subCategories: SubCategory[] = [];
+ 
 
   // @ViewChild( Tab1Page, {static: false}) tab1Page: Tab1Page;
   constructor(
@@ -28,7 +30,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     private statusBar: StatusBar,
     private categoriesService: CategoriesService,
     private cartService: CartService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private subCategoryService:  SubcategoryService 
   ) {
     this.initializeApp();
   }
@@ -55,5 +58,16 @@ export class AppComponent implements AfterViewInit, OnInit {
         .catch((error) => {
           console.log(error);
         });
+
+       // Get subCategories
+    this.subCategoryService
+      .getSubCategories()
+      .then((data: SubCategory[]) => {
+        this.subCategories = data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
+
 }

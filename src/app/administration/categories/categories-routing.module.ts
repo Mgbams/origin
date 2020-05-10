@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'administration-panel/add-categories', component: CategoriesComponent
+    path: 'administration-panel/add-categories/:id', component: CategoriesComponent
   }
 ];
 

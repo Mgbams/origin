@@ -1,3 +1,5 @@
+import { EditSubcategoryModule } from './administration/edit-subcategory/edit-subcategory.module';
+import { AddSubcategoryModule } from './administration/add-subcategory/add-subcategory.module';
 import { EditSuppliersModule } from './administration/edit-suppliers/edit-suppliers.module';
 import { EditProductsModule } from './administration/edit-products/edit-products.module';
 import { EditCustomersModule } from './administration/edit-customers/edit-customers.module';
@@ -56,6 +58,8 @@ import { AddSupplierModule } from './administration/add-supplier/add-supplier.mo
     EditCustomersModule,
     EditProductsModule,
     EditSuppliersModule,
+    AddSubcategoryModule,
+    EditSubcategoryModule,
     AppRoutingModule
   ],
   providers: [

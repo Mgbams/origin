@@ -30,7 +30,7 @@ export class LoginService {
   }
 
   // token
-  setToken(token: string) {
+ /* setToken(token: string) {
     localStorage.setItem('token', token);
   }
 
@@ -53,5 +53,36 @@ export class LoginService {
   logout() {
     this.deleteToken();
     // add route here
+  } */
+
+  // Session storage
+  setToken(token: string) {
+    sessionStorage.setItem('token', token);
   }
+
+  getToken() {
+    return sessionStorage.getItem('token');
+  }
+
+  deleteToken() {
+    sessionStorage.removeItem('token');
+  }
+
+  isLoggedIn() {
+    const usertoken = this.getToken();
+    if (usertoken != null) {
+      return true;
+    }
+    return false;
+  }
+
+  logout() {
+    this.deleteToken();
+    // add route here
+  }
+
+  /* sessionStorage.setItem('id', data.id);
+retrieving from the session//
+var data = sessionStorage.getItem('id');
+console.log(data) to see the id in the console */
 }

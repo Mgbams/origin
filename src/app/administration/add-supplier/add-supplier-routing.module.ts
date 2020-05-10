@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'administration-panel/add-suppliers', component: AddSupplierComponent
+    path: 'administration-panel/add-suppliers/:id', component: AddSupplierComponent
   }
 ];
 

@@ -90,3 +90,17 @@ ion-avatar {
         text-transform: capitalize;
     }
 }
+
+// Accordion
+
+.cursorPointer {
+    cursor: pointer;
+}
+.accordion-link {
+    color: black;
+    text-decoration: none;
+}
+.accordion-link:hover {
+    color: black;
+    text-decoration: underline;
+}

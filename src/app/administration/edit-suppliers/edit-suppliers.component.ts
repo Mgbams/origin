@@ -1,6 +1,7 @@
 import { SuppliersService } from './../../shared/services/suppliers.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Suppliers } from './../../shared/models/suppliers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-suppliers',
@@ -10,7 +11,7 @@ import { Suppliers } from './../../shared/models/suppliers';
 export class EditSuppliersComponent implements AfterViewInit, OnInit {
   public productSuppliers: Suppliers[] = [];
 
-  constructor( private suppliersService: SuppliersService) { }
+  constructor( private suppliersService: SuppliersService, private router: Router) { }
 
   ngOnInit() {}
   
@@ -25,6 +26,10 @@ export class EditSuppliersComponent implements AfterViewInit, OnInit {
     .catch((error) => {
       console.log(error);
     });
+  }
+
+  modifyButtonClick(supplierId: number) {
+    this.router.navigate(['/administration-panel/add-suppliers', supplierId]);
   }
 
 }

@@ -2,13 +2,13 @@ import { AddProductsService } from './shared/services/add-products.service';
 import { Suppliers } from './../../shared/models/suppliers';
 import { SuppliersService } from './../../shared/services/suppliers.service';
 import { CategoriesService } from './../../shared/services/categories.service';
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { SubcategoryService } from './../../shared/services/subcategory.service';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ProductCategories } from './../../shared/models/productCategories';
 import { UploadedImages } from './shared/models/uploadedImages';
+import { SubCategory } from '../add-subcategory/shared/models/subcategory';
+
 
 @Component({
   selector: 'app-add-products',
@@ -19,6 +19,7 @@ export class AddProductsComponent implements OnInit {
   public addProductForm: FormGroup;
   public productCategories: ProductCategories[] = [];
   public productSuppliers: Suppliers[] = [];
+  public subCategories: SubCategory[] = [];
   public error: string;
   public uploadError: string;
   public successMsg: string;
@@ -31,7 +32,8 @@ export class AddProductsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private categoriesService: CategoriesService,
     private suppliersService: SuppliersService,
-    private addProductsService: AddProductsService
+    private addProductsService: AddProductsService,
+    private subCategoryService:  SubcategoryService 
   ) {
     this.addProductForm = this.formBuilder.group({
       productName: ['', Validators.required],
@@ -40,6 +42,7 @@ export class AddProductsComponent implements OnInit {
       unitPrice: ['', Validators.required],
       costPrice: ['', Validators.required],
       productCategory: ['', Validators.required],
+      productSubCategory: ['', Validators.required],
       productSupplier: ['', Validators.required],
       productQty: ['', Validators.required],
       productNumber: ['', Validators.required],
@@ -68,6 +71,15 @@ export class AddProductsComponent implements OnInit {
       .then((res: Suppliers[]) => {
         this.productSuppliers = res;
         console.log(this.productSuppliers);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+      this.subCategoryService
+      .getSubCategories()
+      .then((data: SubCategory[]) => {
+        this.subCategories = data;
       })
       .catch((error) => {
         console.log(error);
@@ -152,6 +164,10 @@ export class AddProductsComponent implements OnInit {
     formData.append(
       'productCategory',
       this.addProductForm.get('productCategory').value
+    );
+     formData.append(
+      'productSubCategory',
+      this.addProductForm.get('productSubCategory').value
     );
     formData.append(
       'productSupplier',

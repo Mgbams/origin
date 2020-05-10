@@ -1,112 +1,224 @@
 <ion-app>
     <ion-content [fullscreen]="true">
+        <div class="home-page-container">
+            <ion-slides #slides class="firstSlide" pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesDidLoad(slider)" loop="true">
+                <ion-slide>
+                    <div class="slide-page-one ">
+                        <img src="./../../assets/images/a1.png" />
+                    </div>
 
-        <ion-slides #slides class="firstSlide" pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesDidLoad(slider)" loop="true">
-            <ion-slide>
-                <div class="slide-page-one ">
-                    <img src="./../../assets/images/img1.jpg" />
-                </div>
+                </ion-slide>
 
-            </ion-slide>
-
-            <ion-slide>
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img2.jpg" />
-                </div>
-            </ion-slide>
-
-
-            <ion-slide>
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img3.jpg" />
-                </div>
-
-            </ion-slide>
+                <ion-slide>
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/a2.png" />
+                    </div>
+                </ion-slide>
 
 
-            <ion-slide>
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img4.jpg" />
-                </div>
+                <ion-slide>
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/origin7.jpg" />
+                    </div>
 
-            </ion-slide>
-        </ion-slides>
-
+                </ion-slide>
 
 
-        <ion-slides #slides2 pager="true" class="sliderBelow" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
-            <ion-slide class="secondSlide">
-                <div class="slide-page-one">
-                    <img src="./../../assets/images/img1.jpg" />
-                </div>
+                <ion-slide>
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/origin1.jpg" />
+                    </div>
 
-            </ion-slide>
-
-            <ion-slide class="secondSlide">
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img2.jpg" />
-                </div>
-            </ion-slide>
+                </ion-slide>
+            </ion-slides>
 
 
-            <ion-slide class="secondSlide">
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img3.jpg" />
-                </div>
 
-            </ion-slide>
+            <ion-slides #slides2 pager="true" class="sliderBelow" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-one">
+                        <img src="./../../assets/images/shoe1.jpg" />
+                    </div>
 
+                </ion-slide>
 
-            <ion-slide class="secondSlide">
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img4.jpg" />
-                </div>
-
-            </ion-slide>
-
-
-            <ion-slide class="secondSlide">
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img4.jpg" />
-                </div>
-
-            </ion-slide>
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/wallpaper1.jpg" />
+                    </div>
+                </ion-slide>
 
 
-            <ion-slide class="secondSlide">
-                <div class="slide-page-two ">
-                    <img src="./../../assets/images/img4.jpg" />
-                </div>
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/shoe2.jpg" />
+                    </div>
 
-            </ion-slide>
-        </ion-slides>
+                </ion-slide>
 
-        <!--Featured products-->
 
-        <h1 class="ion-text-center">Featured products</h1>
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/wallpaper2.jpg" />
+                    </div>
 
-        <div class="featured-products">
+                </ion-slide>
 
-            <ion-card *ngFor="let product of products; index as productId">
-                <ion-card-header>
-                    <img class="featuredProductsImages" [src]="product.product_images" />
 
-                    <ion-card-title>
-                        <h3>
-                            {{ product.product_name }}
-                        </h3>
-                    </ion-card-title>
-                </ion-card-header>
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/shoe3.jpg" />
+                    </div>
 
-                <ion-card-content>
-                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
-                        Details
-                        <ion-ripple-effect></ion-ripple-effect>
-                    </ion-button>
-                </ion-card-content>
-            </ion-card>
+                </ion-slide>
+
+
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/watch1.jpg" />
+                    </div>
+
+                </ion-slide>
+
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/shoe4.jpg" />
+                    </div>
+
+                </ion-slide>
+
+
+                <ion-slide class="secondSlide">
+                    <div class="slide-page-two ">
+                        <img src="./../../assets/images/watch2.jpg" />
+                    </div>
+
+                </ion-slide>
+            </ion-slides>
+
+            <!--Featured products-->
+
+            <h1 class="ion-text-center">Featured products</h1>
+
+            <div class="featured-products">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="3" *ngFor="let product of products; index as productId">
+                            <ion-card>
+                                <ion-card-header>
+                                    <img class="featuredProductsImages" [src]="product.product_images" />
+
+                                    <ion-card-title>
+                                        <h3>
+                                            {{ product.product_name }}
+                                        </h3>
+                                    </ion-card-title>
+                                </ion-card-header>
+
+                                <ion-card-content>
+                                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                                        Details
+                                        <ion-ripple-effect></ion-ripple-effect>
+                                    </ion-button>
+                                </ion-card-content>
+                            </ion-card>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <ion-grid>
+                <ion-row class="free-offers-borders">
+                    <ion-col size="3">
+                        <label>Only on Origin.com</label>
+                    </ion-col>
+
+                    <ion-col size="2">
+                        <div class="origin-offers-container">
+                            <div class="free-offers-icon-container">
+                                <ion-icon name="airplane-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <p>FREE SHIPPING</p>
+                                <small>(On orders over &euro;100)</small>
+                            </div>
+                        </div>
+                    </ion-col>
+
+                    <ion-col size="2">
+                        <div class="origin-offers-container">
+                            <div class="free-offers-icon-container">
+                                <ion-icon name="gift-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <p>SURPRISES</p>
+                                <small>(We keep you guessing)</small>
+                            </div>
+                        </div>
+                    </ion-col>
+
+                    <ion-col size="2">
+                        <div class="origin-offers-container">
+                            <div class="free-offers-icon-container">
+                                <ion-icon name="shirt-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <p>FREE SAMPLES</p>
+                                <small>(We make you proud!)</small>
+                            </div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="men-women-container">
+                    <ion-col size="6">
+                        <div class="men">
+                            <p><a href="#">SHOP MEN</a></p>
+                            <div class="bottom-line-animation shrink-div"></div>
+                        </div>
+                    </ion-col>
+
+                    <ion-col size="6">
+                        <div class="women">
+                            <p><a href="#">SHOP MEN</a></p>
+                            <div class="bottom-line-animation shrink-div"></div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-slides #slides3 pager="true" class="thirdSlide" [options]="thirdSlideOpts">
+                        <ion-slide class="thirdSlide-slide" *ngFor="let product of products; index as productId">
+                            <div class="slide-page-one">
+                                <div>
+                                    <div>
+                                        <img class="featuredProductsImages" [src]="product.product_images" />
+                                    </div>
+
+                                    <div>
+                                        <h3>
+                                            {{ product.product_name }}
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                                        Details
+                                        <ion-ripple-effect></ion-ripple-effect>
+                                    </ion-button>
+                                </div>
+                            </div>
+                        </ion-slide>
+                        <div class="swipeButton">
+                            <button type="submit" class="swiper-button-prev swiper-button-blue" (click)="prev()"></button>
+                            <button type="submit" class="swiper-button-next swiper-button-blue" (click)="next()"></button>
+                        </div>
+
+                    </ion-slides>
+                </ion-row>
+            </ion-grid>
 
         </div>
-
     </ion-content>
 </ion-app>

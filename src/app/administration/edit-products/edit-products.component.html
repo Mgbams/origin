@@ -1,214 +1,257 @@
 <ion-content>
-    <div>
+    <div class="products-container">
+        <ion-grid>
+            <ion-row class="dashboard-row">
+                <ion-col>
+                    <p>Origin Dashboard</p>
+                    <small>Dashboard > Edit Products</small>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-products">
+                        Edit Products
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-categories">
+                        Edit Categories
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-subcategories">
+                        Edit SubCategory
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-customers">
+                        Edit Customers
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-suppliers">
+                        Edit Suppliers
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
         <form>
-            <ion-grid>
-                <ion-row>
-                    <ion-col>
-                        <ion-label>Product Id</ion-label>
-                    </ion-col>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <ion-label>Product Id</ion-label>
+                        </th>
 
-                    <ion-col>
-                        <ion-label>Product No</ion-label>
-                    </ion-col>
+                        <th>
+                            <ion-label>Product No</ion-label>
+                        </th>
 
-                    <ion-col>
-                        <ion-label>Product Name</ion-label>
-                    </ion-col>
+                        <th>
+                            <ion-label>Product Name</ion-label>
+                        </th>
 
-                    <ion-col>
-                        <ion-label>Description</ion-label>
-                    </ion-col>
+                        <th>
+                            <ion-label>Description</ion-label>
+                        </th>
 
-                    <ion-col>
-                        <div>
+                        <th>
                             <div>
-                                <ion-label>Price</ion-label>
+                                <div>
+                                    <ion-label>Price</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Discount</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Discount</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </th>
 
-                    <ion-col>
-                        <div>
+                        <th>
                             <div>
-                                <ion-label>Featured</ion-label>
+                                <div>
+                                    <ion-label>Featured</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Sizes</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Sizes</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </th>
 
-                    <ion-col>
-                        <div>
+                        <th>
                             <div>
-                                <ion-label>Colors</ion-label>
+                                <div>
+                                    <ion-label>Colors</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Stock</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Stock</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </th>
 
-                    <ion-col>
-                        <div>
+                        <th>
                             <div>
-                                <ion-label>Promo</ion-label>
+                                <div>
+                                    <ion-label>Promo</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Category Id</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Category Id</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </th>
 
-                    <ion-col>
-                        <div>
+                        <th>
                             <div>
-                                <ion-label>Supplier Id</ion-label>
+                                <div>
+                                    <ion-label>Supplier Id</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Cost Price</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Cost Price</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </th>
 
-                    <ion-col>
-                        <div>
+                        <th>
                             <div>
-                                <ion-label>Available</ion-label>
+                                <div>
+                                    <ion-label>Available</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Order Units</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Reorder-level</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Order Units</ion-label>
-                            </div>
-                            <div>
-                                <ion-label>Reorder-level</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </th>
 
-                    <ion-col>
-                        <div>
+                        <th>
                             <div>
-                                <ion-label>Unit Price</ion-label>
+                                <div>
+                                    <ion-label>Unit Price</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Image Id</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Image Id</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </th>
 
-                    <ion-col>
-                        <ion-label>Actions</ion-label>
-                    </ion-col>
-                </ion-row>
+                        <th>
+                            <ion-label>Actions</ion-label>
+                        </th>
+                    </tr>
+                </thead>
 
-                <ion-row *ngFor="let product of products; index as productId">
-                    <ion-col>
-                        <ion-label>{{ product.product_id }}</ion-label>
-                    </ion-col>
+                <tbody>
 
-                    <ion-col>
-                        <ion-label>{{ product.product_no }}</ion-label>
-                    </ion-col>
+                    <tr *ngFor="let product of products; index as productId">
+                        <td>
+                            <ion-label>{{ product.product_id }}</ion-label>
+                        </td>
 
-                    <ion-col>
-                        <ion-label>{{ product.product_name }}</ion-label>
-                    </ion-col>
+                        <td>
+                            <ion-label>{{ product.product_no }}</ion-label>
+                        </td>
 
-                    <ion-col>
-                        <ion-label>{{ product.product_description }}</ion-label>
-                    </ion-col>
+                        <td>
+                            <ion-label>{{ product.product_name }}</ion-label>
+                        </td>
 
-                    <ion-col>
-                        <div>
-                            <div>
-                                <ion-label>{{ product.product_price }}</ion-label>
-                            </div>
-                            <div>
-                                <ion-label>{{ product.product_discount }}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        <td>
+                            <ion-label>{{ product.product_description }}</ion-label>
+                        </td>
 
-                    <ion-col>
-                        <div>
+                        <td>
                             <div>
-                                <ion-label>{{ product.product_featured }}</ion-label>
+                                <div>
+                                    <ion-label>{{ product.product_price }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.product_discount }}</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>{{ product.product_sizes }}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col>
-                        <div>
+                        <td>
                             <div>
-                                <ion-label>{{ product.product_colors }}</ion-label>
+                                <div>
+                                    <ion-label>{{ product.product_featured }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.product_sizes }}</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>{{ product.units_in_stock }}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col>
-                        <div>
+                        <td>
                             <div>
-                                <ion-label>{{ product.product_promo }}</ion-label>
+                                <div>
+                                    <ion-label>{{ product.product_colors }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.units_in_stock }}</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>{{ product.category_id }}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col>
-                        <div>
+                        <td>
                             <div>
-                                <ion-label>{{ product.supplier_id }}</ion-label>
+                                <div>
+                                    <ion-label>{{ product.product_promo }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.category_id }}</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>{{ product.cost_price }}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col>
-                        <div>
+                        <td>
                             <div>
-                                <ion-label>{{ product.available }}</ion-label>
+                                <div>
+                                    <ion-label>{{ product.supplier_id }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.cost_price }}</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>{{ product.units_on_order }}</ion-label>
-                            </div>
-                            <div>
-                                <ion-label>{{ product.reorder_level }}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col>
-                        <div>
+                        <td>
                             <div>
-                                <ion-label>{{ product.unit_price }}</ion-label>
+                                <div>
+                                    <ion-label>{{ product.available }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.units_on_order }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.reorder_level }}</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>{{ product.image_id }}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col>
-                        <div class="actions-button">
-                            <ion-button color="danger">Delete</ion-button>
-                            <ion-button color="secondary">Modify</ion-button>
-                        </div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                        <td>
+                            <div>
+                                <div>
+                                    <ion-label>{{ product.unit_price }}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{ product.image_id }}</ion-label>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="actions-button">
+                                <ion-button color="danger">Delete</ion-button>
+                                <ion-button color="secondary">Modify</ion-button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
     </div>
     <app-admin-footer></app-admin-footer>

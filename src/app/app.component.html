@@ -10,95 +10,42 @@
             </ion-toolbar>
         </ion-header>
         <ion-content id="sidemenu">
-            <ion-list>
+
+            <!--accordion usage-->
+            <ion-list *ngFor="let item of categories; let i = index" detail="false" no-padding>
+                <ion-item tappable (click)="item.toggle = !item.toggle" class="panel-heading cursorPointer">
+                    <ion-icon slot="end" class="down-arrow" name="add-outline" [hidden]="!item.toggle"></ion-icon>
+                    <ion-icon slot="end" class="up-arrow" name="remove-outline" [hidden]="item.toggle"></ion-icon>
+                    <ion-label>
+                        {{item.category_name | uppercase}}
+                    </ion-label>
+                </ion-item>
+
+
                 <ion-menu-toggle auto-hide="true">
-                    <ion-item routerLink="" routerDirection="root" routerLinkActive="active">
-                        <ion-label>
-                            <ng-container *ngIf="categories[0] && loginStatus !== 'kingsley'" class="sidemenu_list">
-                                <ion-list class="categories">
-                                    <ion-item class="ionItems">
-                                        <div class="catItems">
-                                            <div>
-                                                <ion-avatar slot="start">
-                                                    <a class="categories_link">
-                                                        <ion-icon name="body-outline"></ion-icon>
-                                                    </a>
-                                                </ion-avatar>
-                                            </div>
-                                            <div>
-                                                <ion-label>
-                                                    <p><a class="categories_link">{{categories[0].category_name}}</a></p>
-                                                </ion-label>
-                                            </div>
-                                        </div>
-                                    </ion-item>
+                    <div [hidden]="item.toggle" class="panel-body">
+                        <ion-list *ngFor="let child of subCategories; let j = index;" lines="none" class="child-list">
+                            <ion-item tappable>
+                                <ion-label>
+                                    <a class="accordion-link">{{child.subcategory_name}}</a>
+                                </ion-label>
+                            </ion-item>
 
-                                    <ion-item class="ionItems">
-                                        <div class="catItems">
-                                            <div>
-                                                <ion-avatar slot="start">
-                                                    <a class="categories_link">
-                                                        <ion-icon name="woman-outline"></ion-icon>
-                                                    </a>
-                                                </ion-avatar>
-                                            </div>
-                                            <div>
-                                                <ion-label>
-                                                    <p><a class="categories_link">{{categories[1].category_name}}</a></p>
-                                                </ion-label>
-                                            </div>
-                                        </div>
-                                    </ion-item>
-
-
-                                    <ion-item class="ionItems">
-                                        <div class="catItems">
-                                            <div>
-                                                <ion-avatar slot="start">
-                                                    <a class="categories_link">
-                                                        <ion-icon name="people-outline"></ion-icon>
-                                                    </a>
-                                                </ion-avatar>
-                                            </div>
-                                            <div>
-                                                <ion-label>
-                                                    <p><a class="categories_link">{{categories[2].category_name}}</a></p>
-                                                </ion-label>
-                                            </div>
-                                        </div>
-                                    </ion-item>
-
-                                    <ion-item class="ionItems" lines="none">
-                                        <div class="catItems">
-                                            <div>
-                                                <ion-avatar slot="start">
-                                                    <a class="categories_link">
-                                                        <ion-icon name="watch-outline"></ion-icon>
-                                                    </a>
-                                                </ion-avatar>
-                                            </div>
-                                            <div>
-                                                <ion-label>
-                                                    <p><a class="categories_link">{{categories[3].category_name}}</a></p>
-                                                </ion-label>
-                                            </div>
-                                        </div>
-                                    </ion-item>
-                                </ion-list>
-                            </ng-container>
-
-                        </ion-label>
-                    </ion-item>
-
+                        </ion-list>
+                    </div>
                 </ion-menu-toggle>
             </ion-list>
+
+
+            <!--End of accordion usage-->
 
             <ion-menu-toggle auto-hide="true">
                 <ng-container *ngIf="categories[0] && loginStatus === 'kingsley'" class="sidemenu_list">
                     <h3>Dashboard</h3>
-                    <p><a class="admin-links" routerLink="/administration-panel/add-products">Add Product</a></p>
-                    <p><a class="admin-links" routerLink="/administration-panel/add-categories">Add Category</a></p>
-                    <p><a class="admin-links" routerLink="/administration-panel/add-suppliers">Add Supplier</a></p>
+                    <p><a class="admin-links" routerLink="administration-panel/add-products/0">Add Product</a></p>
+                    <p><a class="admin-links" routerLink="administration-panel/add-categories/0">Add Category</a></p>
+                    <p><a class="admin-links" routerLink="administration-panel/add-suppliers/0">Add Supplier</a></p>
+                    <p><a class="admin-links" routerLink="administration-panel/add-subcategory/0">Add SubCategory</a></p>
                 </ng-container>
             </ion-menu-toggle>
 

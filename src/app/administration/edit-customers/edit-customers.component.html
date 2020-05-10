@@ -1,125 +1,159 @@
 <ion-content>
     <div class="edit-customer-container">
+        <ion-grid>
+            <ion-row class="dashboard-row">
+                <ion-col>
+                    <p>Origin Dashboard</p>
+                    <small>Dashboard > Edit Customers</small>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-products">
+                        Edit Products
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-categories">
+                        Edit Categories
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-subcategories">
+                        Edit SubCategory
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-customers">
+                        Edit Customers
+                    </ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button class="ion-activatable ripple-parent next_button" expand="block" type="submit" routerLink="/administration-panel/edit-suppliers">
+                        Edit Suppliers
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
         <form>
-            <ion-grid>
-                <ion-row>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="ion-text-center">
+                            <ion-label>Customer Id</ion-label>
+                        </th>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>Customer Id</ion-label>
-                    </ion-col>
+                        <th class="ion-text-center">
+                            <ion-label>First Name</ion-label>
+                        </th>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>First Name</ion-label>
-                    </ion-col>
+                        <th class="ion-text-center">
+                            <ion-label>Last Name</ion-label>
+                        </th>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>Last Name</ion-label>
-                    </ion-col>
+                        <th class="ion-text-center">
+                            <ion-label>Address</ion-label>
+                        </th>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>Address</ion-label>
-                    </ion-col>
+                        <th class="ion-text-center">
+                            <ion-label>City</ion-label>
+                        </th>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>City</ion-label>
-                    </ion-col>
-
-                    <ion-col class="ion-text-center">
-                        <div class="country-phone">
-                            <div>
-                                <ion-label>Country</ion-label>
+                        <th class="ion-text-center">
+                            <div class="country-phone">
+                                <div>
+                                    <ion-label>Country</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>Phone</ion-label>
+                                </div>
                             </div>
-                            <div>
-                                <ion-label>Phone</ion-label>
+                        </th>
+
+                        <th class="ion-text-center">
+                            <ion-label>Email</ion-label>
+                        </th>
+
+                        <th class="ion-text-center">
+                            <ion-label>Card No</ion-label>
+                        </th>
+
+                        <th class="ion-text-center">
+                            <ion-label>Credit Card Id</ion-label>
+                        </th>
+
+                        <th class="ion-text-center">
+                            <ion-label>CardExp Date</ion-label>
+                        </th>
+
+                        <th class="ion-text-center">
+                            <ion-label>Actions</ion-label>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let customer of customers; index as customerId">
+                        <td>
+                            <ion-label>{{customer.customer_id}}</ion-label>
+                        </td>
+
+                        <td class="ion-text-center">
+                            <ion-label>{{customer.first_name}}</ion-label>
+                        </td>
+
+                        <td class="ion-text-center">
+                            <ion-label>{{customer.last_name}}</ion-label>
+                        </td>
+
+                        <td class="ion-text-center">
+                            <ion-label>{{customer.address}}</ion-label>
+                        </td>
+
+                        <td class="ion-text-center">
+                            <ion-label>{{customer.city}}</ion-label>
+                        </td>
+
+                        <td class="ion-text-center">
+                            <div class="country-phone">
+                                <div>
+                                    <ion-label>{{customer.country}}</ion-label>
+                                </div>
+                                <div>
+                                    <ion-label>{{customer.phone}}</ion-label>
+                                </div>
                             </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>Email</ion-label>
-                    </ion-col>
+                        <td>
+                            <ion-label>{{customer.email}}</ion-label>
+                        </td>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>Card No</ion-label>
-                    </ion-col>
+                        <td>
+                            <ion-label>{{customer.credit_card}}</ion-label>
+                        </td>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>Credit Card Id</ion-label>
-                    </ion-col>
+                        <td>
+                            <ion-label>{{customer.credit_card_type_id}}</ion-label>
+                        </td>
+                        <td>
+                            <ion-label>{{customer.card_exp_month}} / {{customer.card_exp_year}}</ion-label>
+                        </td>
 
-                    <ion-col class="ion-text-center">
-                        <ion-label>CardExp Date</ion-label>
-                    </ion-col>
-
-                    <ion-col class="ion-text-center">
-                        <ion-label>Actions</ion-label>
-                    </ion-col>
-
-                </ion-row>
-
-                <ion-row *ngFor="let customer of customers; index as customerId">
-                    <ion-col>
-                        <ion-label>{{customer.customer_id}}</ion-label>
-                    </ion-col>
-
-                    <ion-col class="ion-text-center">
-                        <ion-label>{{customer.first_name}}</ion-label>
-                    </ion-col>
-
-                    <ion-col class="ion-text-center">
-                        <ion-label>{{customer.last_name}}</ion-label>
-                    </ion-col>
-
-                    <ion-col class="ion-text-center">
-                        <ion-label>{{customer.address}}</ion-label>
-                    </ion-col>
-
-                    <ion-col class="ion-text-center">
-                        <ion-label>{{customer.city}}</ion-label>
-                    </ion-col>
-
-                    <ion-col class="ion-text-center">
-                        <div class="country-phone">
-                            <div>
-                                <ion-label>{{customer.country}}</ion-label>
+                        <td>
+                            <div class="actions-button">
+                                <ion-button color="danger">Delete</ion-button>
+                                <ion-button color="secondary">Modify</ion-button>
                             </div>
-                            <div>
-                                <ion-label>{{customer.phone}}</ion-label>
-                            </div>
-                        </div>
-                    </ion-col>
+                        </td>
 
-                    <ion-col>
-                        <ion-label>{{customer.email}}</ion-label>
-                    </ion-col>
-
-                    <ion-col>
-                        <ion-label>{{customer.credit_card}}</ion-label>
-                    </ion-col>
-
-                    <ion-col>
-                        <ion-label>{{customer.credit_card_type_id}}</ion-label>
-                    </ion-col>
-                    <ion-col>
-                        <ion-label>{{customer.card_exp_month}} / {{customer.card_exp_year}}</ion-label>
-                    </ion-col>
-
-                    <ion-col>
-                        <div class="actions-button">
-                            <div>
-                                <a href="#">
-                                    <ion-icon name="trash-outline"></ion-icon>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <ion-icon name="pencil-outline"></ion-icon>
-                                </a>
-                            </div>
-                        </div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </tr>
+                </tbody>
+            </table>
         </form>
     </div>
     <app-admin-footer></app-admin-footer>

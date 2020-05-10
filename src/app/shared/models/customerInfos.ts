@@ -12,6 +12,7 @@ export class Users {
     public creditCardTypeId: string;
     public cardExpMonth: number;
     public cardExpYear: number;
+    public status: string;
 
     constructor(
         customerId: number,
@@ -26,7 +27,8 @@ export class Users {
         creditCard: string,
         creditCardTypeId: string,
         cardExpMonth: number,
-        cardExpYear: number
+        cardExpYear: number,
+        status: string
         ) {
         this.customerId = customerId;
         this.firstName = firstName;
@@ -41,7 +43,7 @@ export class Users {
         this.creditCardTypeId = creditCardTypeId;
         this.cardExpMonth = cardExpMonth;
         this.cardExpYear = cardExpYear;
-
+        this.status = status;
         }
 
 }

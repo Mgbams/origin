@@ -13,8 +13,10 @@ export class Tab1Page implements OnInit {
   public products: AllProducts[] = [];
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
+  @ViewChild('slides3', {static: false}) slides3: IonSlides;
   slideOpts: any;
   secondSlideOpts: any;
+  thirdSlideOpts: any;
   constructor(private featuredProductsService: FeaturedProductsService) {
     this.slideOpts = {
       initialSlide: 0,
@@ -24,8 +26,14 @@ export class Tab1Page implements OnInit {
 
     this.secondSlideOpts = {
       initialSlide: 0,
-      slidesPerView: 3,
+      slidesPerView: 4,
       speed: 1000
+    };
+
+    this.thirdSlideOpts = {
+      initialSlide: 0,
+      slidesPerView: 4,
+      spaceBetween: 10
     };
   }
 
@@ -35,6 +43,14 @@ export class Tab1Page implements OnInit {
 
   slidesDidLoad2(slides2: IonSlides) {
     this.slides2.startAutoplay();
+  }
+
+  next() {
+    this.slides.slideNext();
+  }
+
+  prev() {
+    this.slides.slidePrev();
   }
 
   ngOnInit() {
