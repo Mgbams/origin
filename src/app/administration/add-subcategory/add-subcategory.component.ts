@@ -40,7 +40,7 @@ export class AddSubcategoryComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.updateButton === false) {
+    if (!this.serverRetrievedSubCategory) {
       console.log(this.addSubCategoriesForm.value);
       this.addSubCategoryService.addSubCategory(this.addSubCategoriesForm.value)
           .then((data) => {
@@ -50,6 +50,7 @@ export class AddSubcategoryComponent implements OnInit {
             console.log(error);
           });
       console.log(this.updateButton);
+      this.addSubCategoriesForm.reset();
     // This below code is executed on form submit if the update button is enabled and clicked
     } else if (this.updateButton === true) {
       console.log('Pussy cats name', this.serverRetrievedSubCategory);
@@ -67,13 +68,13 @@ export class AddSubcategoryComponent implements OnInit {
           .then(data => {
             console.log('its friday guyssssssssssssssssssssssssssssssssss', data);
            // this.router.navigate(['administration-panel']);
+            this.addSubCategoriesForm.reset();
           })
           .catch(error => {
             console.log(error);
             console.log('it has always been seeing this error');
           });
     }
-    // this.addSubCategoriesForm.reset();
   }
 
 

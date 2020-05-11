@@ -31,6 +31,14 @@ import { CompletedRegistrationModule } from './completed-registration/completed-
 import { CategoriesModule } from './administration/categories/categories.module';
 import { AddProductsModule } from './administration/add-products/add-products.module';
 import { AddSupplierModule } from './administration/add-supplier/add-supplier.module';
+import { AccessoiresModule } from './kids/accessoires/accessoires.module';
+import { JeansModule } from './kids/jeans/jeans.module';
+import { ShirtsModule } from './kids/shirts/shirts.module';
+import { ShortsModule } from './kids/shorts/shorts.module';
+import { SneakersModule } from './kids/sneakers/sneakers.module';
+import { KidsModule } from './kids/kids.module';
+import { MenModule } from './men/men.module';
+import { WomenModule } from './women/women.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -60,6 +68,14 @@ import { AddSupplierModule } from './administration/add-supplier/add-supplier.mo
     EditSuppliersModule,
     AddSubcategoryModule,
     EditSubcategoryModule,
+    KidsModule,
+    AccessoiresModule,
+    JeansModule,
+    ShirtsModule,
+    ShortsModule,
+    SneakersModule,
+    MenModule,
+    WomenModule,
     AppRoutingModule
   ],
   providers: [
