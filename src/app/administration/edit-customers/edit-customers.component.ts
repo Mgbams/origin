@@ -27,4 +27,15 @@ export class EditCustomersComponent implements AfterViewInit, OnInit {
     });
   }
 
+  deleteCustomer(customerIndex) {
+    this.adminService
+        .deleteCustomerById(customerIndex)
+        .then(data => {
+          console.log('Customer successfully deleted');
+        })
+        .catch(error => {
+          console.log(error);
+        });
+  }
+
 }

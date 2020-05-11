@@ -152,7 +152,7 @@
 
                         <td>
                             <div class="actions-button">
-                                <ion-button color="danger">Delete</ion-button>
+                                <ion-button color="danger" (click)="deleteSupplier(supplier.supplier_id)">Delete</ion-button>
                                 <ion-button color="secondary" type="button" (click)="modifyButtonClick(supplier.supplier_id)">Modify</ion-button>
                             </div>
                         </td>

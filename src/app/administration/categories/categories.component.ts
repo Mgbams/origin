@@ -43,7 +43,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.updateButton === false) {
+    if (!this.serverRetrievedCategory) {
       console.log(this.addCategoriesForm.value);
       this.addCategoriesService.addCategory(this.addCategoriesForm.value)
           .then((data) => {
@@ -53,6 +53,7 @@ export class CategoriesComponent implements OnInit {
             console.log(error);
           });
       console.log(this.updateButton);
+      this.addCategoriesForm.reset();
     // This below code is executed on form submit if the update button is enabled and clicked
     } else if (this.updateButton === true) {
       // this.mapFormValuesToCategoryModel();

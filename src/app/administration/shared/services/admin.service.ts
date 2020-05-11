@@ -8,6 +8,7 @@ import { Customers } from './../models/customers';
 })
 export class AdminService {
   serverUrl = 'http://localhost/origin/src/entity/';
+  secondUrl = 'http://localhost/origin/src/application/controllers/suppliers/';
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +16,9 @@ export class AdminService {
     return this.http.get < Customers[] >(this.serverUrl + 'getCustomers.php').toPromise();
    }
 
+   deleteCustomerById(data) {
+    return this.http.delete(`${this.serverUrl}getCustomers.php/?id=` + data ).toPromise();
+   }
 
   getCategoryById(data) {
     // const datas = JSON.stringify({id: data});
@@ -27,26 +31,23 @@ export class AdminService {
     return this.http.delete(`${this.serverUrl}admin/deleteCategoryById.php/?id=` + data ).toPromise();
    }
 
-   /* updateCategory(category, id) {
-    const httpOptions = new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Request-Headers': 'GET,POST,OPTIONS,DELETE,PUT',
-      'Access-Control-Allow-Headers': 'Accept,Accept-Language,Content-Language,Content-Type',
-      'Content-Type': 'multipart/form-data'
-       });
-
-    const options = { headers: httpOptions };
-    return this.http.put(`${this.serverUrl}admin/categoryUpdate.php/?id=` + id, category, options).toPromise();
-   }*/
-
    updateCategory(category) {
-    return this.http.put('http://localhost/origin/src/entity/admin/categoryUpdate.php', category, {responseType: 'json'}).toPromise();
+    return this.http.put(`${this.serverUrl}admin/category-update.php`, category, {responseType: 'text'}).toPromise();
   }
 
    /* For supplier */
 
    getSupplierById(data) {
     return this.http.get(`${this.serverUrl}admin/getSupplierById.php/?id=` + data ).toPromise();
+   }
+
+   updateSupplier(supplier) {
+    return this.http.put(`${this.secondUrl}getsuppliers.php`, supplier, {responseType: 'text'}).toPromise();
+  }
+
+  deleteSupplierById(data) {
+    // const datas = JSON.stringify({id: data});
+    return this.http.delete(`${this.secondUrl}getsuppliers.php/?id=` + data ).toPromise();
    }
 
 
@@ -63,7 +64,7 @@ export class AdminService {
 
 
    updateSubCategory(subCategory) {
-    return this.http.put('http://localhost/origin/src/entity/admin/subcategoryUpdate.php', subCategory, {responseType: 'json'}).toPromise();
+    return this.http.put('http://localhost/origin/src/entity/admin/sub-category-update.php', subCategory, {responseType: 'text' }).toPromise();
   }
 
 }

@@ -2,6 +2,7 @@ import { SuppliersService } from './../../shared/services/suppliers.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Suppliers } from './../../shared/models/suppliers';
 import { Router } from '@angular/router';
+import { AdminService } from './../shared/services/admin.service';
 
 @Component({
   selector: 'app-edit-suppliers',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class EditSuppliersComponent implements AfterViewInit, OnInit {
   public productSuppliers: Suppliers[] = [];
 
-  constructor( private suppliersService: SuppliersService, private router: Router) { }
+  constructor( private suppliersService: SuppliersService, private router: Router, private adminService: AdminService) { }
 
   ngOnInit() {}
   
@@ -30,6 +31,17 @@ export class EditSuppliersComponent implements AfterViewInit, OnInit {
 
   modifyButtonClick(supplierId: number) {
     this.router.navigate(['/administration-panel/add-suppliers', supplierId]);
+  }
+
+  deleteSupplier(supplierIndex) {
+    this.adminService
+        .deleteSupplierById(supplierIndex)
+        .then(data => {
+          console.log('Supplier successfully deleted');
+        })
+        .catch(error => {
+          console.log(error);
+        });
   }
 
 }

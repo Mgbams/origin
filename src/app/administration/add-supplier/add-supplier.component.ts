@@ -17,6 +17,7 @@ export class AddSupplierComponent implements OnInit {
   public showPostForm = false;
   public addSuppliersForm: FormGroup;
   public updateButton = false;
+  public serverRetrievedSupplier: EditSuppliers; // holds suppliers retrieved for updating
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,15 +50,39 @@ export class AddSupplierComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.addSuppliersForm.value);
-    this.supplierService.addSupplier(this.addSuppliersForm.value)
+    if (!this.serverRetrievedSupplier ) {
+      console.log(this.addSuppliersForm.value);
+      this.supplierService.addSupplier(this.addSuppliersForm.value)
         .then((data) => {
           console.log(data);
         })
         .catch(error => {
           console.log(error);
         });
-    this.addSuppliersForm.reset();
+      this.addSuppliersForm.reset();
+    } else if (this.updateButton === true) {
+      console.log('Pussy cats name', this.serverRetrievedSupplier );
+      const formData = {
+        info: [
+          {
+          data: this.addSuppliersForm.value,
+          id: this.serverRetrievedSupplier[0].supplier_id
+          }
+        ]
+      };
+      console.log('formdata is gives as', formData);
+
+      this.adminService.updateSupplier(formData)
+          .then(data => {
+            console.log('its suppliers form', data);
+           // this.router.navigate(['administration-panel']);
+            this.addSuppliersForm.reset();
+          })
+          .catch(error => {
+            console.log(error);
+            console.log('it has always been seeing this error from suppliers form');
+          });
+    }
   }
 
   getSupplier(id: number) {
@@ -66,6 +91,7 @@ export class AddSupplierComponent implements OnInit {
         .then((data: EditSuppliers) => {
         console.log('dataaaaa', data);
         this.editSupplier(data);
+        this.serverRetrievedSupplier = data; // saving retrieved category in a variable
         console.log('dataaaaa', data);
         })
         .catch(error => {
