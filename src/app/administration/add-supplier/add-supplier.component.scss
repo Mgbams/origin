@@ -1,3 +1,32 @@
-.supplier-container {
+.add-supplier-container {
     margin-top: 72px;
+    margin-bottom: 30px;
+    ion-card {
+        width: 80%;
+        margin: auto;
+        background-color: #2F4454;
+        ion-card-content {
+            width: 80%;
+            margin: auto;
+        }
+    }
+}
+
+ion-card-header {
+    background-color: burlywood !important;
+    ion-card-title {
+        color: white;
+    }
+}
+
+.save-button {
+    --background: #9E15BF !important;
+    --border-radius: 50px !important;
+    --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
+}
+
+.update-button {
+    --background: #FAED26 !important;
+    --border-radius: 50px !important;
+    --box-shadow: 0px 8px 4px rgba(250, 236, 38, 0.5);
 }

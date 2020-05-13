@@ -1,36 +1,43 @@
 <ion-content>
 
-    <div>
-        <h1 class="ion-text-center">Add product subategories</h1>
-        <form [formGroup]="addSubCategoriesForm" novalidate (ngSubmit)="onSubmit()">
-            <ion-item>
-                <ion-label position="floating">SubCategory Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="subcategoryName" name="subcategoryName" autofocus="true" type="text"></ion-input>
-            </ion-item>
+    <div class="add-subcategory-container">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title class="ion-text-center">Add Product SubCategory</ion-card-title>
+            </ion-card-header>
 
-            <ion-item>
-                <ion-label position="floating">SubCategory Description<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="subcategoryDescription" name="subcategoryDescription" type="text"></ion-input>
-            </ion-item>
+            <ion-card-content>
+                <form [formGroup]="addSubCategoriesForm" novalidate (ngSubmit)="onSubmit()">
+                    <ion-item>
+                        <ion-label position="floating">SubCategory Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="subcategoryName" name="subcategoryName" autofocus="true" type="text"></ion-input>
+                    </ion-item>
 
-            <div class="ion-margin-top">
-                <ion-row>
-                    <ion-col size="4">
-                        <ion-button class="ion-activatable ripple-parent back_button" [disabled]="!addSubCategoriesForm.valid || updateButton" expand="block" type="submit">
-                            Save
-                            <ion-ripple-effect type="bounded"></ion-ripple-effect>
-                        </ion-button>
-                    </ion-col>
+                    <ion-item>
+                        <ion-label position="floating">SubCategory Description<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                        <ion-input formControlName="subcategoryDescription" name="subcategoryDescription" type="text"></ion-input>
+                    </ion-item>
 
-                    <ion-col size="4">
-                        <ion-button type="submit" class="ion-activatable ripple-parent back_button" [disabled]="!addSubCategoriesForm.valid || !updateButton" expand="block">
-                            Update
-                            <ion-ripple-effect type="bounded"></ion-ripple-effect>
-                        </ion-button>
-                    </ion-col>
-                </ion-row>
-            </div>
-        </form>
+                    <div class="ion-margin-top">
+                        <ion-row>
+                            <ion-col size="4">
+                                <ion-button class="ion-activatable ripple-parent save-button" [disabled]="!addSubCategoriesForm.valid || updateButton" expand="block" type="submit">
+                                    Save
+                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size="4">
+                                <ion-button type="submit" class="ion-activatable ripple-parent update-button" [disabled]="!addSubCategoriesForm.valid || !updateButton" expand="block">
+                                    Update
+                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </form>
+            </ion-card-content>
+        </ion-card>
     </div>
     <app-admin-footer></app-admin-footer>
 </ion-content>

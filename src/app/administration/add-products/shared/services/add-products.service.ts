@@ -27,24 +27,24 @@ export class AddProductsService {
   constructor(private http: HttpClient) {}
 
   uploadFile(data) {
-    const uploadURL = `${this. serverUrl}/uploadImg.php`;
+    const uploadURL = `${this. serverUrl}upload-get-images/product-images.php`;
     return this.http.post(uploadURL, data, {responseType: 'text' });
   }
 
   getImages(): Promise< UploadedImages[] > {
-    const uploadURL = `http://localhost/origin/src/entity/getImages.php`;
+    const uploadURL = `${this. serverUrl}upload-get-images/product-images.php`;
     return this.http.get < UploadedImages[] >(uploadURL).toPromise();
    }
 
 
-  deleteImage(formData) {
-    return this.http
-      .post<any>(this.serverUrl + 'postproduct.php', formData)
-      .toPromise();
+  deleteImage(data) {
+    const uploadURL = `${this. serverUrl}upload-get-images/product-images.php`;
+    return this.http.delete<any>(`uploadURL/?imageName=` + data).toPromise();
   }
 
   saveProduct(formData) {
-    return this.http.post(this.serverUrl + 'postproduct.php', formData, {responseType: 'text' })
-      .toPromise();
+   const uploadURL = `${this. serverUrl}admin/products/products.php`;
+   return this.http.post(uploadURL, formData, {responseType: 'text' })
+   .toPromise();
   }
 }

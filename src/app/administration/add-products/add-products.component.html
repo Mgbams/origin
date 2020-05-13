@@ -20,19 +20,13 @@
 
                     <ion-item>
                         <ion-label position="floating">Product Number<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="productNumber" name="productNumber" type="number"></ion-input>
+                        <ion-input formControlName="productNumber" name="productNumber" type="text"></ion-input>
                     </ion-item>
 
                     <ion-item>
                         <ion-label position="floating">Selling Price<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                         <ion-input formControlName="sellingPrice" name="sellingPrice" type="number" min="1"></ion-input>
                     </ion-item>
-
-                    <ion-item>
-                        <ion-label position="stacked">Unit Price<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="unitPrice" name="unitPrice" type="text"></ion-input>
-                    </ion-item>
-
 
                     <ion-item>
                         <ion-label position="stacked">Cost Price<sup><ion-text color="danger">*</ion-text></sup></ion-label>
@@ -43,42 +37,6 @@
                         <ion-label position="floating">Product Quantity<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                         <ion-input formControlName="productQty" name="productQty" type="number" min="1"></ion-input>
                     </ion-item>
-
-                    <ion-row>
-                        <ion-col size="4">
-                            <ion-item>
-                                <ion-label position="floating">Category</ion-label>
-                                <ion-select formControlName="productCategory" name="productCategory" (ionChange)="changeHandler($event)">
-                                    <ion-select-option *ngFor="let category of productCategories; index as categoryId" [value]="category.category_id" selected>
-                                        {{ category.category_name }}
-                                    </ion-select-option>
-                                </ion-select>
-                            </ion-item>
-                        </ion-col>
-
-                        <ion-col size="4">
-                            <ion-item>
-                                <ion-label position="floating">SubCategory</ion-label>
-                                <ion-select formControlName="productSubCategory" name="productSubCategory" (ionChange)="changeHandler($event)">
-                                    <ion-select-option *ngFor="let subCategory of subCategories; index as subCategoryId" [value]=" subCategory.subcategory_id" selected>
-                                        {{ subCategory.subcategory_name}}
-                                    </ion-select-option>
-                                </ion-select>
-                            </ion-item>
-                        </ion-col>
-
-                        <ion-col size="4">
-                            <ion-item>
-                                <ion-label position="floating">Supplier</ion-label>
-                                <ion-select formControlName="productSupplier" name="productSupplier" (ionChange)="changeHandler($event)">
-                                    <ion-select-option *ngFor="let supplier of productSuppliers; index as supplierId" [value]="supplier.supplier_id" selected>
-                                        {{ supplier.company_name }}
-                                    </ion-select-option>
-                                </ion-select>
-                            </ion-item>
-                        </ion-col>
-                    </ion-row>
-
 
                     <ion-item>
                         <ion-label position="floating">Product Discount<sup><ion-text color="danger">*</ion-text></sup></ion-label>
@@ -91,16 +49,12 @@
                     </ion-item>
 
                     <ion-item-group>
-                        <ion-item-divider class="ion-margin-top">
-                            <ion-label>Upload product images and add colors</ion-label>
-                        </ion-item-divider>
-
                         <div class="form-group">
                             <div class="upload-image">
                                 <div *ngIf="uploadResponse">
                                     <div class="product-images-wrapper">
                                         <div *ngFor="let upload of imageArr; index as imageID" class="displayed-image">
-                                            <img [src]="'http://localhost/origin/uploadedPhotos/' + upload" width="40px" />
+                                            <img [src]="'http://localhost/origin/src/public/images/' + upload" width="40px" />
                                         </div>
                                     </div>
                                 </div>
@@ -124,6 +78,41 @@
                             <ion-input formControlName="sizes" name="sizes" type="text"></ion-input>
                         </ion-item>
                     </ion-item-group>
+
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-item>
+                                <ion-label position="floating">Category</ion-label>
+                                <ion-select formControlName="productCategory" name="productCategory">
+                                    <ion-select-option *ngFor="let category of productCategories; index as categoryId" [value]="category.category_id" selected>
+                                        {{ category.category_name }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+
+                        <ion-col size="4">
+                            <ion-item>
+                                <ion-label position="floating">SubCategory</ion-label>
+                                <ion-select formControlName="productSubCategory" name="productSubCategory">
+                                    <ion-select-option *ngFor="let subCategory of subCategories; index as subCategoryId" [value]=" subCategory.subcategory_id" selected>
+                                        {{ subCategory.subcategory_name}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+
+                        <ion-col size="4">
+                            <ion-item>
+                                <ion-label position="floating">Supplier</ion-label>
+                                <ion-select formControlName="productSupplier" name="productSupplier">
+                                    <ion-select-option *ngFor="let supplier of productSuppliers; index as supplierId" [value]="supplier.supplier_id" selected>
+                                        {{ supplier.company_name }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
 
                     <ion-item>
                         <ion-label>Promo</ion-label>
