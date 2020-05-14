@@ -104,24 +104,25 @@
                 <ion-grid>
                     <ion-row>
                         <ion-col size="3" *ngFor="let product of products; index as productId">
-                            <ion-card>
-                                <ion-card-header>
-                                    <img class="featuredProductsImages" [src]="product.product_images" />
+                            <div class="displayed-image">
+                                <ion-card>
+                                    <ion-card-header>
+                                        <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + imageArrays[productId][0]" />
+                                        <ion-card-title>
+                                            <h3>
+                                                {{ product.product_name }}
+                                            </h3>
+                                        </ion-card-title>
+                                    </ion-card-header>
 
-                                    <ion-card-title>
-                                        <h3>
-                                            {{ product.product_name }}
-                                        </h3>
-                                    </ion-card-title>
-                                </ion-card-header>
-
-                                <ion-card-content>
-                                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
-                                        Details
-                                        <ion-ripple-effect></ion-ripple-effect>
-                                    </ion-button>
-                                </ion-card-content>
-                            </ion-card>
+                                    <ion-card-content>
+                                        <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                                            Details
+                                            <ion-ripple-effect></ion-ripple-effect>
+                                        </ion-button>
+                                    </ion-card-content>
+                                </ion-card>
+                            </div>
                         </ion-col>
                     </ion-row>
                 </ion-grid>
@@ -190,13 +191,18 @@
                     <h2 class="ion-text-center">LATEST ARRIVALS</h2>
                 </ion-row>
 
+                <div class="swipeButton">
+                    <button type="submit" class="swiper-button-prev swiper-button-blue" (click)="prev()"></button>
+                    <button type="submit" class="swiper-button-next swiper-button-blue" (click)="next()"></button>
+                </div>
+
                 <ion-row>
                     <ion-slides #slides3 pager="true" class="thirdSlide" [options]="thirdSlideOpts">
-                        <ion-slide class="thirdSlide-slide" *ngFor="let product of products; index as productId">
+                        <ion-slide class="thirdSlide-slide" *ngFor="let product of latestArrivals; index as productId">
                             <div class="slide-page-one">
                                 <div>
                                     <div>
-                                        <img class="featuredProductsImages" [src]="product.product_images" />
+                                        <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + latestArrivalsImageArrays[productId][0] " />
                                     </div>
 
                                     <div>
@@ -214,11 +220,6 @@
                                 </div>
                             </div>
                         </ion-slide>
-                        <div class="swipeButton">
-                            <button type="submit" class="swiper-button-prev swiper-button-blue" (click)="prev()"></button>
-                            <button type="submit" class="swiper-button-next swiper-button-blue" (click)="next()"></button>
-                        </div>
-
                     </ion-slides>
                 </ion-row>
                 <ion-row>

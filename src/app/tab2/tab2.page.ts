@@ -14,6 +14,7 @@ export class Tab2Page implements OnInit  {
   public totalPages;
     // attributes needed for pagination ends here
   public products: AllProducts[] = [];
+  public productImageArrays = [];
 
   constructor(private shopService: ShopService) {}
 
@@ -26,7 +27,11 @@ export class Tab2Page implements OnInit  {
         .getAllProducts()
         .then((data: AllProducts[]) => {
         this.products = data;
-        console.log('Display featuredproducts', this.products);
+        for (let i = 0; i < this.products.length; i++) {
+          const slicedArray = this.products[i].image.split(',');
+          this.productImageArrays.push(slicedArray);
+        }
+        console.log('AllProducts Image Arrays---', this.productImageArrays);
         this.totalPages = this.products.length; // to be changed later
         console.log('total pages', this.totalPages);
         // totalPages = Math.ceil(this.products.length / resultsCount)

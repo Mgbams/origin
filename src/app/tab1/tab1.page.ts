@@ -1,7 +1,7 @@
+import { LatestArrivalsService } from './../shared/services/latest-arrivals.service';
 import { FeaturedProductsService } from './../shared/services/featured-products.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-// import { products } from './../../products';
 import { AllProducts } from './../shared/models/allProducts';
 
 @Component({
@@ -11,13 +11,21 @@ import { AllProducts } from './../shared/models/allProducts';
 })
 export class Tab1Page implements OnInit {
   public products: AllProducts[] = [];
+  public latestArrivals: AllProducts[] = [];
+
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
   @ViewChild('slides3', {static: false}) slides3: IonSlides;
   slideOpts: any;
   secondSlideOpts: any;
   thirdSlideOpts: any;
-  constructor(private featuredProductsService: FeaturedProductsService) {
+  imageArrays = [];
+  latestArrivalsImageArrays = [];
+
+  constructor(
+    private featuredProductsService: FeaturedProductsService,
+    private latestArrivalsService: LatestArrivalsService
+    ) {
     this.slideOpts = {
       initialSlide: 0,
       slidesPerView: 1,
@@ -47,15 +55,16 @@ export class Tab1Page implements OnInit {
   }
 
   next() {
-    this.slides.slideNext();
+    this.slides3.slideNext();
   }
 
   prev() {
-    this.slides.slidePrev();
+    this.slides3.slidePrev();
   }
 
   ngOnInit() {
     this.getFeaturedProducts();
+    this.getLatestArrivedProducts();
   }
 
 
@@ -64,6 +73,12 @@ export class Tab1Page implements OnInit {
         .getFeaturedProducts()
         .then((data: AllProducts[]) => {
         this.products = data;
+
+        for (let i = 0; i < this.products.length; i++) {
+          const slicedArray = this.products[i].image.split(',');
+          this.imageArrays.push(slicedArray);
+        }
+        console.log('featuredImage Array', this.imageArrays);
         console.log('Display featuredproducts', this.products);
     })
       .catch((error) => {
@@ -71,8 +86,22 @@ export class Tab1Page implements OnInit {
     });
   }
 
-  filterProductDetails() {
+  getLatestArrivedProducts() {
+    this.latestArrivalsService
+        .getLatestProducts()
+        .then((data: AllProducts[]) => {
+        this.latestArrivals = data;
 
+        for (let i = 0; i < this.latestArrivals.length; i++) {
+          const slicedArray = this.latestArrivals[i].image.split(',');
+          this.latestArrivalsImageArrays.push(slicedArray);
+        }
+        console.log('latestArrivals Array', this.latestArrivalsImageArrays);
+        console.log('Display featuredproducts', this.latestArrivals);
+    })
+      .catch((error) => {
+        console.log(error);
+    });
   }
 
 }

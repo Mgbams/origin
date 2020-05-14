@@ -1,4 +1,4 @@
-export interface AllProducts {
+/* export interface AllProducts {
     id: number;
     product_no: string;
     product_name: string;
@@ -18,49 +18,45 @@ export interface AllProducts {
     reorder_level: number;
     product_available: boolean;
     unit_price: number;
-}
+} */
 
-
-
-/*
 export interface AllProducts {
-    product_id: number;
-    product_no: string;
-    product_name: string;
-    product_description: string;
-    product_price: number;
-    product_discount: number;
-    product_featured: boolean;
-    product_sizes: string;
-    product_colors: string;
-    units_in_stock: number;
-    product_promo: boolean;
-    category_id: number;
-    supplier_id: number;
-    cost_price: number;
     available: number;
-    units_on_order: number;
-    reorder_level: number;
-    unit_price: number;
-    image_id: number;
-    supplier_id: number;
+    category_description: string;
+    category_id: number;
+    category_name: string;
+    city: string;
+    company_address: string;
     company_name: string;
     contact_fname: string;
     contact_lname: string;
     contact_title: string;
-    contact_address: string;
-    city: string;
-    postal_code: string;
+    cost_price: number;
     country: string;
-    phone: string;
-    email: string;
     customer_id: number;
-    category_id: number;
-    category_name: string;
-    category_description: string;
-    image_id: number;
+    email: string;
     image: string;
+    image_id: number;
+    phone: string;
+    postal_code: string;
+    product_colors: string;
+    product_description: string;
+    product_discount: number;
+    product_featured: boolean;
+    product_id: number;
+    product_name: string;
+    product_no: string;
+    product_price: number;
+    product_promo: boolean;
+    product_sizes: string;
+    reorder_level: number;
+    subcategory_description: string;
     subcategory_id: number;
-}
+    subcategory_name: string;
+    supplier_id: number;
+    toggle: boolean;
+    unit_price: number;
+    units_in_stock: number;
+    units_on_order: number;
 
-*/
+}
