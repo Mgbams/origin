@@ -7,20 +7,13 @@ import { Category } from './../models/category';
   providedIn: 'root'
 })
 export class AddCategoriesService {
-  serverUrl = 'http://localhost/origin/src/application/controllers/';
+  // serverUrl = 'http://localhost/origin/src/application/controllers/';
+  private baseUrl = 'http://localhost/origin/src/application/controllers/admin/';
 
   constructor(private http: HttpClient) { }
 
   addCategory (category) {
-    return this.http.post(this.serverUrl + 'categories.php', category, {responseType: 'text' }).toPromise();
+   // return this.http.post(this.serverUrl + 'categories.php', category, {responseType: 'text' }).toPromise();
+    return this.http.post(`${this.baseUrl}category/category.php`, category, {responseType: 'text' }).toPromise();
   }
 }
-
-/* const httpOptions = {
-    headers: new HttpHeaders({
-//  'Accept': 'text/plain, * / *',
-// 'Content-Type': 'application/json'
-// }),
-// responseType: 'text' as 'json' // we accept plain text as response
- // }
-*/

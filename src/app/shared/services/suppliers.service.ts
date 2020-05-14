@@ -6,15 +6,15 @@ import { Suppliers } from './../models/suppliers';
   providedIn: 'root'
 })
 export class SuppliersService {
-  serverUrl = 'http://localhost/origin/src/application/controllers/suppliers/';
+  private baseUrl = 'http://localhost/origin/src/application/controllers/';
 
   constructor(private http: HttpClient) { }
 
   getSuppliers(): Promise< Suppliers[] > {
-    return this.http.get < Suppliers[] >(this.serverUrl + 'getsuppliers.php').toPromise();
+   return this.http.get < Suppliers[] >(`${this.baseUrl}get-all-suppliers/get-all-suppliers.php`).toPromise();
    }
 
    addSupplier (supplier) {
-    return this.http.post(this.serverUrl + 'postsupplier.php', supplier, {responseType: 'text' }).toPromise();
+    return this.http.post (`${this.baseUrl}admin/suppliers/suppliers.php`, supplier, {responseType: 'text' }).toPromise();
   }
 }

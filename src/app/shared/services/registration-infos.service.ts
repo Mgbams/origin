@@ -10,7 +10,8 @@ export class RegistrationInfosService {
   public accountSetUpAccess = false;
   public contactInfoAccess  = false;
   public completedRegistrationAccess = false;
-  serverUrl = 'http://localhost/origin/src/application/controllers/';
+
+  private baseUrl = 'http://localhost/origin/src/application/controllers/registration/registration.php';
 
   constructor(private http: HttpClient) { }
 
@@ -23,9 +24,7 @@ export class RegistrationInfosService {
   }
 
   public sendtToDatabase(data) {
-   return this.http
-              .post(this.serverUrl + 'user-registration.php', data, {responseType: 'text'})
-              .toPromise();
+   return this.http.post(`${this.baseUrl}`, data, {responseType: 'text'}).toPromise();
    }
 
   getCustomerInfo() {

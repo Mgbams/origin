@@ -7,64 +7,60 @@ import { Customers } from './../models/customers';
   providedIn: 'root'
 })
 export class AdminService {
-  serverUrl = 'http://localhost/origin/src/entity/';
-  secondUrl = 'http://localhost/origin/src/application/controllers/suppliers/';
+  private baseUrl = 'http://localhost/origin/src/application/controllers/admin/';
 
   constructor(private http: HttpClient) { }
 
   getCustomers(): Promise< Customers[] > {
-    return this.http.get < Customers[] >(this.serverUrl + 'getCustomers.php').toPromise();
+    return this.http.get < Customers[] >(`${this.baseUrl}customers/customers.php`).toPromise();
    }
 
    deleteCustomerById(data) {
-    return this.http.delete(`${this.serverUrl}getCustomers.php/?id=` + data ).toPromise();
+    return this.http.delete(`${this.baseUrl}customers/customers.php/?id=` + data ).toPromise();
    }
 
   getCategoryById(data) {
-    // const datas = JSON.stringify({id: data});
-    return this.http.get(`${this.serverUrl}admin/getCategoryById.php/?id=` + data ).toPromise();
+    return this.http.get(`${this.baseUrl}category/category.php/?id=` + data ).toPromise();
    }
 
 
   deleteCategoryById(data) {
-    // const datas = JSON.stringify({id: data});
-    return this.http.delete(`${this.serverUrl}admin/deleteCategoryById.php/?id=` + data ).toPromise();
+    return this.http.delete(`${this.baseUrl}category/category.php/?id=` + data ).toPromise();
    }
 
    updateCategory(category) {
-    return this.http.put(`${this.serverUrl}admin/category-update.php`, category, {responseType: 'text'}).toPromise();
+   return this.http.put(`${this.baseUrl}category/category.php`, category, {responseType: 'text'}).toPromise();
   }
 
    /* For supplier */
 
    getSupplierById(data) {
-    return this.http.get(`${this.serverUrl}admin/getSupplierById.php/?id=` + data ).toPromise();
+    return this.http.get(`${this.baseUrl}suppliers/suppliers.php/?id=` + data ).toPromise();
    }
 
    updateSupplier(supplier) {
-    return this.http.put(`${this.secondUrl}getsuppliers.php`, supplier, {responseType: 'text'}).toPromise();
+    return this.http.put(`${this.baseUrl}suppliers/suppliers.php`, supplier, {responseType: 'text'}).toPromise();
   }
 
   deleteSupplierById(data) {
-    // const datas = JSON.stringify({id: data});
-    return this.http.delete(`${this.secondUrl}getsuppliers.php/?id=` + data ).toPromise();
+    return this.http.delete(`${this.baseUrl}suppliers/suppliers.php/?id=` + data ).toPromise();
    }
 
 
     /* For SubCategory */
 
    getSubCategoryById(data) {
-    return this.http.get(`${this.serverUrl}admin/getSubCategoryById.php/?id=` + data ).toPromise();
+    return this.http.get(`${this.baseUrl}subcategories/subcategories.php/?id=` + data ).toPromise();
    }
 
 
   deleteSubCategoryById(data) {
-    return this.http.delete(`${this.serverUrl}admin/deleteSubCategoryById.php/?id=` + data ).toPromise();
+    return this.http.delete(`${this.baseUrl}subcategories/subcategories.php/?id=` + data ).toPromise();
    }
 
 
    updateSubCategory(subCategory) {
-    return this.http.put('http://localhost/origin/src/entity/admin/sub-category-update.php', subCategory, {responseType: 'text' }).toPromise();
+    return this.http.put(`${this.baseUrl}subcategories/subcategories.php`, subCategory, {responseType: 'text' }).toPromise();
   }
 
 }
