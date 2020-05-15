@@ -17,7 +17,7 @@
                     <ion-icon slot="end" class="down-arrow" name="add-outline" [hidden]="!item.toggle"></ion-icon>
                     <ion-icon slot="end" class="up-arrow" name="remove-outline" [hidden]="item.toggle"></ion-icon>
                     <ion-label>
-                        {{item.category_name | uppercase}}
+                        <a class="accordion-link" [routerLink]="[item.category_name]">{{item.category_name | uppercase}}</a>
                     </ion-label>
                 </ion-item>
 
@@ -27,7 +27,7 @@
                         <ion-list *ngFor="let child of subCategories; let j = index;" lines="none" class="child-list">
                             <ion-item tappable>
                                 <ion-label>
-                                    <a class="accordion-link">{{child.subcategory_name}}</a>
+                                    <a class="accordion-link" [routerLink]="[item.category_name + '/' + child.subcategory_name]">{{child.subcategory_name}}</a>
                                 </ion-label>
                             </ion-item>
 

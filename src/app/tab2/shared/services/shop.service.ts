@@ -13,7 +13,5 @@ export class ShopService {
 
   public getAllProducts(): Promise< AllProducts[] > {
    return this.http.get < AllProducts[] >(`${this.baseUrl}`).toPromise();
-
-    // return this.http.get < AllProducts[] >(`http://localhost/origin/src/entity/allproducts.php`).toPromise();
    }
 }
