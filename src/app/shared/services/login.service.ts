@@ -11,14 +11,15 @@ export class LoginService {
   public redirectUrl: string;
   public user: Users;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
-  private serverUrl = 'http://localhost/origin/src/entity/';
+  private baseUrl = 'http://localhost/origin/src/application/controllers/login/login.php';
+  // private serverUrl = 'http://localhost/origin/src/entity/';
   // private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false'); // for session
   private loggedInStatus = false;
   constructor(private http: HttpClient) {}
 
   public userlogin(formdata) {
     return this.http
-      .post(this.serverUrl + 'login.php', formdata)
+      .post(`${this.baseUrl}`, formdata)
       .pipe(
         // tslint:disable-next-line: no-shadowed-variable
         map(Users => {

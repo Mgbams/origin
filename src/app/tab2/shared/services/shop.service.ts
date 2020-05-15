@@ -6,12 +6,13 @@ import { AllProducts } from './../../../shared/models/allProducts';
   providedIn: 'root'
 })
 export class ShopService {
-  private baseUrl = 'http://localhost/origin/src/application/controllers/';
+  private baseUrl = 'http://localhost/origin/src/application/controllers/get-all-products/get-all-products.php';
 
   constructor(private http: HttpClient) { }
 
   public getAllProducts(): Promise< AllProducts[] > {
-   // return this.http.get(`${this.baseUrl}get-all-products/get-all-products.php`).toPromise();
-    return this.http.get < AllProducts[] >(`http://localhost/origin/src/entity/allproducts.php`).toPromise();
+   return this.http.get < AllProducts[] >(`${this.baseUrl}`).toPromise();
+
+    // return this.http.get < AllProducts[] >(`http://localhost/origin/src/entity/allproducts.php`).toPromise();
    }
 }

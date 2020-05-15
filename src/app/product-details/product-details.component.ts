@@ -1,3 +1,4 @@
+import { ShopService } from './../tab2/shared/services/shop.service';
 import { FeaturedProductsService } from './../shared/services/featured-products.service';
 import { CartService } from './../shared/services/cart.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -5,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AllProducts } from './../shared/models/allProducts';
 import { IonSlides, ToastController } from '@ionic/angular';
+import {  ProductsYouMayLikeService } from './shared/services/products-you-may-like.service';
 
 
 @Component({
@@ -15,6 +17,9 @@ import { IonSlides, ToastController } from '@ionic/angular';
 export class ProductDetailsComponent implements OnInit {
   public product;
   public productDetails: AllProducts[] = [];
+  public imageArrays = [];
+  public listsOfSuggestedProducts: AllProducts[] = [];
+  public SuggestedProductsImageArrays = []; // Stores suggested products images
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
   slideOpts: any;
@@ -23,7 +28,9 @@ export class ProductDetailsComponent implements OnInit {
     private toastController: ToastController,
     private route: ActivatedRoute,
     private cartService: CartService,
-    private featuredProductsService: FeaturedProductsService
+    private featuredProductsService: FeaturedProductsService,
+    private shopService: ShopService,
+    private productsYouMayLikeService: ProductsYouMayLikeService
     ) {
       this.slideOpts = {
         initialSlide: 0,
@@ -33,13 +40,20 @@ export class ProductDetailsComponent implements OnInit {
 
       this.secondSlideOpts = {
         initialSlide: 0,
-        slidesPerView: 3,
-        speed: 1000
+        slidesPerView: 4,
+        speed: 1000,
+        spaceBetween: 10
       };
      }
 
   ngOnInit() {
-    this.getFeaturedProducts();
+    this.route.paramMap.subscribe(params => {
+      const productId = +params.get('productId');
+      if (productId) {
+        this.getProductDetails(productId);
+      }
+    });
+   
   }
 
   slidesDidLoad(slides: IonSlides) {
@@ -50,22 +64,37 @@ export class ProductDetailsComponent implements OnInit {
     this.slides2.startAutoplay();
   }
 
-  getFeaturedProducts() {
-    this.featuredProductsService
-        .getFeaturedProducts()
+  getProductDetails(productId) {
+    this.shopService
+        .getAllProducts()
         .then((data: AllProducts[]) => {
-        this.productDetails = data;
-        if (this.route.paramMap) {
-          this.route.paramMap.subscribe(params => {
-          this.product = this.productDetails[Number(params.get('productId'))];
-          });
-        }
-       // console.log('productDetails', this.productDetails);
-       // console.log(this.product);
+          this.productDetails = data;
+          this.product = this.productDetails[productId];
+          this.getProductsYouMayLike(this.product.category_name, this.product.subcategory_name);
+          console.log('The product id is ', productId);
+          const slicedArray = this.product.image.split(',');
+          this.imageArrays.push(slicedArray);
+          console.log('productDetails image arrays', this.imageArrays);
     })
-      .catch((error) => {
+        .catch((error) => {
         console.log(error);
-    });
+      });
+  }
+
+
+  getProductsYouMayLike(categoryName, subcategoryName) {
+    this.productsYouMayLikeService
+            .getSuggestedProducts(categoryName, subcategoryName)
+            .then((data: AllProducts[]) => {
+              this.listsOfSuggestedProducts = data;
+              for (let i = 0; i < this.listsOfSuggestedProducts.length; i++) {
+                const slicedArray = this.listsOfSuggestedProducts[i].image.split(',');
+                this.SuggestedProductsImageArrays.push(slicedArray);
+              }
+            })
+            .catch(error => {
+              console.log(error);
+            });
   }
   
   addToCart(product) {

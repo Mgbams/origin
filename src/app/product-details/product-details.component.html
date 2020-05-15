@@ -57,26 +57,22 @@
     <!-- Up is for skeleton-->
 
     <div *ngIf="product">
-        <ion-slides #slides class="firstSlide" pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesDidLoad(slider)" loop="true">
+        <ion-slides #slides *ngFor="let image of imageArrays" class="firstSlide" pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesDidLoad(slider)" loop="true">
             <ion-slide>
-                <div class="slide-page-one ">
-                    <img [src]="product.product_images" [alt]="product.product_name" />
+                <div class="slide-page-one">
+                    <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + image[0]" />
                 </div>
-
+            </ion-slide>
+            <ion-slide>
+                <div class="slide-page-one">
+                    <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + image[1]" />
+                </div>
             </ion-slide>
 
             <ion-slide>
-                <div class="slide-page-two ">
-                    <img [src]="product.product_images" [alt]="product.product_name" />
+                <div class="slide-page-one">
+                    <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + image[2]" />
                 </div>
-            </ion-slide>
-
-
-            <ion-slide>
-                <div class="slide-page-two ">
-                    <img [src]="product.product_images" [alt]="product.product_name" />
-                </div>
-
             </ion-slide>
 
         </ion-slides>
@@ -104,26 +100,25 @@
         <div class="suggestedProductsSection">
             <h3 class="ion-text-center">PRODUCTS YOU MIGHT LIKE</h3>
             <ion-slides #slides2 pager="true" class="sliderBelow" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
-                <ion-slide class="secondSlide" *ngFor="let product of productDetails; index as productId">
+                <ion-slide class="secondSlide" *ngFor="let product of listsOfSuggestedProducts; index as productId">
                     <div class="suggested_products">
-                        <ion-card>
-                            <ion-card-header>
-                                <img class="suggestedProductsImages" [src]="product.product_images" [alt]="product.product_name" />
-
-                                <ion-card-title>
+                        <div>
+                            <div>
+                                <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + SuggestedProductsImageArrays[productId][0]" />
+                                <div>
                                     <h3>
                                         {{ product.product_name }}
                                     </h3>
-                                </ion-card-title>
-                            </ion-card-header>
+                                </div>
+                            </div>
 
-                            <ion-card-content>
+                            <div>
                                 <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
                                     Details
                                     <ion-ripple-effect></ion-ripple-effect>
                                 </ion-button>
-                            </ion-card-content>
-                        </ion-card>
+                            </div>
+                        </div>
                     </div>
 
                 </ion-slide>
