@@ -113,7 +113,7 @@
                             </div>
 
                             <div>
-                                <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                                <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]" (click)="toggleProductsYouMayLikeDetails()">
                                     Details
                                     <ion-ripple-effect></ion-ripple-effect>
                                 </ion-button>

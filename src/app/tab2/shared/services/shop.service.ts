@@ -7,7 +7,8 @@ import { AllProducts } from './../../../shared/models/allProducts';
 })
 export class ShopService {
   private baseUrl = 'http://localhost/origin/src/application/controllers/get-all-products/get-all-products.php';
-
+  public featuredProductsToggled = false;
+  public latestArrivalsToggled  = false;
   constructor(private http: HttpClient) { }
 
   public getAllProducts(): Promise< AllProducts[] > {

@@ -31,7 +31,6 @@ export class Tab2Page implements OnInit  {
           const slicedArray = this.products[i].image.split(',');
           this.productImageArrays.push(slicedArray);
         }
-        console.log('AllProducts Image Arrays---', this.productImageArrays);
         this.totalPages = this.products.length; // to be changed later
         console.log('total pages', this.totalPages);
         // totalPages = Math.ceil(this.products.length / resultsCount)

@@ -1,3 +1,4 @@
+import { LatestArrivalsService } from './../shared/services/latest-arrivals.service';
 import { ShopService } from './../tab2/shared/services/shop.service';
 import { FeaturedProductsService } from './../shared/services/featured-products.service';
 import { CartService } from './../shared/services/cart.service';
@@ -20,6 +21,7 @@ export class ProductDetailsComponent implements OnInit {
   public imageArrays = [];
   public listsOfSuggestedProducts: AllProducts[] = [];
   public SuggestedProductsImageArrays = []; // Stores suggested products images
+  private productsSuggestedToggler = false; // Used to detect when details button of suggested products is clicked
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
   slideOpts: any;
@@ -30,7 +32,8 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService,
     private featuredProductsService: FeaturedProductsService,
     private shopService: ShopService,
-    private productsYouMayLikeService: ProductsYouMayLikeService
+    private productsYouMayLikeService: ProductsYouMayLikeService,
+    private latestArrivalsService: LatestArrivalsService
     ) {
       this.slideOpts = {
         initialSlide: 0,
@@ -49,11 +52,26 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const productId = +params.get('productId');
-      if (productId) {
+      if (this.shopService.featuredProductsToggled === true && 
+        this.shopService.latestArrivalsToggled === false && this.productsSuggestedToggler === false && 
+        productId) {
+        this.getFeaturedProductDetails(productId);
+      } else if (this.shopService.featuredProductsToggled === false && 
+        this.shopService.latestArrivalsToggled === false && this.productsSuggestedToggler === false && 
+        productId ){
         this.getProductDetails(productId);
+      } else if (this.shopService.latestArrivalsToggled === true && 
+        this.shopService.featuredProductsToggled === false && this.productsSuggestedToggler === false && 
+        productId ) {
+        this.getLatestArrivalsDetails(productId);
+      } else if (this.productsSuggestedToggler === true && 
+        this.shopService.featuredProductsToggled === false && 
+        this.shopService.latestArrivalsToggled === false && productId ) {
+        this.getSuggestedProductDetail(productId);
       }
     });
-   
+    console.log('featuredtoggle', this.shopService.featuredProductsToggled);
+    console.log('arrivals toggled', this.shopService.latestArrivalsToggled);
   }
 
   slidesDidLoad(slides: IonSlides) {
@@ -72,6 +90,7 @@ export class ProductDetailsComponent implements OnInit {
           this.product = this.productDetails[productId];
           this.getProductsYouMayLike(this.product.category_name, this.product.subcategory_name);
           console.log('The product id is ', productId);
+          console.log('this is the product to display', this.product);
           const slicedArray = this.product.image.split(',');
           this.imageArrays.push(slicedArray);
           console.log('productDetails image arrays', this.imageArrays);
@@ -81,6 +100,54 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
+  getFeaturedProductDetails(productId) {
+    this.featuredProductsService
+        .getFeaturedProducts()
+        .then((data: AllProducts[]) => {
+          this.productDetails = data;
+          this.product = this.productDetails[productId];
+          this.getProductsYouMayLike(this.product.category_name, this.product.subcategory_name);
+          console.log('The product id is ', productId);
+          console.log('this is the featuredproduct to display', this.product);
+          const slicedArray = this.product.image.split(',');
+          this.imageArrays.push(slicedArray);
+          console.log('productDetails image arrays', this.imageArrays);
+          this.shopService.featuredProductsToggled = false;
+    })
+        .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  getLatestArrivalsDetails(productId) {
+    this.latestArrivalsService
+        .getLatestProducts()
+        .then((data: AllProducts[]) => {
+          this.productDetails = data;
+          this.product = this.productDetails[productId];
+          this.getProductsYouMayLike(this.product.category_name, this.product.subcategory_name);
+          console.log('The product id is ', productId);
+          console.log('this is the featuredproduct to display', this.product);
+          const slicedArray = this.product.image.split(',');
+          this.imageArrays.push(slicedArray);
+          console.log('productDetails image arrays', this.imageArrays);
+          this.shopService.latestArrivalsToggled = false;
+    })
+        .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  // Used to get details of products in the Products you might like section
+  getSuggestedProductDetail(productId) {
+      this.product = this.listsOfSuggestedProducts[productId];
+      const slicedArray = this.product.image.split(',');
+      console.log('okokokokokokok', this.product);
+      console.log('getting data from here', this.listsOfSuggestedProducts);
+      this.imageArrays.push(slicedArray);
+      this.getProductsYouMayLike(this.product.category_name, this.product.subcategory_name);
+      this.productsSuggestedToggler = false;
+  }
 
   getProductsYouMayLike(categoryName, subcategoryName) {
     this.productsYouMayLikeService
@@ -110,6 +177,10 @@ export class ProductDetailsComponent implements OnInit {
     toast.then((toastMessage) => {
       toastMessage.present();
     });
+  }
+
+  toggleProductsYouMayLikeDetails() {
+    this.productsSuggestedToggler = true;
   }
 
 }

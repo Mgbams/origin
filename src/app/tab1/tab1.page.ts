@@ -1,3 +1,4 @@
+import { ShopService } from './../tab2/shared/services/shop.service';
 import { LatestArrivalsService } from './../shared/services/latest-arrivals.service';
 import { FeaturedProductsService } from './../shared/services/featured-products.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -24,7 +25,8 @@ export class Tab1Page implements OnInit {
 
   constructor(
     private featuredProductsService: FeaturedProductsService,
-    private latestArrivalsService: LatestArrivalsService
+    private latestArrivalsService: LatestArrivalsService,
+    private shopService: ShopService
     ) {
     this.slideOpts = {
       initialSlide: 0,
@@ -73,7 +75,7 @@ export class Tab1Page implements OnInit {
         .getFeaturedProducts()
         .then((data: AllProducts[]) => {
         this.products = data;
-
+        this.imageArrays = [];
         for (let i = 0; i < this.products.length; i++) {
           const slicedArray = this.products[i].image.split(',');
           this.imageArrays.push(slicedArray);
@@ -91,7 +93,7 @@ export class Tab1Page implements OnInit {
         .getLatestProducts()
         .then((data: AllProducts[]) => {
         this.latestArrivals = data;
-
+        this.latestArrivalsImageArrays = [];
         for (let i = 0; i < this.latestArrivals.length; i++) {
           const slicedArray = this.latestArrivals[i].image.split(',');
           this.latestArrivalsImageArrays.push(slicedArray);
@@ -102,6 +104,14 @@ export class Tab1Page implements OnInit {
       .catch((error) => {
         console.log(error);
     });
+  }
+
+  toggleFeaturedProducts() {
+    this.shopService.featuredProductsToggled = true;
+  }
+
+  toggleLatestArrivals() {
+    this.shopService.latestArrivalsToggled = true;
   }
 
 }

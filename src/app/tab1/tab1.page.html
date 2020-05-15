@@ -116,7 +116,7 @@
                                     </ion-card-header>
 
                                     <ion-card-content>
-                                        <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                                        <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]" (click)="toggleFeaturedProducts()">
                                             Details
                                             <ion-ripple-effect></ion-ripple-effect>
                                         </ion-button>
@@ -213,7 +213,7 @@
                                 </div>
 
                                 <div>
-                                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]">
+                                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]" (click)="toggleLatestArrivals()">
                                         Details
                                         <ion-ripple-effect></ion-ripple-effect>
                                     </ion-button>
