@@ -81,10 +81,10 @@
             <ng-container>
                 <ion-card class="product_details_card">
                     <ion-card-content>
-                        <h3>{{ product.product_name }}</h3>
-                        <p>{{ product.product_price | currency }}</p>
-                        <p *ngIf="product.product_description">
-                            {{ product.product_description }}
+                        <h3>{{ product[0].product_name }}</h3>
+                        <p>{{ product[0].product_price | currency }}</p>
+                        <p *ngIf="product[0].product_description">
+                            {{ product[0].product_description }}
                         </p>
 
                         <ion-button class="ion-activatable ripple-parent" (click)="addToCart(product)">
@@ -113,7 +113,7 @@
                             </div>
 
                             <div>
-                                <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', productId]" (click)="toggleProductsYouMayLikeDetails()">
+                                <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', product.product_id]">
                                     Details
                                     <ion-ripple-effect></ion-ripple-effect>
                                 </ion-button>
