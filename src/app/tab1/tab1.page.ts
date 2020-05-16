@@ -1,3 +1,4 @@
+import { SoldesService } from './../soldes/shared/services/soldes.service';
 import { LatestArrivalsService } from './../shared/services/latest-arrivals.service';
 import { FeaturedProductsService } from './../shared/services/featured-products.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -12,6 +13,7 @@ import { AllProducts } from './../shared/models/allProducts';
 export class Tab1Page implements OnInit {
   public products: AllProducts[] = [];
   public latestArrivals: AllProducts[] = [];
+  public promoProduct;
 
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
@@ -21,10 +23,12 @@ export class Tab1Page implements OnInit {
   thirdSlideOpts: any;
   imageArrays = [];
   latestArrivalsImageArrays = [];
+  promoImageArrays = [];
 
   constructor(
     private featuredProductsService: FeaturedProductsService,
     private latestArrivalsService: LatestArrivalsService,
+    private soldesService: SoldesService
     ) {
     this.slideOpts = {
       initialSlide: 0,
@@ -65,6 +69,7 @@ export class Tab1Page implements OnInit {
   ngOnInit() {
     this.getFeaturedProducts();
     this.getLatestArrivedProducts();
+    this.getSinglePromoProduct();
   }
 
 
@@ -94,6 +99,21 @@ export class Tab1Page implements OnInit {
           const slicedArray = this.latestArrivals[i].image.split(',');
           this.latestArrivalsImageArrays.push(slicedArray);
         }
+    })
+      .catch((error) => {
+        console.log(error);
+    });
+  }
+
+  getSinglePromoProduct() {
+    this.soldesService
+        .getSingleSolde()
+        .then((data: AllProducts[]) => {
+        this.promoProduct = data;
+        console.log('single promo product', this.promoProduct);
+        const slicedArray = this.promoProduct[0].image.split(',');
+        this.promoImageArrays.push(slicedArray);
+        console.log('promo Image is', this.promoImageArrays);
     })
       .catch((error) => {
         console.log(error);

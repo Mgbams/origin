@@ -3,96 +3,77 @@
         <div class="home-page-container">
             <ion-slides #slides class="firstSlide" pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesDidLoad(slider)" loop="true">
                 <ion-slide>
-                    <div class="slide-page-one ">
+                    <div class="slide-page-one">
                         <img src="./../../assets/images/a1.png" />
                     </div>
-
                 </ion-slide>
 
                 <ion-slide>
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/a2.png" />
                     </div>
                 </ion-slide>
 
-
                 <ion-slide>
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/origin7.jpg" />
                     </div>
-
                 </ion-slide>
-
 
                 <ion-slide>
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/origin1.jpg" />
                     </div>
-
                 </ion-slide>
             </ion-slides>
-
-
 
             <ion-slides #slides2 pager="true" class="sliderBelow" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
                 <ion-slide class="secondSlide">
                     <div class="slide-page-one">
                         <img src="./../../assets/images/shoe1.jpg" />
                     </div>
-
                 </ion-slide>
 
                 <ion-slide class="secondSlide">
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/wallpaper1.jpg" />
                     </div>
                 </ion-slide>
 
-
                 <ion-slide class="secondSlide">
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/shoe2.jpg" />
                     </div>
-
                 </ion-slide>
 
-
                 <ion-slide class="secondSlide">
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/wallpaper2.jpg" />
                     </div>
-
                 </ion-slide>
 
-
                 <ion-slide class="secondSlide">
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/shoe3.jpg" />
                     </div>
-
                 </ion-slide>
 
-
                 <ion-slide class="secondSlide">
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/watch1.jpg" />
                     </div>
-
                 </ion-slide>
 
                 <ion-slide class="secondSlide">
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/shoe4.jpg" />
                     </div>
-
                 </ion-slide>
 
-
                 <ion-slide class="secondSlide">
-                    <div class="slide-page-two ">
+                    <div class="slide-page-two">
                         <img src="./../../assets/images/watch2.jpg" />
                     </div>
-
                 </ion-slide>
             </ion-slides>
 
@@ -225,26 +206,28 @@
                 <ion-row>
                     <div class="solde-container">
                         <div class="solde-texts">
-                            <h5> Discover Origin Soldes</h5>
+                            <h5>Discover Origin Soldes</h5>
                             <label class="ion-text-wrap">
-                                Extensive mind blowing offers that would put smile to your faces.
-                                Get yourself quality products at give away prices. Hurry!.
+                                Extensive mind blowing offers that would put smile to your
+                                faces. Get yourself quality products at give away prices.
+                                Hurry!.
                             </label>
-                            <ion-button class="ion-activatable ripple-parent">
+                            <ion-button class="ion-activatable ripple-parent" routerLink="/soldes">
                                 SHOP NOW
                                 <ion-ripple-effect></ion-ripple-effect>
                             </ion-button>
                         </div>
                         <div class="solde-design-box"></div>
                         <div class="outer-solde-image-container">
-                            <div class="inner-solde-image-container">
-                                1
+                            <div class="inner-solde-image-container" *ngIf="promoProduct">
+                                <div>
+                                    <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + promoImageArrays[0][0]" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </ion-row>
             </ion-grid>
-
         </div>
         <app-admin-footer></app-admin-footer>
     </ion-content>

@@ -1,3 +1,4 @@
+import { SoldesModule } from './soldes/soldes.module';
 import { EditSubcategoryModule } from './administration/edit-subcategory/edit-subcategory.module';
 import { AddSubcategoryModule } from './administration/add-subcategory/add-subcategory.module';
 import { EditSuppliersModule } from './administration/edit-suppliers/edit-suppliers.module';
@@ -76,6 +77,7 @@ import { WomenModule } from './women/women.module';
     SneakersModule,
     MenModule,
     WomenModule,
+    SoldesModule,
     AppRoutingModule
   ],
   providers: [
