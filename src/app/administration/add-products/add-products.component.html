@@ -124,11 +124,22 @@
                         <ion-checkbox formControlName="available" name="available"></ion-checkbox>
                     </ion-item>
 
-                    <div>
-                        <ion-button class="ion-activatable ripple-parent add-product-button" expand="block" type="submit" [disabled]="addProductForm.pristine || addProductForm.invalid">
-                            Add Product
-                            <ion-ripple-effect type="bounded"></ion-ripple-effect>
-                        </ion-button>
+                    <div class="ion-margin-top">
+                        <ion-row>
+                            <ion-col size="4">
+                                <ion-button class="ion-activatable ripple-parent save-button" [disabled]="!addProductForm.valid || updateButton" expand="block" type="submit">
+                                    Save
+                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size="4">
+                                <ion-button type="submit" class="ion-activatable ripple-parent update-button" [disabled]="!addProductForm.valid || !updateButton" expand="block">
+                                    Update
+                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
                     </div>
                 </form>
             </ion-card-content>

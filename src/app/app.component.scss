@@ -22,6 +22,7 @@ ion-item {
 .item-badge {
     background-color: brown;
     margin-left: 8px;
+    margin-top: 10px;
 }
 
 .signin-link {
@@ -92,14 +93,15 @@ ion-avatar {
 }
 
 // Accordion
-
 .cursorPointer {
     cursor: pointer;
 }
+
 .accordion-link {
     color: black;
     text-decoration: none;
 }
+
 .accordion-link:hover {
     color: black;
     text-decoration: underline;

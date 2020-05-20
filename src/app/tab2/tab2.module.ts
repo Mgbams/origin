@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    NgxPaginationModule,
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],

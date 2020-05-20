@@ -11,19 +11,19 @@
             </div>
             <div></div>
         </div>
-        <div class="addedProducts" *ngIf="productLists">
+        <div class="addedProducts" *ngIf="products">
 
-            <ion-card *ngFor="let product of productLists; index as productId">
+            <ion-card *ngFor="let product of products; index as productId">
                 <ion-card-content>
                     <div class="item_image">
-                        <img [src]="product.product_images" />
+                        <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + product[0].image.split(',').slice(0, 1)" />
                     </div>
 
                     <div class="info_div">
                         <div class="productinfo">
-                            <p class="product-name">{{ product.product_name }}</p>
+                            <p class="product-name">{{ product[0].product_name }}</p>
                             <p class="delete-container">
-                                <ion-button fill="clear" (click)="removeItem(i)">
+                                <ion-button fill="clear" (click)="removeItem(product)">
                                     <ion-icon class="deleteItem" name="close-outline"></ion-icon>
                                 </ion-button>
                             </p>
@@ -36,13 +36,13 @@
 
                         <div class="price-quantity-wrapper">
                             <div class="price">
-                                &euro; {{ product.product_price }}
+                                &euro; {{ product[0].product_price * product.units_on_order }}
                             </div>
                             <div class="quantity-add-sub">
                                 <ion-button fill="clear" (click)=" reduceQuantity(product, productId)">
                                     <ion-icon name="remove-outline"></ion-icon>
                                 </ion-button>
-                                <span class="quantity-container ion-text-center">{{  product.units_on_order }}</span>
+                                <span class="quantity-container ion-text-center">{{ product.units_on_order }}</span>
                                 <ion-button fill="clear" (click)=" increaseQuantity(product, productId)">
                                     <ion-icon name="add-outline"></ion-icon>
                                 </ion-button>
@@ -56,7 +56,7 @@
             <div class="cart_bottom">
                 <div>
                     <p>TOTAL</p>
-                    <p class="total-price">&euro; {{ total }}</p>
+                    <p class="total-price">&euro; {{ getTotal() }}</p>
                 </div>
                 <div>
                     <ion-button class="ion-activatable ripple-parent checkoutButton">
@@ -68,4 +68,5 @@
             </div>
         </div>
     </div>
+
 </ion-content>

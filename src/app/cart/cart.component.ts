@@ -1,6 +1,9 @@
+import { CartModalComponent } from './cart-modal/cart-modal.component';
 import { CartService } from './../shared/services/cart.service';
-import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { ToastController, ModalController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
+import { AllProducts } from './../shared/models/allProducts';
 
 @Component({
   selector: 'app-cart',
@@ -8,37 +11,63 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  public productLists;
-  public quantity = 1;
-  public total: number;
-
-  constructor( 
-    private toastController: ToastController,
-    private cartService: CartService
-    ) { }
-
+  public cart: AllProducts[] = [];
+  public products;
+  public cartItemCount: BehaviorSubject<number>;
+ 
+   // @ViewChild('cart', {static: false, read: ElementRef}) fab: ElementRef;
+ 
+  constructor(
+    private cartService: CartService,
+    private modalCtrl: ModalController,
+    private toastController: ToastController
+    ) {}
+ 
   ngOnInit() {
-    this.productLists = this.cartService.getProducts();
-    this.totalPrice();
+    this.products = this.cartService.getProducts();
+    this.cart = this.cartService.getCart();
+    this.cartItemCount = this.cartService.getCartItemCount();
+    console.log('this is my cart', this.cart);
+    // this.animateCSS('tada');
   }
 
-  totalPrice() {
-    if ( this.productLists.length > 0 ) {
-      this.productLists.forEach((item, index) => {
-      this.total = Number(( this.total + (item.units_on_order * item.unit_price)).toFixed(2));
-      console.log('total', this.total);
-      console.log('gained access when list is presesnt', this.total);
-      return this.total;
-      });
-    } else {
-      this.total = 0;
-      console.log('total for the else part', this.total);
-      return this.total;
+ /*  addToCart(product) {
+    this.cartService.addProduct(product);
+    this.animateCSS('tada');
+  } */
+
+  async openCart() {
+   // this.animateCSS('bounceOutLeft', true);
+
+    const modal = await this.modalCtrl.create({
+      component: CartModalComponent,
+      cssClass: 'cart-modal'
+    });
+   /*  modal.onWillDismiss().then(() => {
+      this.fab.nativeElement.classList.remove('animated', 'bounceOutLeft');
+      this.animateCSS('bounceInLeft');
+    }); */
+    modal.present();
+  }
+ 
+ /* animateCSS(animationName, keepAnimated = false) {
+    const node = this.fab.nativeElement;
+    node.classList.add('animated', animationName);
+    function handleAnimationEnd() {
+      if (!keepAnimated) {
+        node.classList.remove('animated', animationName);
+      }
+      node.removeEventListener('animationend', handleAnimationEnd);
     }
+    node.addEventListener('animationend', handleAnimationEnd);
+  }*/
+
+  getTotal() {
+    return this.cart.reduce((i, j) => i + j[0].product_price * j.units_on_order, 0);
   }
 
-  removeItem(index) {
-    this.productLists.splice(index, 1);
+  removeItem(product) {
+    this.cartService.removeProduct(product);
     // Creating a toast that displays a message when the product is added to the cart
     const toast = this.toastController.create({
       message: 'successfully deleted',
@@ -53,16 +82,14 @@ export class CartComponent implements OnInit {
   }
 
   increaseQuantity(product, index) {
-   product.units_on_order++;
+      this.cartService.addProduct(product);
    // use the method toFixed(2) to fix the price to 2 decimal places
-   product.product_price =  (product.unit_price * product.units_on_order).toFixed(2);
-   // window.location.reload(); used to reload page
-   console.log('the product is ', product);
+      product.product_price =  (product.unit_price * product.units_on_order).toFixed(2);
   }
 
   reduceQuantity(product, index) {
     if ( product.units_on_order > 1) {
-      product.units_on_order--;
+      this.cartService.decreaseProduct(product);
       product.product_price = (product.unit_price * product.units_on_order).toFixed(2);
     } else {
       product.product_price = (product.unit_price * product.units_on_order).toFixed(2);

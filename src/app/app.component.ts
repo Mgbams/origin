@@ -10,6 +10,7 @@ import { ProductCategories } from './shared/models/productCategories';
 import {  CategoriesService } from './shared/services/categories.service';
 import { SubCategory } from './administration/add-subcategory/shared/models/subcategory';
 import { SubcategoryService } from './shared/services/subcategory.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   public categories: ProductCategories[] = [];
   public loginStatus;
   public subCategories: SubCategory[] = [];
- 
+ public cartItemCount: BehaviorSubject<number>;
 
   // @ViewChild( Tab1Page, {static: false}) tab1Page: Tab1Page;
   constructor(
@@ -31,7 +32,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     private categoriesService: CategoriesService,
     private cartService: CartService,
     private loginService: LoginService,
-    private subCategoryService:  SubcategoryService 
+    private subCategoryService:  SubcategoryService
   ) {
     this.initializeApp();
   }
@@ -45,6 +46,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.loginStatus = this.loginService.getToken();
+    this.cartItemCount = this.cartService.getCartItemCount();
   }
 
   ngAfterViewInit() {

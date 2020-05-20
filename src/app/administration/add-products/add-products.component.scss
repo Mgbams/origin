@@ -18,10 +18,16 @@ ion-card-header {
     }
 }
 
-.add-product-button {
+.save-button {
     --background: #9E15BF !important;
     --border-radius: 50px !important;
     --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
+}
+
+.update-button {
+    --background: #FAED26 !important;
+    --border-radius: 50px !important;
+    --box-shadow: 0px 8px 4px rgba(250, 236, 38, 0.5);
 }
 
 // image uploads

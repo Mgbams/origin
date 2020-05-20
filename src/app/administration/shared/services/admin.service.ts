@@ -63,4 +63,17 @@ export class AdminService {
     return this.http.put(`${this.baseUrl}subcategories/subcategories.php`, subCategory, {responseType: 'text' }).toPromise();
   }
 
+  /* Products http requests */
+  deleteProductById(data) {
+    return this.http.delete(`${this.baseUrl}products/products.php/?id=` + data ).toPromise();
+   }
+
+   getProductById(data) {
+    return this.http.get(`${this.baseUrl}products/products.php/?id=` + data ).toPromise();
+   }
+
+   updateProduct(product) {
+    return this.http.put(`${this.baseUrl}products/products.php`, product, {responseType: 'text'}).toPromise();
+   }
+
 }

@@ -21,9 +21,14 @@ h3 {
     text-transform: capitalize;
 }
 
-.productsImage {
-    height: 70px;
-    width: 100%;
+.shoppingProducts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .productImage {
+        height: 130px;
+    }
 }
 
 .arrow_container {
@@ -45,16 +50,4 @@ h3 {
     --background: #9E15BF !important;
     --border-radius: 50px !important;
     --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
-}
-
-// Pagination code starts here
-.pagination {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.pagination-container {
-    width: 90%;
-    margin: auto;
 }

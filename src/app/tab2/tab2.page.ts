@@ -1,5 +1,5 @@
 import { ShopService } from './shared/services/shop.service';
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AllProducts } from './../shared/models/allProducts';
 
 @Component({
@@ -7,57 +7,58 @@ import { AllProducts } from './../shared/models/allProducts';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit  {
-  // attributes needed for pagination starts here
-  public page = 0;
-  public resultsCount = 10;
-  public totalPages;
-    // attributes needed for pagination ends here
+export class Tab2Page implements OnInit, AfterViewInit {
   public products: AllProducts[] = [];
-  public productImageArrays = [];
+  // public productImageArrays = [];
+  public pageActual = 1; // Actual page by default for pagination is page 
+  public totalProducts;
+  public startIndex = 0; // default startIndex value used for getting items from database
+  public numPerPage = 12; // Number of products per page
 
   constructor(private shopService: ShopService) {}
 
   ngOnInit() {
     this.getAllProducts();
+    this.allProductsPagination(this.startIndex, this.numPerPage);
   }
 
+  ngAfterViewInit() {}
+
+  // This function is used to get the total counts of products in my database
   getAllProducts() {
     this.shopService
         .getAllProducts()
         .then((data: AllProducts[]) => {
         this.products = data;
-        for (let i = 0; i < this.products.length; i++) {
-          const slicedArray = this.products[i].image.split(',');
-          this.productImageArrays.push(slicedArray);
-        }
-        this.totalPages = this.products.length; // to be changed later
-        console.log('total pages', this.totalPages);
-        // totalPages = Math.ceil(this.products.length / resultsCount)
+        this.totalProducts = this.products.length;
     })
       .catch((error) => {
         console.log(error);
     });
   }
 
-  // Pagination code starts here
-  nextPage() {
-    this.page++;
-    this.getAllProducts();
+  // changeHandler() and allProductsPagination() functions handle pagination
+
+  changeHandler(pageIndex) {
+    this.pageActual = pageIndex;
+    this.startIndex = (pageIndex - 1) * this.numPerPage;
+    this. allProductsPagination(this.startIndex, this.numPerPage);
   }
 
-  prevPage() {
-    this.page--;
-    this.getAllProducts();
+   allProductsPagination(startIndex, numPerPage) {
+    this.shopService
+        .getProductsByPagination(startIndex, numPerPage)
+        .then((data: AllProducts[]) => {
+          this.products = data;
+         // this.productImageArrays = []; // clear the initial contents of the image arrays before storing new images
+          /* for (let i = 0; i < this.products.length; i++) {
+          const slicedArray = this.products[i].image.split(',');
+         // this.productImageArrays.push(slicedArray);
+        } */
+    })
+      .catch((error) => {
+        console.log(error);
+    });
   }
 
-  firstPage() {
-    this.page = 0;
-    this.getAllProducts();
-  }
-
-  lastPage() {
-    this.page = this.totalPages - 1;
-    this.getAllProducts();
-  }
 }
