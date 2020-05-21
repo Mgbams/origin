@@ -14,7 +14,7 @@
         <div class="addedProducts" *ngIf="products">
 
             <ion-card *ngFor="let product of products; index as productId">
-                <ion-card-content>
+                <ion-card-content *ngIf="!paidFor">
                     <div class="item_image">
                         <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + product[0].image.split(',').slice(0, 1)" />
                     </div>
@@ -58,12 +58,11 @@
                     <p>TOTAL</p>
                     <p class="total-price">&euro; {{ getTotal() }}</p>
                 </div>
-                <div>
-                    <ion-button class="ion-activatable ripple-parent checkoutButton">
-                        Checkout
-                        <ion-icon name="arrow-forward-outline"></ion-icon>
-                        <ion-ripple-effect></ion-ripple-effect>
-                    </ion-button>
+                <div class="paypal-button-container">
+                    <div id="paypal"></div>
+                </div>
+                <div *ngIf="paidFor">
+                    <h1>Your product has been paid for</h1>
                 </div>
             </div>
         </div>
