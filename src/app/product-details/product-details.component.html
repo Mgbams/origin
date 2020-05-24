@@ -81,7 +81,7 @@
             <ng-container>
                 <ion-card class="product_details_card">
                     <ion-card-content>
-                        <h3>{{ product[0].product_name }}</h3>
+                        <h3 class="product-name">{{ product[0].product_name }}</h3>
                         <p>{{ product[0].product_price | currency }}</p>
                         <div>
                             <p>Sizes: {{product[0].product_sizes}}</p>
@@ -112,7 +112,7 @@
                             <div>
                                 <img [src]="'http://localhost/origin/src/public/images/' + SuggestedProductsImageArrays[productId][0]" />
                                 <div>
-                                    <h3>
+                                    <h3 class="product-name">
                                         {{ product.product_name }}
                                     </h3>
                                 </div>
