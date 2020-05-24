@@ -1,5 +1,6 @@
 .closeRegisterForm {
-    margin-top: 60px;
+    margin-top: 90px;
+    margin-bottom: 30px;
     .closeFormIcon {
         font-size: 3rem;
     }
@@ -50,3 +51,17 @@ a {
    --border-radius: 50px !important;
     --box-shadow: 0px 8px 4px gray; 
 }
+.centering-items {
+    width: 60%;
+    margin: auto;
+}
+.origin {
+    position: relative;
+    bottom: 30px;
+}
+    a:hover {
+        text-decoration: underline;
+        color: #86C232;
+        cursor: pointer;
+    }
+

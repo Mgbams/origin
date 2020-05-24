@@ -1,6 +1,7 @@
 <ion-content>
     <div class="centerFormContents">
-        <ion-grid>
+        <div class="centering-items">
+            <ion-grid>
             <ion-row class="ion-justify-content-end closeRegisterForm">
                 <ion-col size="2">
                     <div>
@@ -13,13 +14,14 @@
 
             <ion-row class="ion-justify-content-center">
                 <ion-col size="6">
-                    <p>Welcome to</p>
+                    <h1 class="ion-text-center">Welcome</h1>
+                    <h2 class="ion-text-center">TO</h2>
                 </ion-col>
             </ion-row>
 
-            <ion-row class="ion-justify-content-center">
-                <ion-col size="8">
-                    <h2 class="originSpacing">
+            <ion-row class="origin ion-justify-content-center">
+                <ion-col size="6">
+                    <h2 class="originSpacing ion-text-center">
                         <span class="color1">O</span>
                         <span class="color2">R</span>
                         <span class="color3">I</span>
@@ -50,7 +52,7 @@
 
             <ion-row class="ion-justify-content-end">
                 <ion-col size="5">
-                    <p><small><a routerLink="/forgot-password">Forgot Password?</a></small></p>
+                    <p><small><a class="forgot-password" routerLink="/forgot-password">Forgot Password?</a></small></p>
                 </ion-col>
             </ion-row>
 
@@ -67,5 +69,8 @@
                 </ion-button>
             </div>
         </form>
+
+        </div>
+        
     </div>
 </ion-content>
