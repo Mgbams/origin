@@ -1,3 +1,5 @@
+import { AboutUsModule } from './about-us/about-us.module';
+import { ContactModule } from './contact/contact.module';
 import { SoldesModule } from './soldes/soldes.module';
 import { EditSubcategoryModule } from './administration/edit-subcategory/edit-subcategory.module';
 import { AddSubcategoryModule } from './administration/add-subcategory/add-subcategory.module';
@@ -82,6 +84,8 @@ import {  CartModalModule } from './cart/cart-modal/cart-modal.module';
     MenModule,
     WomenModule,
     SoldesModule,
+    AboutUsModule,
+    ContactModule,
     AppRoutingModule
   ],
   providers: [

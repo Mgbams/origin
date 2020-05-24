@@ -39,7 +39,8 @@
 
             <ion-item>
                 <ion-label position="floating">Password</ion-label>
-                <ion-input formControlName="password" name="password" type="password"></ion-input>
+                <ion-input formControlName="password" name="password" [type]="passwordType"></ion-input>
+                <ion-icon name="eye" [color]="passwordShown === true ? 'dark': 'gray'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
             </ion-item>
 
             <ion-button class="ion-activatable ripple-parent ion-margin-top signIn_button" expand="block" type="submit">

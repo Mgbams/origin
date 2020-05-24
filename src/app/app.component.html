@@ -59,18 +59,32 @@
             </ion-buttons>
             <ion-title>
                 <ion-row>
-                    <ion-col class="topBarContents">
-                        <div class="signin">
-                            <a class="signin-link" routerLink="/register-login">
-                                <ion-icon name="create-outline"></ion-icon> <br />Sign in
-                            </a>
+                    <ion-col size="6" offset="6">
+                        <div class="topBar">
+                            <nav class="topBarContents" >
+                                <a class="signin-link" routerLink="/contact" routerLinkActive="active">
+                                    Contact Us
+                                </a>
+
+                                <a class="signin-link" routerLink="/about-us" routerLinkActive="active">
+                                    About Us
+                                </a>
+
+                                <a class="signin-link signin" routerLink="/register-login" routerLinkActive="active">
+                                    <ion-icon name="create-outline"></ion-icon> <br />Sign in
+                                </a>
+                                <div class="cart-container">
+                                    <a routerLink="/cart">
+                                        <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+                                    </a>
+                                </div>
+                            </nav>
+                            
+                            <div>
+                                <span color="primary" class="item-badge">{{ cartItemCount | async }}</span> <br />
+                            </div>
                         </div>
-                        <div>
-                            <ion-badge color="primary" class="item-badge">{{ cartItemCount | async }}</ion-badge> <br />
-                            <a routerLink="/cart">
-                                <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
-                            </a>
-                        </div>
+                        
                     </ion-col>
                 </ion-row>
 

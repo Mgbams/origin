@@ -2,14 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {  RegistrationInfosService } from './../shared/services/registration-infos.service';
 
-
-/* const HttpUploadOptions = {
-  headers: new HttpHeaders(
-    { 'Accept': 'application/json'}
-    )
-}; */
-
-
 @Component({
   selector: 'app-contact-info',
   templateUrl: './contact-info.component.html',

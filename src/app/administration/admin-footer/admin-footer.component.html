@@ -16,11 +16,6 @@
             </div>
 
             <div>
-                <h6>About Us</h6>
-                <p class="ion-text-wrap">Origin is an e-commerce website that offers you wonderful products at affordable prices</p>
-            </div>
-
-            <div>
                 <h6>Contact Us</h6>
                 <div>
                     <div>
@@ -46,10 +41,13 @@
         <div class="navigation-menu">
             <h6>Main navigation</h6>
             <div>
-                <p><a href="/tabs/tab1">Home</a></p>
-                <p><a href="">About Us</a></p>
-                <p><a href="">Policy</a></p>
-                <p><a href="/tabs/tab2">Shop</a></p>
+                <nav>
+                    <a routerLink="/tabs/tab1" routerLinkActive="active">Home</a>
+                    <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+                    <a routerLink="/terms-and-conditions" routerLinkActive="active">Policy</a>
+                    <a routerLink="/tabs/tab2" routerLinkActive="active">Shop</a>
+                    <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+                </nav>
             </div>
         </div>
 

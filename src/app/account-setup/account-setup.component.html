@@ -90,8 +90,8 @@
 
             <ion-item>
                 <ion-label position="floating">Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="password" name="password" type="password">
-                </ion-input>
+                <ion-input formControlName="password" name="password" [type]="passwordType"></ion-input>
+                <ion-icon name="eye" [color]="passwordShown === true ? 'dark': 'gray'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
             </ion-item>
 
             <!-- Shows error message when password field is left blank starts here-->
@@ -106,7 +106,8 @@
 
             <ion-item>
                 <ion-label position="floating">Re-type Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="retypedPassword" appConfirmEqualityValidator="password" name="retypedPassword" type="password"></ion-input>
+                <ion-input formControlName="retypedPassword" appConfirmEqualityValidator="password" name="retypedPassword" [type]="retypePasswordType"></ion-input>
+                <ion-icon name="eye" [color]="retypePasswordShown === true ? 'dark': 'gray'" slot="end" (click)="retypePasswordVisibility()"></ion-icon>
             </ion-item>
 
             <!-- Shows error message when retypedpassword field is left blank starts here-->

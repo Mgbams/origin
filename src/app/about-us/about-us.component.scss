@@ -1,0 +1,115 @@
+.about-us-container {
+    width: 80%;
+    margin: 15vh auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h5 {
+        text-align: center;
+    }
+    .product-offers {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        .exposures {
+            width: 10rem;
+            height: 10rem;
+            background-color: gray;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            ion-icon {
+                font-size: 2.5rem;
+                color: orange;
+            }
+        }
+    }
+}
+
+.market-place {
+    width: 50%;
+    margin: auto;
+    .one-stop-centering {
+        display: flex;
+        justify-content: space-between;
+        color:white;
+        .one-stop {
+            width: 13rem;
+            height: 13rem;
+            border: 1px solid gray;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .one-stop-shopping {
+            // top, transparent red, bottom, image 
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(./../../assets//images//bizness.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .one-stop-service {
+            // top, transparent red, bottom, image 
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(./../../assets//images/handshake.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.management-system {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .origin-shopping-management {
+        display: flex;
+        .optimizations {
+            width: 12rem;
+            height: 12rem;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .optimizations:nth-child(even) {
+            background-color: gray;
+        }
+        .optimizations:nth-child(odd) {
+            background-color: white;
+            border: 1px solid gray;
+        }
+        .mobile-view {
+            position: relative;
+            left: 30px;
+           z-index: 10;
+        }
+        .email-marketing {
+            position: relative;
+            right: 30px;
+            z-index: 10;
+        }
+        .easy-website {
+            position: relative;
+            right: 55px;
+            z-index: 2; 
+        }
+    }
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.go-top {
+    color: blue;
+}

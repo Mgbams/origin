@@ -1,0 +1,46 @@
+<ion-content>
+    <div class="contact-container">
+        <div class="contact-intro">
+            <h1 class="ion-text-center">Contact Us</h1>
+            <p class="ion-text-wrap">You can contact Origin using this form and we will get back to you as soon as possible.</p>
+        </div>
+        <div class="form-container">
+            <ion-card>
+                <ion-card-content>
+                    <form [formGroup]="contactForm" novalidate (ngSubmit)="onSubmit()">
+                        <ion-item>
+                            <ion-label position="floating">Subject<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="subject" name="subject" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="email" name="email" type="email"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Message<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-textarea formControlName="message" name="message" type="text" rows="4" cols="16"></ion-textarea>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Phone<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="phone" name="phone" type="tel"></ion-input>
+                        </ion-item>
+                        <div class="ion-margin-top">
+                            <ion-row>
+                                <ion-col size="4">
+                                    <ion-button class="ion-activatable ripple-parent save-button" [disabled]="!contactForm.valid" expand="block" type="submit">
+                                        Send Message
+                                        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                    </ion-button>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </form>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
+    <app-admin-footer></app-admin-footer>
+</ion-content>

@@ -17,6 +17,8 @@ export class RegistrationLoginComponent implements OnInit {
   private returnUrl: string;
   public loading = false;
   public message;
+  public passwordType = 'password'; // used to toggle password
+  public passwordShown = false; // used to toggle password
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -34,6 +36,17 @@ export class RegistrationLoginComponent implements OnInit {
 
     guardRoute() {
       this.registrationInfo.accountSetUpAccess = true;
+    }
+
+    // Password visibility toggle function 
+    public togglePasswordVisibility() {
+      if (this.passwordShown) {
+        this.passwordShown = false;
+        this.passwordType = 'password';
+      } else {
+        this.passwordShown = true;
+        this.passwordType = 'text';
+      }
     }
 
     postdata(form) {

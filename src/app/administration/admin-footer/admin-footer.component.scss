@@ -57,9 +57,19 @@
     }
 }
 
-a {
-    text-decoration: none;
-    color: white;
+.navigation-menu {
+    nav {
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            color: white;
+            margin-bottom: 10px;
+        }
+    }
+    nav a.active {
+        color: #039be5;
+    }
 }
 
 .contact {

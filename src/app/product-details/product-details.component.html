@@ -83,6 +83,12 @@
                     <ion-card-content>
                         <h3>{{ product[0].product_name }}</h3>
                         <p>{{ product[0].product_price | currency }}</p>
+                        <div>
+                            <p>Sizes: {{product[0].product_sizes}}</p>
+                        </div>
+                        <span class="color-container" *ngFor="let color of product[0].product_colors.split(',')">
+                            <span class="color" [ngStyle]="{'background-color': color | lowercase}"></span>
+                        </span>
                         <p *ngIf="product[0].product_description">
                             {{ product[0].product_description }}
                         </p>
@@ -104,7 +110,7 @@
                     <div class="suggested_products">
                         <div>
                             <div>
-                                <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + SuggestedProductsImageArrays[productId][0]" />
+                                <img [src]="'http://localhost/origin/src/public/images/' + SuggestedProductsImageArrays[productId][0]" />
                                 <div>
                                     <h3>
                                         {{ product.product_name }}

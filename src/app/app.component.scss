@@ -13,17 +13,30 @@ ion-item {
     padding: 0px;
 }
 
-.cart-icon {
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
+.cart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 55px;
+    
+    .cart-icon {
+        font-size: 4.5rem;
+        cursor: pointer;
+        color: white;
+    }
+
 }
 
-.item-badge {
-    background-color: brown;
-    margin-left: 8px;
-    margin-top: 10px;
-}
+  .item-badge {
+       color: yellow;
+       // margin-left: 8px;
+       // margin-top: 10px;
+        position: absolute;
+        top: 12px;
+        left: 589px;
+        // font-size: 1.5rem;
+    }
 
 .signin-link {
     text-decoration: none;
@@ -47,10 +60,19 @@ ion-item {
     text-decoration: underline;
 }
 
+.topBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .topBarContents {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     flex-direction: row;
+    align-items: center;
+    a {
+        margin-left: 10px;
+    }
 }
 
 .signin {
@@ -105,4 +127,18 @@ ion-avatar {
 .accordion-link:hover {
     color: black;
     text-decoration: underline;
+}
+
+// setting link properties to be used by routerLinkActive
+nav a.visited {
+  color: #607D8B;
+}
+
+nav a.hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+
+nav a.active {
+  color: #039be5;
 }

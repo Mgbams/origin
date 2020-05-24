@@ -11,7 +11,6 @@ export class CategoriesService {
   constructor(private http: HttpClient) {}
 
   public getCategories(): Promise< ProductCategories[] > {
-   // return this.http.get < ProductCategories[] >(`http://localhost/origin/src/entity/categories.php`).toPromise();
     return this.http.get < ProductCategories[] >(`${this.baseUrl}`).toPromise();
    }
 }

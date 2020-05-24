@@ -10,6 +10,14 @@ import {  RegistrationInfosService } from './../shared/services/registration-inf
 })
 export class AccountSetupComponent implements OnInit {
   public accountSetupForm: FormGroup;
+
+  // Password toggler variables
+  public passwordType = 'password'; // used to toggle password
+  public passwordShown = false; // used to toggle password
+
+   // RetyPePassword toggler variables
+   public retypePasswordType = 'password'; // used to toggle password
+   public retypePasswordShown = false; // used to toggle password
   constructor(
     private formBuilder: FormBuilder, 
     private registrationInfo: RegistrationInfosService
@@ -40,5 +48,27 @@ export class AccountSetupComponent implements OnInit {
   guardRoute() {
     this.registrationInfo.accessGranted = true;
   }
+
+    // Password visibility toggle function
+    public togglePasswordVisibility() {
+      if (this.passwordShown) {
+        this.passwordShown = false;
+        this.passwordType = 'password';
+      } else {
+        this.passwordShown = true;
+        this.passwordType = 'text';
+      }
+    }
+
+    // RetypePassword visibility toggle function
+    public retypePasswordVisibility() {
+      if (this.retypePasswordShown) {
+        this.retypePasswordShown = false;
+        this.retypePasswordType = 'password';
+      } else {
+        this.retypePasswordShown = true;
+        this.retypePasswordType = 'text';
+      }
+    }
 
 }

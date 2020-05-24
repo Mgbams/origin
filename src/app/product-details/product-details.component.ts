@@ -70,6 +70,7 @@ export class ProductDetailsComponent implements OnInit {
         .getProductById(productId)
         .then((data: AllProducts[]) => {
           this.product = data;
+          console.log('product details', this.product);
           this.getProductsYouMayLike(this.product[0].category_name, this.product[0].subcategory_name);
           const slicedArray = this.product[0].image.split(',');
           this.imageArrays.push(slicedArray);

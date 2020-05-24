@@ -1,22 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ajax } from 'rxjs/ajax';
 import { Observable } from 'rxjs';
-import {
-  HttpClient,
-  HttpEvent,
-  HttpHeaders,
-  HttpErrorResponse,
-  HttpEventType,
-} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { UploadedImages } from './../models/uploadedImages';
 
-const httpOptions: { headers; observe } = {
+/* const httpOptions: { headers; observe } = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
   }),
   observe: 'response',
-};
+}; */
 
 @Injectable({
   providedIn: 'root',
