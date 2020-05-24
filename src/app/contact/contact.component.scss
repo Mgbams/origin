@@ -1,27 +1,31 @@
 .contact-container {
     display: flex;
     width: 100%;
+    background: url(./../../assets/images/contact-gif.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
     // background-color: cadetblue;
     margin-top: 73px;
     margin-bottom: 30px;
     .contact-intro {
-        width: 50%;
-        border: 1px solid green;
+        width: 40%;
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
-        height: 80vh;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     .form-container {
-        width: 50%;
-        border: 1px solid yellow;
-        height: 80vh;
+        width: 60%;
+        height: 85vh;
     }
 }
 
 ion-card {
-    width: 70%;
-    border: 2px solid red;
-    height: 70vh;
+    width: 60%;
+    height: 75vh;
     margin: auto;
     margin-top: 5vh;
 }

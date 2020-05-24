@@ -11,7 +11,8 @@
     .product-offers {
         display: flex;
         justify-content: space-between;
-        width: 60%;
+        width: 60vw;
+        margin: auto;
         .exposures {
             width: 10rem;
             height: 10rem;
@@ -80,6 +81,7 @@
         }
         .optimizations:nth-child(even) {
             background-color: gray;
+            color: white;
         }
         .optimizations:nth-child(odd) {
             background-color: white;
