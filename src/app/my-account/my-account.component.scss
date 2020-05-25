@@ -1,0 +1,47 @@
+.myaccount-container {
+    width: 90%;
+    margin: 120px auto;
+}
+
+.adress-email-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.order-table {
+    width: 100%;
+    margin: 30px 0px;
+    table {
+        width: 100%;
+    }
+}
+
+.top-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    div {
+        width: 15vw;
+        height: 15vh;
+        border: 1px solid white;
+        border-top-width: 10px;
+        background-color: gray;
+    }
+    .first-div {
+        border-top-color: red;
+    }
+    .second-div {
+        border-top-color: green;
+    }
+    .third-div {
+        border-top-color: blue;
+    }
+    .fourth-div {
+        border-top-color: yellow;
+    }
+    .fifth-div {
+        border-top-color: pink;
+    }
+}

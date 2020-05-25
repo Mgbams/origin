@@ -1,0 +1,148 @@
+<ion-content>
+
+    <div class="payment-container">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title class="ion-text-center">Manage Credit Cards</ion-card-title>
+                <div class="top-bar-headings">
+                    <div>
+                        <p>Your Credit and Debit Cards</p>
+                    </div>
+                    <div>
+                        <p> Card Nickname</p>
+                    </div>
+                    <div>
+                        <p> Expires On</p>
+                    </div>
+                    <div>
+                        <p>Billing Address</p>
+                    </div>
+                </div>
+                <hr />
+            </ion-card-header>
+
+            <ion-card-content>
+
+                <form [formGroup]="paymentsForm" novalidate (ngSubmit)="onSubmit()">
+                    <div class="row-formater">
+                        <ion-item>
+                            <ion-label position="floating">Card Nickname<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="nickName" name="nickName" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Shipping Address</ion-label>
+                            <ion-select formControlName="shippingAddress" name="shippingAddress">
+                                <ion-select-option selected>
+                                    shipping address
+                                </ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+
+                    <div class="row-formater">
+                        <ion-item>
+                            <ion-label position="floating">First Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="firstName" name="firstName" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Last Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="lastName" name="lastName" type="text"></ion-input>
+                        </ion-item>
+                    </div>
+
+                    <div class="row-formater">
+                        <ion-item>
+                            <ion-label position="floating">Address<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="address" name="address" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Postal Code<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="postalCode" name="postalCode" type="text"></ion-input>
+                        </ion-item>
+                    </div>
+
+                    <div class="row-formater">
+                        <ion-item>
+                            <ion-label position="floating">Country<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="country" name="country" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">City<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="city" name="city" type="text"></ion-input>
+                        </ion-item>
+                    </div>
+
+                    <div class="row-formater">
+                        <ion-item>
+                            <ion-label position="floating">CREDIT CARD#<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="cardNo" name="cardNo" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Phone No<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="phone" name="phone" type="tel"></ion-input>
+                        </ion-item>
+                    </div>
+
+                    <div>
+                        <p>Card Type</p>
+                        <div class="row-formater payment-cards">
+                            <div><img src="./../../../assets/images/maestro.jpg" /></div>
+                            <div><img src="./../../../assets/images/paypal.jpg" /></div>
+                            <div><img src="./../../../assets/images/visa.jpg" /></div>
+                            <div><img src="./../../../assets/images/master.jpg" /></div>
+                        </div>
+
+                        <div class="row-formater month-year">
+                            <ion-item>
+                                <ion-label position="floating">MONTH</ion-label>
+                                <ion-select formControlName="month" name="month">
+                                    <ion-select-option *ngFor="let month of months; index as monthId" [value]="month.id" selected>
+                                        {{month.name}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">YEAR</ion-label>
+                                <ion-select formControlName="year" name="year">
+                                    <ion-select-option *ngFor="let year of years; index as yearId" [value]="year.id" selected>
+                                        {{year.year}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">CVV<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                <ion-input formControlName="cvv" name="cvv" type="text"></ion-input>
+                            </ion-item>
+                        </div>
+                    </div>
+
+                    <div class="ion-margin-top">
+                        <ion-row>
+                            <ion-col size="4">
+                                <ion-button class="ion-activatable ripple-parent update-button" [disabled]="!paymentsForm.valid" expand="block" type="submit">
+                                    CANCEL
+                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                </ion-button>
+                            </ion-col>
+
+                            <ion-col size="4">
+                                <ion-button class="ion-activatable ripple-parent update-button" [disabled]="!paymentsForm.valid" expand="block" type="submit">
+                                    SAVE
+                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </form>
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <app-admin-footer></app-admin-footer>
+</ion-content>

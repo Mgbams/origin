@@ -1,3 +1,4 @@
+import { MyAccountModule } from './my-account/my-account.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import { ContactModule } from './contact/contact.module';
 import { SoldesModule } from './soldes/soldes.module';
@@ -86,6 +87,7 @@ import {  CartModalModule } from './cart/cart-modal/cart-modal.module';
     SoldesModule,
     AboutUsModule,
     ContactModule,
+    MyAccountModule,
     AppRoutingModule
   ],
   providers: [
