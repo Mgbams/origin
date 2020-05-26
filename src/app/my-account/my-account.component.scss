@@ -1,6 +1,12 @@
 .myaccount-container {
-    width: 90%;
-    margin: 120px auto;
+    width: 70%;
+    margin-right: 3%;
+    // margin: 120px auto;
+}
+
+.settings-list nav {
+    display: flex;
+    flex-direction: column;
 }
 
 .adress-email-container {
@@ -23,7 +29,7 @@
     align-items: center;
     flex-wrap: wrap;
     div {
-        width: 15vw;
+        width: 10vw;
         height: 15vh;
         border: 1px solid white;
         border-top-width: 10px;
@@ -44,4 +50,32 @@
     .fifth-div {
         border-top-color: pink;
     }
+}
+
+.settings-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 120px;
+    .settings-list {
+        width: 18vw;
+        border: 1px solid gray;
+        // border-top: none;
+    }
+}
+
+.card-container {
+    width: 60vw;
+    margin: auto;
+}
+
+// setting link properties to be used by routerLinkActive
+ion-item ion-label .a {
+    text-decoration: none;
+}
+
+ion-item ion-label a.active {
+    color: brown;
+    cursor: pointer;
+    text-decoration: underline;
 }
