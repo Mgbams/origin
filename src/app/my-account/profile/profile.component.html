@@ -2,55 +2,48 @@
 
     <div class="profile-container">
         <div class="profile-header">
-            <h1>Manage Account Information</h1>
-            <small class="ion-text-wrap">To update settings, please fill in all required fields, and press the UPDATE button below.</small>
-            <span><b style="color: red">*</b>required field</span>
-            <hr />
+            <h1 class="ion-text-center">Manage Account Information</h1>
+            <div class="info-spacer">
+                <small class="ion-text-wrap">To update settings, please fill in all required fields, and press the UPDATE button below.</small>
+                <span><b style="color: red">*</b>required field</span>
+            </div>
         </div>
 
-        <ion-grid>
+        <div>
+            <h2 class="ion-text-center">Customer Information</h2>
+        </div>
 
-            <ion-row>
-                <ion-col>
-                    <h2>Customer Information</h2>
-                </ion-col>
-            </ion-row>
-
-
-            <ion-row>
+        <div class="ion-card-content">
+            <ion-card>
                 <form [formGroup]="profileForm" novalidate (ngSubmit)="onSubmit()">
-                    <ion-col size="6">
+                    <div class="row-formater">
                         <ion-item>
                             <ion-label position="floating">First Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                             <ion-input formControlName="firstName" name="firstName" type="text"></ion-input>
                         </ion-item>
 
                         <ion-item>
-                            <ion-label position="floating">Address<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                            <ion-input formControlName="address" name="address" type="text"></ion-input>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label position="floating">Country<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                            <ion-input formControlName="country" name="country" type="text"></ion-input>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-label position="floating">Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                            <ion-input formControlName="email" name="email" type="email"></ion-input>
-                        </ion-item>
-
-                    </ion-col>
-
-                    <ion-col size="6">
-                        <ion-item>
                             <ion-label position="floating">Last Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                             <ion-input formControlName="lastName" name="lastName" type="text"></ion-input>
                         </ion-item>
 
+                    </div>
+
+                    <div>
                         <ion-item>
-                            <ion-label position="floating">Phone<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                            <ion-input formControlName="phone" name="phone" type="text"></ion-input>
+                            <ion-label position="floating">Address<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="address" name="address" type="text"></ion-input>
+                        </ion-item>
+                    </div>
+
+                    <div class="row-formater">
+                        <ion-item>
+                            <ion-label position="floating">Country</ion-label>
+                            <ion-select formControlName="country" name="country">
+                                <ion-select-option *ngFor="let country of countries; index as countryId" [value]="country.code" selected>
+                                    {{country.name_en}}
+                                </ion-select-option>
+                            </ion-select>
                         </ion-item>
 
                         <ion-item>
@@ -58,21 +51,34 @@
                             <ion-input formControlName="city" name="city" type="text"></ion-input>
                         </ion-item>
 
-                    </ion-col>
+                    </div>
+
+                    <div>
+                        <ion-item>
+                            <ion-label position="floating">Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="email" name="email" type="email"></ion-input>
+                        </ion-item>
+                    </div>
+
+                    <div>
+                        <ion-item>
+                            <ion-label position="floating">Phone<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                            <ion-input formControlName="phone" name="phone" type="text"></ion-input>
+                        </ion-item>
+
+                    </div>
+                    
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-button type="submit" class="ion-activatable ripple-parent update-button" [disabled]="!profileForm.valid" expand="block">
+                                Update
+                                <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
                 </form>
-            </ion-row>
-
-            <ion-row>
-                <ion-col size="4">
-                    <ion-button type="submit" class="ion-activatable ripple-parent update-button" [disabled]="!profileForm.valid" expand="block">
-                        Update
-                        <ion-ripple-effect type="bounded"></ion-ripple-effect>
-                    </ion-button>
-                </ion-col>
-            </ion-row>
-
-        </ion-grid>
-
+            </ion-card>
+        </div>
     </div>
     <app-admin-footer></app-admin-footer>
 </ion-content>

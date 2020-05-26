@@ -1,6 +1,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { CountriesService } from './../../shared/services/countries.service';
 
 
 @Component({
@@ -11,24 +12,36 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class ShippingAddressComponent implements OnInit {
 
   public shippingForm: FormGroup;
+  public countries;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private countriesService: CountriesService
   ) {
     this.shippingForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
+      firstName:  ['', Validators.required],
       lastName: ['', Validators.required],
       address: ['', Validators.required],
-      phone: ['', Validators.required],
       country: ['', Validators.required],
+      postalCode: ['', Validators.required],
       city: ['', Validators.required],
-      email: ['', Validators.required]
+      phone: ['', Validators.required],
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.countriesService
+        .getCategories()
+        .then(data => {
+          this.countries = data;
+          console.log(data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+  }
 
   onSubmit() {
     console.log('Shipping form', this.shippingForm.value);

@@ -1,89 +1,106 @@
 <ion-content>
 
     <div class="shipping-container">
-        <ion-card>
-            <ion-card-header>
-                <ion-card-title class="ion-text-center">Add Product Supplier</ion-card-title>
-            </ion-card-header>
-
-            <ion-card-content>
-
-                <form [formGroup]="shippingForm" novalidate (ngSubmit)="onSubmit()">
-                    <ion-item>
-                        <ion-label position="floating">Company Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="companyName" value="" name="companyName" autofocus="true" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">First Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="contactFname" name="contactFname" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Last Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="contactlname" name="contactlname" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Title<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="contactTitle" name="contactTitle" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Address<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="address" name="address" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">City<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="city" name="city" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Postal Code<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="postalCode" name="postalCode" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Country<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="country" name="country" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Phone<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="phone" name="phone" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="email" name="email" type="text"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label position="floating">Customer Id<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                        <ion-input formControlName="customerId" name="customerId" type="text"></ion-input>
-                    </ion-item>
-
-                    <div class="ion-margin-top">
-                        <ion-row>
-                            <ion-col size="4">
-                                <ion-button class="ion-activatable ripple-parent save-button" [disabled]="!addSuppliersForm.valid || updateButton" expand="block" type="submit">
-                                    Add Supplier
-                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
-                                </ion-button>
-                            </ion-col>
-
-                            <ion-col size="4">
-                                <ion-button class="ion-activatable ripple-parent update-button" [disabled]="!shippingForm .valid" expand="block" type="submit">
-                                    Update
-                                    <ion-ripple-effect type="bounded"></ion-ripple-effect>
-                                </ion-button>
-                            </ion-col>
-                        </ion-row>
+        <div class="ion-card-content">
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title class="ion-text-center">Manage Shipping Address</ion-card-title>
+                    <div class="top-bar-headings">
+                        <div>
+                            <p>Name</p>
+                        </div>
+                        <div>
+                            <p>Address</p>
+                        </div>
+                        <div>
+                            <p>Postal Code</p>
+                        </div>
+                        <div>
+                            <p>Phone</p>
+                        </div>
                     </div>
-                </form>
-            </ion-card-content>
-        </ion-card>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <form [formGroup]="shippingForm" novalidate (ngSubmit)="onSubmit()">
+                        <div class="required-fields">
+                            <div class="new-address">
+                                <p>Add New Address</p>
+                            </div>
+                            <div class="required">
+                                <p><span color="danger">*</span>required field</p>
+                            </div>
+                        </div>
+                        <div class="row-formater">
+                            <ion-item>
+                                <ion-label position="floating">First Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                <ion-input formControlName="firstName" name="firstName" type="text"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">Last Name<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                <ion-input formControlName="lastName" name="lastName" type="text"></ion-input>
+                            </ion-item>
+                        </div>
+
+                        <div>
+                            <ion-item>
+                                <ion-label position="floating">Country</ion-label>
+                                <ion-select formControlName="country" name="country">
+                                    <ion-select-option *ngFor="let country of countries; index as countryId" [value]="country.code" selected>
+                                        {{country.name_en}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </div>
+
+                        <div>
+                            <ion-item>
+                                <ion-label position="floating">Address<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                <ion-input formControlName="address" name="address" type="text"></ion-input>
+                            </ion-item>
+                        </div>
+
+                        <div class="row-formater">
+                            <ion-item>
+                                <ion-label position="floating">Postal Code<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                <ion-input formControlName="postalCode" name="postalCode" type="text"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">City<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                <ion-input formControlName="city" name="city" type="text"></ion-input>
+                            </ion-item>
+                        </div>
+
+                        <div>
+                            <ion-item>
+                                <ion-label position="floating">Phone No<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                <ion-input formControlName="phone" name="phone" type="tel"></ion-input>
+                            </ion-item>
+                        </div>
+
+                        <div class="ion-margin-top">
+                            <ion-row>
+                                <ion-col size="4">
+                                    <ion-button class="ion-activatable ripple-parent cancel-button" expand="block" type="submit">
+                                        CANCEL
+                                        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                    </ion-button>
+                                </ion-col>
+
+                                <ion-col size="4">
+                                    <ion-button class="ion-activatable ripple-parent save-button" [disabled]="!shippingForm.valid" expand="block" type="submit">
+                                        SAVE
+                                        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                                    </ion-button>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </form>
+                </ion-card-content>
+            </ion-card>
+        </div>
     </div>
     <app-admin-footer></app-admin-footer>
 </ion-content>

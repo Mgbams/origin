@@ -15,6 +15,7 @@ export class PaymentsComponent implements OnInit {
   public paymentsForm: FormGroup;
   public months = MONTH;
   public years = YEAR;
+  public countries;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,6 +43,7 @@ export class PaymentsComponent implements OnInit {
     this.countriesService
         .getCategories()
         .then(data => {
+          this.countries = data;
           console.log(data);
         })
         .catch(err => {

@@ -1,3 +1,31 @@
 .email-container {
-    margin-top: 90px;
+    margin-top: 120px;
+}
+
+.ion-card-content {
+    width: 52vw;
+    margin: 30px auto;
+    padding: 12px 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    .update-button {
+        --background: #9E15BF !important;
+        --border-radius: 50px !important;
+        --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
+    }
+    ion-card {
+        width: 50vw;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+}
+
+.profile-header {
+    p {
+        text-align: center;
+        color: red;
+    }
 }
