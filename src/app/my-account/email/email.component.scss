@@ -29,3 +29,33 @@
         color: red;
     }
 }
+
+.settings-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    .settings-list {
+        width: 18vw;
+        border: 1px solid gray;
+    }
+}
+
+// setting link properties to be used by routerLinkActive
+.a {
+    text-decoration: none;
+}
+
+a.active {
+    color: brown;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a.hover {
+    color: #030303;
+    background-color: #CFD8DC;
+}
+
+a.visited {
+    color: #039be5;
+}

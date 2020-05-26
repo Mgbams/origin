@@ -53,3 +53,33 @@ ion-card {
         width: 15%;
     }
 }
+
+.red {
+    color: red !important;
+}
+
+.settings-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    .settings-list {
+        width: 18vw;
+        border: 1px solid gray;
+    }
+}
+
+.card-container {
+    width: 60vw;
+    margin: auto;
+}
+
+// setting link properties to be used by routerLinkActive
+.a {
+    text-decoration: none;
+}
+
+a.active {
+    color: brown;
+    cursor: pointer;
+    text-decoration: underline;
+}
