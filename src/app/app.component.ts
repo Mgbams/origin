@@ -45,7 +45,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
-    this.loginStatus = this.loginService.getToken();
+    this.loginStatus = this.loginService.getUserStatus();
     this.cartItemCount = this.cartService.getCartItemCount();
   }
 

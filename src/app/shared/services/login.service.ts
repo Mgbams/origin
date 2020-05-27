@@ -23,7 +23,9 @@ export class LoginService {
       .pipe(
         // tslint:disable-next-line: no-shadowed-variable
         map(Users => {
-          this.setToken(Users[0].first_name);
+          this.setId(Users[0].customer_id); // Users[0].first_name
+          this.setUserStatus(Users[0].status);
+          this.setUserName(Users[0].first_name);
           this.getLoggedInName.emit(true);
           return Users;
         })
@@ -57,20 +59,20 @@ export class LoginService {
   } */
 
   // Session storage
-  setToken(token: string) {
-    sessionStorage.setItem('token', token);
+  setId(id: string) {
+    sessionStorage.setItem('id', id);
   }
 
-  getToken() {
-    return sessionStorage.getItem('token');
+  getId() {
+    return sessionStorage.getItem('id');
   }
 
-  deleteToken() {
-    sessionStorage.removeItem('token');
+  deleteId() {
+    sessionStorage.removeItem('id');
   }
 
   isLoggedIn() {
-    const usertoken = this.getToken();
+    const usertoken = this.getId();
     if (usertoken != null) {
       return true;
     }
@@ -78,12 +80,24 @@ export class LoginService {
   }
 
   logout() {
-    this.deleteToken();
+    this.deleteId();
     // add route here
   }
 
-  /* sessionStorage.setItem('id', data.id);
-retrieving from the session//
-var data = sessionStorage.getItem('id');
-console.log(data) to see the id in the console */
+    // UserName
+    setUserName(username: string) {
+      sessionStorage.setItem('username', username);
+    }
+    getUserName() {
+      return sessionStorage.getItem('username');
+    }
+
+    // Status
+    setUserStatus(status: string) {
+      sessionStorage.setItem('status', status);
+    }
+
+    getUserStatus() {
+      return sessionStorage.getItem('status');
+    }
 }

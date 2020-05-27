@@ -1,3 +1,5 @@
+import { LoginService } from './../../shared/services/login.service';
+import { MyAccountService } from './../shared/services/my-account.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
@@ -13,7 +15,9 @@ export class PasswordComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private myAccountService: MyAccountService,
+    private loginService: LoginService
   ) {
     this.changePasswordForm = this.formBuilder.group({
       currentPassword: ['', Validators.required],
@@ -25,7 +29,24 @@ export class PasswordComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.log('Password form', this.changePasswordForm.value);
+    // console.log('Password form', this.changePasswordForm.value);
+    this.updatePassword();
+  }
+
+  updatePassword() {
+    const formData = this.changePasswordForm.value;
+    this.myAccountService
+        .updateCustomerPassword(this.loginService.getId(), formData)
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  }
+
+  checkPasswordAvailability(event) {
+    console.log('value in the blur box', event);
   }
 
 }

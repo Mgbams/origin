@@ -1,3 +1,5 @@
+import { LoginService } from './../../shared/services/login.service';
+import { MyAccountService } from './../shared/services/my-account.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
@@ -13,7 +15,9 @@ export class EmailComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private myAccountService: MyAccountService,
+    private loginService: LoginService
   ) {
     this.changeEmailForm = this.formBuilder.group({
       currentEmail: ['', Validators.required],
@@ -25,7 +29,23 @@ export class EmailComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.log('changeEmailForm form', this.changeEmailForm.value);
+    // console.log('changeEmailForm form', this.changeEmailForm.value);
+    this.updateEmail();
   }
 
+  updateEmail() {
+    const formData = this.changeEmailForm.value;
+    this.myAccountService
+        .updateCustomerEmail(this.loginService.getId(), formData)
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  }
+
+  checkEmailAvailability(event) {
+    console.log('value in the blur box', event);
+  }
 }
