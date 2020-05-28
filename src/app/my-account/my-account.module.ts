@@ -11,6 +11,7 @@ import { AdminFooterModule } from './../administration/admin-footer/admin-footer
 import { SharedModule } from './../shared/shared.module';
 
 
+
 @NgModule({
   declarations: [MyAccountComponent],
   imports: [

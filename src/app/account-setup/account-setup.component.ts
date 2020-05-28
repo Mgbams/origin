@@ -19,12 +19,12 @@ export class AccountSetupComponent implements OnInit {
    public retypePasswordType = 'password'; // used to toggle password
    public retypePasswordShown = false; // used to toggle password
   constructor(
-    private formBuilder: FormBuilder, 
+    private formBuilder: FormBuilder,
     private registrationInfo: RegistrationInfosService
     ) {
     this.accountSetupForm = this.formBuilder.group({
-      email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
-      retypedEmail: ['', [Validators.required,Validators.minLength(1), Validators.email]],
+      email: ['', [Validators.required, Validators.minLength(1), Validators.email]],
+      retypedEmail: ['', [Validators.required, Validators.minLength(1), Validators.email]],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8),  Validators.maxLength(30)])],
       retypedPassword: ['', Validators.compose([Validators.required, Validators.minLength(8),  Validators.maxLength(30)])]
     });

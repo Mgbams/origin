@@ -41,21 +41,14 @@
 }
 
 // setting link properties to be used by routerLinkActive
-.a {
-    text-decoration: none;
-}
-
 a.active {
     color: brown;
     cursor: pointer;
     text-decoration: underline;
 }
 
-a.hover {
-    color: #030303;
-    background-color: #CFD8DC;
-}
-
-a.visited {
-    color: #039be5;
+.errorMessages {
+    margin: 15px 0px;
+    background-color: yellow;
+    color: red;
 }

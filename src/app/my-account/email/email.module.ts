@@ -4,9 +4,11 @@ import { AdminFooterModule } from './../../administration/admin-footer/admin-foo
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../../shared/shared.module';
+import { ConfirmEqualityValidatorDirective } from '../shared/confirm-email-equality-directive';
+
 
 @NgModule({
-  declarations: [EmailComponent],
+  declarations: [EmailComponent, ConfirmEqualityValidatorDirective],
   imports: [
     CommonModule,
     SharedModule,

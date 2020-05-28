@@ -56,20 +56,53 @@
                             <ion-input formControlName="currentEmail" (ionBlur)="checkEmailAvailability( $event.target.value)" name="currentEmail" type="text"></ion-input>
                         </ion-item>
 
+                        <!-- Shows error message when Email field is left blank starts here-->
+
+                        <div *ngIf="changeEmailForm.controls['currentEmail'].invalid && (changeEmailForm.controls['currentEmail'].dirty || changeEmailForm.controls['currentEmail'].touched)" color="danger">
+                            <div *ngIf="changeEmailForm.controls['currentEmail'].errors.required">
+                                Email is required.
+                            </div>
+                        </div>
+
+                        <!-- Shows error message when Email field is left blank STOPS here-->
+
                         <ion-item>
                             <ion-label position="floating">New Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                             <ion-input formControlName="newEmail" name="newEmail" type="text"></ion-input>
                         </ion-item>
 
+                        <!-- Shows error message when Email field is left blank starts here-->
+
+                        <div *ngIf="changeEmailForm.controls['newEmail'].invalid && (changeEmailForm.controls['newEmail'].dirty || changeEmailForm.controls['newEmail'].touched)" color="danger">
+                            <div *ngIf="changeEmailForm.controls['newEmail'].errors.required">
+                                Email is required.
+                            </div>
+                        </div>
+
+                        <!-- Shows error message when Email field is left blank STOPS here-->
+
                         <ion-item>
                             <ion-label position="floating">Confirm Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                            <ion-input formControlName="confirmEmail" name="confirmEmail" type="text"></ion-input>
+                            <ion-input formControlName="confirmEmail" appConfirmEqualityValidator="newEmail" name="confirmEmail" type="text"></ion-input>
                         </ion-item>
+
+                        <!-- Shows error message when Confirm Email field is left blank starts here-->
+
+                        <div *ngIf="changeEmailForm.controls['confirmEmail'].invalid && (changeEmailForm.controls['confirmEmail'].dirty || changeEmailForm.controls['confirmEmail'].touched)" color="danger">
+                            <div *ngIf="changeEmailForm.controls['confirmEmail'].errors.required">
+                                Enter the same Email here.
+                            </div>
+                        </div>
+                        <div *ngIf="changeEmailForm.controls['confirmEmail'].touched && changeEmailForm.controls['confirmEmail'].errors?.notEqual && !changeEmailForm.controls['confirmEmail'].errors?.required" class="errorMessages">
+                            Emails do not match
+                        </div>
+
+                        <!-- Shows error message when Confirm Email field is left blank STOPS here-->
 
                         <div class="ion-margin-top">
                             <ion-row>
                                 <ion-col size="4">
-                                    <ion-button class="ion-activatable ripple-parent update-button" [disabled]="!changeEmailForm.valid" expand="block" type="submit">
+                                    <ion-button class="ion-activatable ripple-parent update-button" [disabled]="!changeEmailForm.valid || '' !== EmailErrorMessage" expand="block" type="submit">
                                         Submit
                                         <ion-ripple-effect type="bounded"></ion-ripple-effect>
                                     </ion-button>

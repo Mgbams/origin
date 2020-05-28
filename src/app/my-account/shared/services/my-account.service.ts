@@ -16,4 +16,16 @@ export class MyAccountService {
   updateCustomerEmail(data, newEmail) {
     return this.http.put(`${this.baseUrl}email-update.php/?id=` + data, newEmail, {responseType: 'text'}).toPromise();
   }
+
+  checkEmailForExistence(customerId, currentEmail) {
+    return this.http.get(
+      `${this.baseUrl}email-update.php/?id=` + customerId + `&currentEmail=` + currentEmail, {responseType: 'text'}
+      ).toPromise();
+  }
+
+  checkPasswordForExistence(customerId, currentPassword) {
+    return this.http.get(
+      `${this.baseUrl}password-update.php/?id=` + customerId + `&currentPassword=` + currentPassword, {responseType: 'text'}
+      ).toPromise();
+  }
 }

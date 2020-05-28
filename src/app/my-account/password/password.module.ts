@@ -4,9 +4,11 @@ import { AdminFooterModule } from './../../administration/admin-footer/admin-foo
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../../shared/shared.module';
+import { ConfirmEqualityValidatorDirective } from '../shared/confirm-password-equality-directive';
+
 
 @NgModule({
-  declarations: [PasswordComponent],
+  declarations: [PasswordComponent, ConfirmEqualityValidatorDirective],
   imports: [
     CommonModule,
     SharedModule,
