@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({
@@ -13,7 +12,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CommonModule,
     FormsModule,
     NgxPaginationModule,
-    ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],
   declarations: [Tab2Page]

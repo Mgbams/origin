@@ -72,14 +72,18 @@
                                     <ion-input formControlName="nickName" name="nickName" type="text"></ion-input>
                                 </ion-item>
 
-                                <ion-item>
+                                <ion-item *ngIf="shippingAddress.length !== 0">
                                     <ion-label position="floating">Shipping Address</ion-label>
                                     <ion-select formControlName="shippingAddress" name="shippingAddress">
-                                        <ion-select-option selected>
-                                            shipping address
+                                        <ion-select-option *ngFor="let address of shippingAddress; index as shippingId" [value]="address.shipping_id" selected>
+                                            {{ address.shipping_address }}
                                         </ion-select-option>
                                     </ion-select>
                                 </ion-item>
+
+                                <div *ngIf="shippingAddress.length === 0">
+                                    <label class="ion-text-center ion-text-wrap"><a routerLink="/myaccount/shipping-address" color="danger">Add a Shipping Address before proceeding</a></label>
+                                </div>
                             </div>
 
                             <div class="row-formater">
@@ -110,7 +114,7 @@
                                 <ion-item>
                                     <ion-label position="floating">Country</ion-label>
                                     <ion-select formControlName="country" name="country">
-                                        <ion-select-option *ngFor="let country of countries; index as countryId" [value]="country.code" selected>
+                                        <ion-select-option *ngFor="let country of countries; index as countryId" [value]="country.name_en" selected>
                                             {{country.name_en}}
                                         </ion-select-option>
                                     </ion-select>

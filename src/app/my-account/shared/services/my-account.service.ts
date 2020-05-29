@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ShippingAddress } from '../models/shipping-address';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,17 @@ export class MyAccountService {
     return this.http.get(
       `${this.baseUrl}password-update.php/?id=` + customerId + `&currentPassword=` + currentPassword, {responseType: 'text'}
       ).toPromise();
+  }
+
+   updatePaymentInfos(customerId, formData) {
+    return this.http.put(`${this.baseUrl}payment-cards.php/?id=` + customerId, formData, {responseType: 'text'}).toPromise();
+  }
+
+  updateShippingAddress(customerId, formData) {
+    return this.http.put(`${this.baseUrl}shipping-address.php/?id=` + customerId, formData, {responseType: 'text'}).toPromise();
+  }
+
+  getShippingAddressById(customerId): Promise< ShippingAddress[]> {
+    return this.http.get< ShippingAddress[]>(`${this.baseUrl}shipping-address.php/?id=` + customerId).toPromise();
   }
 }

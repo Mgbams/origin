@@ -4,6 +4,10 @@ import { FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MONTH } from './shared/models/month';
 import { YEAR } from './shared/models/year';
+import { LoginService } from './../../shared/services/login.service';
+import { MyAccountService } from './../shared/services/my-account.service';
+import { ToastController } from '@ionic/angular';
+import { ShippingAddress } from '../shared/models/shipping-address';
 
 
 @Component({
@@ -16,11 +20,15 @@ export class PaymentsComponent implements OnInit {
   public months = MONTH;
   public years = YEAR;
   public countries;
+  public shippingAddress: ShippingAddress[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private countriesService: CountriesService
+    private countriesService: CountriesService,
+    private myAccountService: MyAccountService,
+    private loginService: LoginService,
+    private toastController: ToastController
   ) {
     this.paymentsForm = this.formBuilder.group({
       nickName: ['', Validators.required],
@@ -40,6 +48,7 @@ export class PaymentsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Loading lists of countries
     this.countriesService
         .getCategories()
         .then(data => {
@@ -49,10 +58,44 @@ export class PaymentsComponent implements OnInit {
         .catch(err => {
           console.log(err);
         });
+
+    // Loading the shipping address
+    this.myAccountService
+        .getShippingAddressById(this.loginService.getId()) 
+        .then((data: ShippingAddress[]) => {
+          this.shippingAddress = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
   }
 
   onSubmit() {
-    console.log('payments form', this.paymentsForm.value);
+    // console.log('payments form', this.paymentsForm.value);
+    this.updatePaymentInfos();
+  }
+
+
+  updatePaymentInfos() {
+    const formData = this.paymentsForm.value;
+    this.myAccountService
+        .updatePaymentInfos(this.loginService.getId(), formData)
+        .then((data) => {
+          console.log(data);
+          const toast = this.toastController.create({
+          message: 'Card information successfully updated',
+          position: 'top',
+          duration: 2000,
+          cssClass: 'toast-bg',
+          color: 'success'
+          });
+          toast.then((toastMessage) => {
+          toastMessage.present();
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   }
 
 }
