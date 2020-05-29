@@ -7,17 +7,11 @@ import { PasswordModule } from './password/password.module';
 import { EmailModule } from './email/email.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminFooterModule } from './../administration/admin-footer/admin-footer.module';
-import { SharedModule } from './../shared/shared.module';
-
-
 
 @NgModule({
   declarations: [MyAccountComponent],
   imports: [
     CommonModule,
-    AdminFooterModule,
-    SharedModule,
     EmailModule,
     PasswordModule,
     PaymentsModule,
