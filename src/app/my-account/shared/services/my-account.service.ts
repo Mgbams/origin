@@ -31,11 +31,11 @@ export class MyAccountService {
   }
 
    updatePaymentInfos(customerId, formData) {
-    return this.http.put(`${this.baseUrl}payment-cards.php/?id=` + customerId, formData, {responseType: 'text'}).toPromise();
+    return this.http.post(`${this.baseUrl}payment-cards.php/?id=` + customerId, formData, {responseType: 'text'}).toPromise();
   }
 
   updateShippingAddress(customerId, formData) {
-    return this.http.put(`${this.baseUrl}shipping-address.php/?id=` + customerId, formData, {responseType: 'text'}).toPromise();
+    return this.http.post(`${this.baseUrl}shipping-address.php/?id=` + customerId, formData, {responseType: 'text'}).toPromise();
   }
 
   getShippingAddressById(customerId): Promise< ShippingAddress[]> {
