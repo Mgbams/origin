@@ -1,3 +1,4 @@
+import { ResetPasswordModule } from './reset-password/reset-password.module';
 import { MyAccountModule } from './my-account/my-account.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import { ContactModule } from './contact/contact.module';
@@ -88,6 +89,7 @@ import {  CartModalModule } from './cart/cart-modal/cart-modal.module';
     AboutUsModule,
     ContactModule,
     MyAccountModule,
+    ResetPasswordModule,
     AppRoutingModule
   ],
   providers: [

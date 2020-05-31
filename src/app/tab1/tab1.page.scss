@@ -98,6 +98,10 @@ ion-button {
         justify-content: center;
         height: 70vh;
         overflow: hidden;
+        a:hover {
+            text-decoration: underline;
+            color: greenyellow;
+        }
     }
     .women {
         background: url('./../../assets/images/women1.jpg');
@@ -110,16 +114,16 @@ ion-button {
         justify-content: center;
         height: 70vh;
         overflow: hidden;
+        a:hover {
+            text-decoration: underline;
+            color: greenyellow;
+        }
     }
 }
 
 a {
     text-decoration: none;
     color: white;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .bottom-line-animation {
@@ -221,6 +225,7 @@ a:hover {
     width: 92%;
     left: 4%;
 }
+
 .product-name {
-    color:  #86C232;
+    color: #86C232;
 }

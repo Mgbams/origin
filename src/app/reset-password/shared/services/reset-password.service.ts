@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResetEmail } from '../models/reset-email';
+import { Password } from '../models/password';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ForgotPasswordService {
+export class ResetPasswordService {
   private baseUrl = 'http://localhost/origin/src/application/controllers/forgot-password/forgot-password.php';
 
   constructor(private http: HttpClient) { }
 
-  public sendPasswordResetLink(data) {
-    return this.http.post(`${this.baseUrl}`,  data, {responseType: 'text'}).toPromise();
+  public updatePassword(data): Promise<Password> {
+    return this.http.put<Password> (`${this.baseUrl}`,  data).toPromise();
    }
 }
