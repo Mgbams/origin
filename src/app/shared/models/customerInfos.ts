@@ -13,6 +13,8 @@ export class Users {
     public cardExpMonth: number;
     public cardExpYear: number;
     public status: string;
+    public passwordResetToken : string;
+    public passwordResetExpires : string;
 
     constructor(
         customerId: number,
@@ -28,7 +30,9 @@ export class Users {
         creditCardTypeId: string,
         cardExpMonth: number,
         cardExpYear: number,
-        status: string
+        status: string,
+        passwordResetToken: string,
+        passwordResetExpires: string
         ) {
         this.customerId = customerId;
         this.firstName = firstName;
@@ -44,6 +48,8 @@ export class Users {
         this.cardExpMonth = cardExpMonth;
         this.cardExpYear = cardExpYear;
         this.status = status;
+        this.passwordResetToken = passwordResetToken; 
+        this.passwordResetExpires = passwordResetExpires;
         }
 
 }

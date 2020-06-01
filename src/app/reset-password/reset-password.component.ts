@@ -33,12 +33,19 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    const formData = this.resetPasswordForm.value;
+    const formData = {
+      data: [
+        {
+          token: localStorage.getItem('resetPasswordToken'),
+          password: this.resetPasswordForm.value
+        }
+      ]
+    };
     this.resetPasswordService
         .updatePassword(formData)
-        .then((data: Password) => {
+        .then(data => {
           console.log(data);
-          this.message = data;
+          // this.message = data;
           this.resetPasswordForm.reset();
         })
         .catch(err => {

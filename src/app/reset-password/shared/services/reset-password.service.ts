@@ -10,7 +10,7 @@ export class ResetPasswordService {
 
   constructor(private http: HttpClient) { }
 
-  public updatePassword(data): Promise<Password> {
-    return this.http.put<Password> (`${this.baseUrl}`,  data).toPromise();
+  public updatePassword(data) {
+    return this.http.put (`${this.baseUrl}`,  data, {responseType: 'text'}).toPromise();
    }
 }

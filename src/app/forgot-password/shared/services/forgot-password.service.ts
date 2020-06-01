@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResetEmail } from '../models/reset-email';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,10 @@ export class ForgotPasswordService {
 
   constructor(private http: HttpClient) { }
 
-  public sendPasswordResetLink(data) {
+   public sendPasswordResetLink(data) {
     return this.http.post(`${this.baseUrl}`,  data, {responseType: 'text'}).toPromise();
    }
+
+
+
 }

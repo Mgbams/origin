@@ -95,21 +95,6 @@ export class ProductDetailsComponent implements OnInit {
             });
   }
   
- /* addToCart(product) {
-    this.cartService.addProductToCart(product);
-    // Creating a toast that displays a message when the product is added to the cart
-    const toast = this.toastController.create({
-      message: product.product_name + ' has been added to your cart',
-      position: 'top',
-      duration: 2000,
-      cssClass: 'toast-bg',
-      color: 'success'
-    });
-    toast.then((toastMessage) => {
-      toastMessage.present();
-    });
-  } */
-
   addToCart(product) {
     this.cartService.addProduct(product);
     // Creating a toast that displays a message when the product is added to the cart
