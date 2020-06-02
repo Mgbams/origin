@@ -23,7 +23,7 @@ export class LoginService {
       .pipe(
         // tslint:disable-next-line: no-shadowed-variable
         map(Users => {
-          this.setId(Users[0].customer_id); // Users[0].first_name
+          this.setId(Users[0].customer_id); 
           this.setUserStatus(Users[0].status);
           this.setUserName(Users[0].first_name);
           this.getLoggedInName.emit(true);

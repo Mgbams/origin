@@ -51,9 +51,6 @@ export class RegistrationLoginComponent implements OnInit {
 
     postdata(form) {
       this.loading = true;
-      // console.log(form.value.email);
-      // console.log(form.value.password);
-
       const formdata = {
         data: [
           {

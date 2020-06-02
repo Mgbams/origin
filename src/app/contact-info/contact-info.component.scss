@@ -1,19 +1,31 @@
 .centerFormContents {
-    padding-top: 60px;
-
+    margin: 120px auto;
+    padding: 10px 0px;
+    width: 50vw;
+    background-color: gray;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     .closeFormIcon {
         font-size: 3rem;
     }
+    .centering-items {
+        width: 80%;
+        margin: auto;
+        .horizontal-separator {
+            width: 50vw;
+            border: 1px solid white;
+        }
+    }
 }
-ion-content .centerFormContents {
-    width: 90%;
-    margin: auto;
-}
+
 .accountSteps {
     display: flex;
     align-items: center;
 }
-.accountSteps > div:nth-child(odd) {
+
+.accountSteps>div:nth-child(odd) {
     border-radius: 50%;
     padding: 10px;
     width: 60px;
@@ -21,25 +33,31 @@ ion-content .centerFormContents {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid gray;
+    border: 1px solid palevioletred;
+    color: white;
 }
-.accountSteps > div:nth-child(even) {
+
+.accountSteps>div:nth-child(even) {
     width: 30vw;
     height: 1px;
-    border: 1px solid gray;
-    background-color: gray;
+    border: 1px solid yellow;
 }
+
 .activeTab {
     background-color: palevioletred;
 }
+
 small {
-    color: palevioletred;
+    color: yellow;
 }
-span {
-    text-decoration: underline;
-}
+
 .formIntroText {
     line-height: 1.6rem;
+    color: white;
+}
+
+span {
+    text-decoration: underline;
 }
 
 .register_button {
@@ -50,10 +68,15 @@ span {
 
 .back_button {
     --border-radius: 50px !important;
-    --border: 1px solid #9E15BF !important;
-}
-a {
-    color: black;
-    text-decoration: none;
+    --border: 1px solid yellow !important;
 }
 
+a {
+    text-decoration: none;
+    color: yellow;
+}
+
+a:hover {
+    color: yellowgreen;
+    cursor: pointer;
+}

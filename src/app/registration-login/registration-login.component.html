@@ -2,75 +2,78 @@
     <div class="centerFormContents">
         <div class="centering-items">
             <ion-grid>
-            <ion-row class="ion-justify-content-end closeRegisterForm">
-                <ion-col size="2">
-                    <div>
-                        <a routerLink="/tabs/tab1">
-                            <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
-                        </a>
-                    </div>
-                </ion-col>
-            </ion-row>
-
-            <ion-row class="ion-justify-content-center">
-                <ion-col size="6">
-                    <h1 class="ion-text-center">Welcome</h1>
-                    <h2 class="ion-text-center">TO</h2>
-                </ion-col>
-            </ion-row>
-
-            <ion-row class="origin ion-justify-content-center">
-                <ion-col size="6">
-                    <h2 class="originSpacing ion-text-center">
-                        <span class="color1">O</span>
-                        <span class="color2">R</span>
-                        <span class="color3">I</span>
-                        <span class="color1">G</span>
-                        <span class="color2">I</span>
-                        <span class="color3">N</span>
-                    </h2>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-
-        <form [formGroup]="loginRegisterForm" (ngSubmit)="postdata(loginRegisterForm)">
-            <ion-item>
-                <ion-label position="floating">Email</ion-label>
-                <ion-input formControlName="email" name="email" autofocus="true" type="email"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label position="floating">Password</ion-label>
-                <ion-input formControlName="password" name="password" [type]="passwordType"></ion-input>
-                <ion-icon name="eye" [color]="passwordShown === true ? 'dark': 'gray'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
-            </ion-item>
-
-            <ion-button class="ion-activatable ripple-parent ion-margin-top signIn_button" expand="block" type="submit">
-                Sign in
-                <ion-ripple-effect type="bounded"></ion-ripple-effect>
-            </ion-button>
-
-            <ion-row class="ion-justify-content-end">
-                <ion-col size="5">
-                    <p><small><a class="forgot-password" routerLink="/forgot-password">Forgot Password?</a></small></p>
-                </ion-col>
-            </ion-row>
-
-            <div>
-                <ion-row class="ion-justify-content-center">
-                    <ion-col size="5">
-                        <p>Not a member?</p>
+                <ion-row class="ion-justify-content-end closeRegisterForm">
+                    <ion-col size="2">
+                        <div>
+                            <a routerLink="/tabs/tab1">
+                                <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
+                            </a>
+                        </div>
                     </ion-col>
                 </ion-row>
 
-                <ion-button class="ion-activatable ripple-parent register_button" (click)="guardRoute()" expand="block" color="dark" routerLink="/account-setup">
-                    Register now
+                <ion-row>
+                    <div class="horizontal-separator"></div>
+                </ion-row>
+
+                <ion-row class="ion-justify-content-center">
+                    <ion-col size="6">
+                        <h1 class="ion-text-center welcome">Welcome</h1>
+                        <h2 class="ion-text-center welcome">TO</h2>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="origin ion-justify-content-center">
+                    <ion-col size="6">
+                        <h2 class="originSpacing ion-text-center">
+                            <span class="color1">O</span>
+                            <span class="color2">R</span>
+                            <span class="color3">I</span>
+                            <span class="color1">G</span>
+                            <span class="color2">I</span>
+                            <span class="color3">N</span>
+                        </h2>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <form [formGroup]="loginRegisterForm" (ngSubmit)="postdata(loginRegisterForm)">
+                <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input formControlName="email" name="email" autofocus="true" type="email"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input formControlName="password" name="password" [type]="passwordType"></ion-input>
+                    <ion-icon name="eye" [color]="passwordShown === true ? 'dark': 'gray'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+                </ion-item>
+
+                <ion-button class="ion-activatable ripple-parent ion-margin-top signIn_button" expand="block" type="submit">
+                    Sign in
                     <ion-ripple-effect type="bounded"></ion-ripple-effect>
                 </ion-button>
-            </div>
-        </form>
+
+                <ion-row class="ion-justify-content-end">
+                    <ion-col size="5">
+                        <p><small><a class="forgot-password" routerLink="/forgot-password">Forgot Password?</a></small></p>
+                    </ion-col>
+                </ion-row>
+
+                <div>
+                    <ion-row class="ion-justify-content-center">
+                        <ion-col size="5">
+                            <p class="welcome">Not a member?</p>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-button class="ion-activatable ripple-parent register_button" (click)="guardRoute()" expand="block" color="dark" routerLink="/account-setup">
+                        Register now
+                        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                    </ion-button>
+                </div>
+            </form>
 
         </div>
-        
     </div>
 </ion-content>

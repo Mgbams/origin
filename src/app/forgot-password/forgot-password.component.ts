@@ -1,7 +1,6 @@
 import { ForgotPasswordService } from './shared/services/forgot-password.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { ResetEmail } from './shared/models/reset-email';
 
 @Component({
   selector: 'app-forgot-password',
@@ -28,14 +27,14 @@ export class ForgotPasswordComponent implements OnInit {
     this.forgotPasswordService
         .sendPasswordResetLink(this.forgetPasswordForm.value)
         .then(data => {
-          let customerInfos = [];
+          const customerInfos = [];
           const slicedData = data.split(','); // data is given as string so i used split to get an array of strings
           customerInfos.push(slicedData);
           // delete the first 23 items with slice and replace quotation marks with the replace method
           const token = customerInfos[0][14].slice(23).replace(/^"(.+)"$/,'$1');
          // set the reset token in session storage
          // sessionStorage.setItem('resetPasswordToken', token);
-         localStorage.setItem('resetPasswordToken', token);
+          localStorage.setItem('resetPasswordToken', token);
           this.forgetPasswordForm.reset();
         })
         .catch(err => {

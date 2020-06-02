@@ -1,137 +1,143 @@
 <ion-content>
     <div class="centerFormContents">
-        <ion-grid>
-            <ion-row>
-                <ion-col size="10">
-                    <p>Customer Registration</p>
-                </ion-col>
+        <div class="centering-items">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="10">
+                        <p class="formIntroText">Customer Registration</p>
+                    </ion-col>
 
-                <ion-col size="1">
-                    <div class="closeRegisterForm">
-                        <a routerLink="/register-login">
-                            <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
-                        </a>
-                    </div>
-                </ion-col>
-            </ion-row>
-
-            <ion-row>
-                <ion-col size="10">
-                    <p class="formIntroText">Create your account and discover Origin, the great shopping site that delivers original products to your doorstep
-                    </p>
-                </ion-col>
-            </ion-row>
-
-            <ion-row>
-                <ion-col class="accountSteps" size="8">
-                    <div class="activeTab">1</div>
-                    <div></div>
-                    <div>2</div>
-                    <div></div>
-                    <div>3</div>
-                </ion-col>
-            </ion-row>
-
-            <ion-row>
-                <ion-col size="4">
-                    <small>Account Setup</small>
-                </ion-col>
-            </ion-row>
-
-        </ion-grid>
-
-        <form [formGroup]="accountSetupForm" novalidate (ngSubmit)="onSubmit()">
-            <ion-item>
-                <ion-label position="floating">Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="email" name="email" autofocus="true" type="email"></ion-input>
-            </ion-item>
-
-            <!-- Shows error message when Email field is left blank starts here-->
-
-            <div *ngIf="accountSetupForm.controls['email'].invalid && (accountSetupForm.controls['email'].dirty || accountSetupForm.controls['email'].touched)" color="danger">
-                <div *ngIf="accountSetupForm.controls['email'].errors.required">
-                    Email is required.
-                </div>
-            </div>
-
-            <!-- Shows error message when Email field is left blank STOPS here-->
-
-            <ion-item>
-                <ion-label position="floating">Re-type Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="retypedEmail" appConfirmEqualityValidator="email" name="retypedEmail" type="email"></ion-input>
-            </ion-item>
-
-            <!-- Shows error message when retyped Email field is left blank starts here-->
-
-            <div *ngIf="accountSetupForm.controls['retypedEmail'].invalid && (accountSetupForm.controls['retypedEmail'].dirty || accountSetupForm.controls['retypedEmail'].touched)" color="danger">
-                <div *ngIf="accountSetupForm.controls['retypedEmail'].errors.required">
-                    Enter the same Email here.
-                </div>
-            </div>
-            <div *ngIf="accountSetupForm.controls['retypedEmail'].touched && accountSetupForm.controls['retypedEmail'].errors?.notEqual && !accountSetupForm.controls['retypedEmail'].errors?.required" class="errorMessages">
-                Emails do not match
-            </div>
-
-            <!-- Shows error message when retyped Email field is left blank STOPS here-->
-
-            <div>
-                <p>Your password must meet the below requirements</p>
-                <ul>
-                    <li>
-                        <ion-text color="danger">Between 8 to 20 characters</ion-text>
-                    </li>
-                    <li>
-                        <ion-text color="danger">At least one lower case character</ion-text>
-                    </li>
-                </ul>
-
-            </div>
-
-
-            <ion-item>
-                <ion-label position="floating">Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="password" name="password" [type]="passwordType"></ion-input>
-                <ion-icon name="eye" [color]="passwordShown === true ? 'dark': 'gray'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
-            </ion-item>
-
-            <!-- Shows error message when password field is left blank starts here-->
-
-            <div *ngIf="accountSetupForm.controls['password'].invalid && (accountSetupForm.controls['password'].dirty || accountSetupForm.controls['password'].touched)" color="danger">
-                <div *ngIf="accountSetupForm.controls['password'].errors.required" color="danger">
-                    Password is required.
-                </div>
-            </div>
-
-            <!-- Shows error message when password field is left blank stops here-->
-
-            <ion-item>
-                <ion-label position="floating">Re-type Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
-                <ion-input formControlName="retypedPassword" appConfirmEqualityValidator="password" name="retypedPassword" [type]="retypePasswordType"></ion-input>
-                <ion-icon name="eye" [color]="retypePasswordShown === true ? 'dark': 'gray'" slot="end" (click)="retypePasswordVisibility()"></ion-icon>
-            </ion-item>
-
-            <!-- Shows error message when retypedpassword field is left blank starts here-->
-
-            <div *ngIf="accountSetupForm.controls['retypedPassword'].invalid && (accountSetupForm.controls['retypedPassword'].dirty || accountSetupForm.controls['retypedPassword'].touched)" color="danger">
-                <div *ngIf="accountSetupForm.controls['retypedPassword'].errors.required">
-                    Retype password is required.
-                </div>
-            </div>
-            <div *ngIf="accountSetupForm.controls['retypedPassword'].touched && accountSetupForm.controls['retypedPassword'].errors?.notEqual && !accountSetupForm.controls['retypedPassword'].errors?.required" class="errorMessages">
-                Passwords do not match
-            </div>
-            <!-- Shows error message when  retypedpassword field is left blank stops here-->
-
-            <div>
-                <ion-row class="ion-justify-content-end">
-                    <ion-col size="4">
-                        <ion-button class="ion-activatable ripple-parent" (click)="guardRoute()" expand="block" type="submit" [disabled]="accountSetupForm.pristine || accountSetupForm.invalid" routerLink="/account-info">
-                            Next
-                            <ion-ripple-effect type="bounded"></ion-ripple-effect>
-                        </ion-button>
+                    <ion-col size="1">
+                        <div class="closeRegisterForm">
+                            <a routerLink="/register-login">
+                                <ion-icon class="closeFormIcon" name="close-circle-outline"></ion-icon>
+                            </a>
+                        </div>
                     </ion-col>
                 </ion-row>
-            </div>
-        </form>
+
+                <ion-row>
+                    <div class="horizontal-separator"></div>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="10">
+                        <p class="formIntroText">Create your account and discover Origin, the great shopping site that delivers original products to your doorstep
+                        </p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col class="accountSteps" size="8">
+                        <div class="activeTab">1</div>
+                        <div></div>
+                        <div>2</div>
+                        <div></div>
+                        <div>3</div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="4">
+                        <small>Account Setup</small>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+
+            <form [formGroup]="accountSetupForm" novalidate (ngSubmit)="onSubmit()">
+                <ion-item>
+                    <ion-label position="floating">Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                    <ion-input formControlName="email" name="email" autofocus="true" type="email"></ion-input>
+                </ion-item>
+
+                <!-- Shows error message when Email field is left blank starts here-->
+
+                <div *ngIf="accountSetupForm.controls['email'].invalid && (accountSetupForm.controls['email'].dirty || accountSetupForm.controls['email'].touched)" color="danger">
+                    <div *ngIf="accountSetupForm.controls['email'].errors.required">
+                        Email is required.
+                    </div>
+                </div>
+
+                <!-- Shows error message when Email field is left blank STOPS here-->
+
+                <ion-item>
+                    <ion-label position="floating">Re-type Email<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                    <ion-input formControlName="retypedEmail" appConfirmEqualityValidator="email" name="retypedEmail" type="email"></ion-input>
+                </ion-item>
+
+                <!-- Shows error message when retyped Email field is left blank starts here-->
+
+                <div *ngIf="accountSetupForm.controls['retypedEmail'].invalid && (accountSetupForm.controls['retypedEmail'].dirty || accountSetupForm.controls['retypedEmail'].touched)" color="danger">
+                    <div *ngIf="accountSetupForm.controls['retypedEmail'].errors.required">
+                        Enter the same Email here.
+                    </div>
+                </div>
+                <div *ngIf="accountSetupForm.controls['retypedEmail'].touched && accountSetupForm.controls['retypedEmail'].errors?.notEqual && !accountSetupForm.controls['retypedEmail'].errors?.required" class="errorMessages">
+                    Emails do not match
+                </div>
+
+                <!-- Shows error message when retyped Email field is left blank STOPS here-->
+
+                <div>
+                    <p class="formIntroText">Your password must meet the below requirements</p>
+                    <ul>
+                        <li>
+                            <ion-text>Between 8 to 20 characters</ion-text>
+                        </li>
+                        <li>
+                            <ion-text>At least one lower case character</ion-text>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <ion-item>
+                    <ion-label position="floating">Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                    <ion-input formControlName="password" name="password" [type]="passwordType"></ion-input>
+                    <ion-icon name="eye" [color]="passwordShown === true ? 'dark': 'gray'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+                </ion-item>
+
+                <!-- Shows error message when password field is left blank starts here-->
+
+                <div *ngIf="accountSetupForm.controls['password'].invalid && (accountSetupForm.controls['password'].dirty || accountSetupForm.controls['password'].touched)" color="danger">
+                    <div *ngIf="accountSetupForm.controls['password'].errors.required" color="danger">
+                        Password is required.
+                    </div>
+                </div>
+
+                <!-- Shows error message when password field is left blank stops here-->
+
+                <ion-item>
+                    <ion-label position="floating">Re-type Password<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                    <ion-input formControlName="retypedPassword" appConfirmEqualityValidator="password" name="retypedPassword" [type]="retypePasswordType"></ion-input>
+                    <ion-icon name="eye" [color]="retypePasswordShown === true ? 'dark': 'gray'" slot="end" (click)="retypePasswordVisibility()"></ion-icon>
+                </ion-item>
+
+                <!-- Shows error message when retypedpassword field is left blank starts here-->
+
+                <div *ngIf="accountSetupForm.controls['retypedPassword'].invalid && (accountSetupForm.controls['retypedPassword'].dirty || accountSetupForm.controls['retypedPassword'].touched)" color="danger">
+                    <div *ngIf="accountSetupForm.controls['retypedPassword'].errors.required">
+                        Retype password is required.
+                    </div>
+                </div>
+                <div *ngIf="accountSetupForm.controls['retypedPassword'].touched && accountSetupForm.controls['retypedPassword'].errors?.notEqual && !accountSetupForm.controls['retypedPassword'].errors?.required" class="errorMessages">
+                    Passwords do not match
+                </div>
+                <!-- Shows error message when  retypedpassword field is left blank stops here-->
+
+                <div>
+                    <ion-row class="ion-justify-content-end">
+                        <ion-col size="4">
+                            <ion-button class="ion-activatable ripple-parent" (click)="guardRoute()" expand="block" type="submit" [disabled]="accountSetupForm.pristine || accountSetupForm.invalid" routerLink="/account-info">
+                                Next
+                                <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </form>
+        </div>
     </div>
 </ion-content>
