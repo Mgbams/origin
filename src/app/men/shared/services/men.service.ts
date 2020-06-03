@@ -6,30 +6,16 @@ import { AllProducts } from './../../../shared/models/allProducts';
   providedIn: 'root'
 })
 export class MenService {
+
   private baseUrl = 'http://localhost/origin/src/application/controllers/men/';
+
   constructor(private http: HttpClient) { }
-
-  public getAccessoires(): Promise< AllProducts[] > {
-    return this.http.get < AllProducts[] >(`${this.baseUrl}get-accessoires.php`).toPromise();
-    }
-
-  public getJeans(): Promise< AllProducts[] > {
-      return this.http.get < AllProducts[] >(`${this.baseUrl}get-jeans.php`).toPromise();
-    }
-
-    public getShirts(): Promise< AllProducts[] > {
-      return this.http.get < AllProducts[] >(`${this.baseUrl}get-shirts.php`).toPromise();
-      }
-  
-    public getShorts(): Promise< AllProducts[] > {
-        return this.http.get < AllProducts[] >(`${this.baseUrl}get-shorts.php`).toPromise();
-      }
-
-  public getSneakers(): Promise< AllProducts[] > {
-    return this.http.get < AllProducts[] >(`${this.baseUrl}get-sneakers.php`).toPromise();
-    }
 
   public getMen(): Promise< AllProducts[] > {
       return this.http.get < AllProducts[] >(`${this.baseUrl}men.php`).toPromise();
     }
+
+  public getAllMenProductsByPagination(startPage, numOfProducts): Promise< AllProducts[] > {
+      return this.http.get < AllProducts[] >(`${this.baseUrl}men-pagination.php/?start_page=` + startPage + '&num_of_products=' + numOfProducts).toPromise();
+  }
 }

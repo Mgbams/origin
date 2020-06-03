@@ -10,28 +10,50 @@ import { AllProducts } from './../shared/models/allProducts';
 export class WomenComponent implements OnInit {
   public products;
   public imageArrays = [];
+
+  public pageActual = 1; // Actual page by default for pagination is page 
+  public totalProducts;
+  public startIndex = 0; // default startIndex value used for getting items from database
+  public numPerPage = 12; // Number of products per page
+
   constructor(private womenService: WomenService) { }
 
   ngOnInit() {
-    this.getWomenProducts();
+    this.getAllWomenProducts();
+    this.allWomenProductsPagination(this.startIndex, this.numPerPage);
   }
 
-  getWomenProducts() {
+  // This function is used to get the total counts of products in my database
+  getAllWomenProducts() {
+      this.womenService
+          .getWomen()
+          .then((data: AllProducts[]) => {
+          this.products = data;
+          this.totalProducts = this.products.length;
+      })
+        .catch((error) => {
+          console.log(error);
+      });
+    }
+
+    // changeHandler() and allProductsPagination() functions handle pagination
+
+  changeHandler(pageIndex) {
+    this.pageActual = pageIndex;
+    this.startIndex = (pageIndex - 1) * this.numPerPage;
+    this.allWomenProductsPagination(this.startIndex, this.numPerPage);
+  }
+
+  allWomenProductsPagination(startIndex, numPerPage) {
     this.womenService
-        .getWomen()
+        .getAllWomenProductsByPagination(startIndex, numPerPage)
         .then((data: AllProducts[]) => {
-        this.products = data;
-        this.imageArrays = [];
-        for (let i = 0; i < this.products.length; i++) {
-          const slicedArray = this.products[i].image.split(',');
-          this.imageArrays.push(slicedArray);
-        }
-        console.log('featuredImage Array', this.imageArrays);
-        console.log('Display featuredproducts', this.products);
+          this.products = data;
     })
       .catch((error) => {
         console.log(error);
     });
   }
+
 
 }

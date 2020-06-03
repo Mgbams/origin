@@ -42,7 +42,7 @@ export class Tab2Page implements OnInit, AfterViewInit {
   changeHandler(pageIndex) {
     this.pageActual = pageIndex;
     this.startIndex = (pageIndex - 1) * this.numPerPage;
-    this. allProductsPagination(this.startIndex, this.numPerPage);
+    this.allProductsPagination(this.startIndex, this.numPerPage);
   }
 
    allProductsPagination(startIndex, numPerPage) {

@@ -1,4 +1,4 @@
-import { WomenService } from './../shared/services/women.service';
+import { AccessoiresService } from './shared/services/accessoires.service';
 import { Component, OnInit } from '@angular/core';
 import { AllProducts } from './../../shared/models/allProducts';
 
@@ -10,27 +10,52 @@ import { AllProducts } from './../../shared/models/allProducts';
 export class AccessoiresComponent implements OnInit {
   public products;
   public imageArrays = [];
-  constructor(private womenService: WomenService) { }
+
+  public pageActual = 1; // Actual page by default for pagination is page 
+  public totalProducts;
+  public startIndex = 0; // default startIndex value used for getting items from database
+  public numPerPage = 8; // Number of products per page
+
+  constructor(
+    private accessoiresService: AccessoiresService
+    ) { }
 
   ngOnInit() {
-    this.getWomenAccessoires();
+    this.getWomenAccessoiresProducts();
+    this.womenAccessoiresProductsPagination(this.startIndex, this.numPerPage);
   }
 
-  getWomenAccessoires() {
-    this.womenService
+  // This function is used to get the total counts of products in my database
+  getWomenAccessoiresProducts() {
+    this.accessoiresService
         .getAccessoires()
         .then((data: AllProducts[]) => {
         this.products = data;
-        this.imageArrays = [];
-        for (let i = 0; i < this.products.length; i++) {
-          const slicedArray = this.products[i].image.split(',');
-          this.imageArrays.push(slicedArray);
-        }
-        console.log('featuredImage Array', this.imageArrays);
-        console.log('Display featuredproducts', this.products);
+        this.totalProducts = this.products.length;
     })
       .catch((error) => {
         console.log(error);
     });
-  }
+  } 
+
+  // changeHandler() and allProductsPagination() functions handle pagination
+
+ changeHandler(pageIndex) {
+  this.pageActual = pageIndex;
+  this.startIndex = (pageIndex - 1) * this.numPerPage;
+  this.womenAccessoiresProductsPagination(this.startIndex, this.numPerPage);
+}
+
+womenAccessoiresProductsPagination(startIndex, numPerPage) {
+  this.accessoiresService
+      .getWomenProductsByPagination(startIndex, numPerPage)
+      .then((data: AllProducts[]) => {
+        this.products = data;
+  })
+    .catch((error) => {
+      console.log(error);
+  });
+}
+
+
 }

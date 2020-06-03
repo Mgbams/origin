@@ -9,6 +9,7 @@ import { JeansModule } from './jeans/jeans.module';
 import { ShirtsModule } from './shirts/shirts.module';
 import { ShortsModule } from './shorts/shorts.module';
 import { SneakersModule } from './sneakers/sneakers.module';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [MenComponent],
@@ -17,6 +18,7 @@ import { SneakersModule } from './sneakers/sneakers.module';
     SharedModule,
     AdminFooterModule,
     AccessoiresModule,
+    NgxPaginationModule,
     JeansModule,
     ShirtsModule,
     ShortsModule,
