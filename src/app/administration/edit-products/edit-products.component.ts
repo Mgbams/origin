@@ -11,6 +11,12 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class EditProductsComponent implements AfterViewInit, OnInit {
   public products: AllProducts[] = []; // for getting all categories
+
+  public pageActual = 1; // Actual page by default for pagination is page 
+  public totalProducts;
+  public startIndex = 0; // default startIndex value used for getting items from database
+  public numPerPage = 12; // Number of products per page
+
   constructor(
     private adminService: AdminService,
     private shopService: ShopService,

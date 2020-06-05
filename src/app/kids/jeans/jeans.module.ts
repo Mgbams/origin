@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from './../../shared/shared.module';
 import { JeansRoutingModule } from './jeans-routing.module';
 import { JeansComponent } from './jeans.component';
-
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 
 @NgModule({
@@ -12,6 +12,7 @@ import { JeansComponent } from './jeans.component';
   imports: [
     CommonModule,
     SharedModule,
+    NgxPaginationModule,
     AdminFooterModule,
     JeansRoutingModule
   ],

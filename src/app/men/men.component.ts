@@ -23,19 +23,18 @@ export class MenComponent implements OnInit {
     this.allMenProductsPagination(this.startIndex, this.numPerPage);
   }
 
- 
-    // This function is used to get the total counts of products in my database
-    getAllMenProducts() {
-      this.menService
-          .getMen()
-          .then((data: AllProducts[]) => {
-          this.products = data;
-          this.totalProducts = this.products.length;
+  // This function is used to get the total counts of products in my database
+  getAllMenProducts() {
+    this.menService
+        .getMen()
+        .then((data: AllProducts[]) => {
+        this.products = data;
+        this.totalProducts = this.products.length;
       })
         .catch((error) => {
           console.log(error);
       });
-    } 
+  } 
 
     // changeHandler() and allProductsPagination() functions handle pagination
 
@@ -45,7 +44,7 @@ export class MenComponent implements OnInit {
     this.allMenProductsPagination(this.startIndex, this.numPerPage);
   }
 
-   allMenProductsPagination(startIndex, numPerPage) {
+  allMenProductsPagination(startIndex, numPerPage) {
     this.menService
         .getAllMenProductsByPagination(startIndex, numPerPage)
         .then((data: AllProducts[]) => {

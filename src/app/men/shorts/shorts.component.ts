@@ -35,7 +35,7 @@ export class ShortsComponent implements OnInit {
       .catch((error) => {
         console.log(error);
     });
-  } 
+  }
 
   // changeHandler() and allProductsPagination() functions handle pagination
 
@@ -43,7 +43,7 @@ export class ShortsComponent implements OnInit {
   this.pageActual = pageIndex;
   this.startIndex = (pageIndex - 1) * this.numPerPage;
   this.menShortsProductsPagination(this.startIndex, this.numPerPage);
-}
+ }
 
   menShortsProductsPagination(startIndex, numPerPage) {
   this.shortsService
@@ -54,7 +54,6 @@ export class ShortsComponent implements OnInit {
     .catch((error) => {
       console.log(error);
   });
-}
-
-
+ }
+ 
 }

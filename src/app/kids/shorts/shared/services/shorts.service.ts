@@ -7,10 +7,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShortsService {
 
-  private baseUrl = 'http://localhost/origin/src/application/controllers/men/';
+  private baseUrl = 'http://localhost/origin/src/application/controllers/kids/';
   constructor(private http: HttpClient) { }
 
-  public getAllMenProductsByPagination(startPage, numOfProducts): Promise< AllProducts[] > {
-    return this.http.get < AllProducts[] >(`${this.baseUrl}men-pagination.php/?start_page=` + startPage + '&num_of_products=' + numOfProducts).toPromise();
+  public getShorts(): Promise< AllProducts[] > {
+    return this.http.get < AllProducts[] >(`${this.baseUrl}get-shorts.php`).toPromise();
+  }
+
+  public getKidsShirtsByPagination(startPage, numOfProducts): Promise< AllProducts[] > {
+    return this.http.get < AllProducts[] >(`${this.baseUrl}kids-shorts-pagination.php/?start_page=` + startPage + '&num_of_products=' + numOfProducts).toPromise();
 }
 }

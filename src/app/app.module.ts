@@ -45,7 +45,6 @@ import { KidsModule } from './kids/kids.module';
 import { MenModule } from './men/men.module';
 import { WomenModule } from './women/women.module';
 import {NgxPaginationModule} from 'ngx-pagination'; 
-import {  CartModalModule } from './cart/cart-modal/cart-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -54,7 +53,6 @@ import {  CartModalModule } from './cart/cart-modal/cart-modal.module';
     BrowserModule,
     NgxPaginationModule,
     SharedModule,
-    CartModalModule,
     RegistrationLoginModule,
     AccountSetupModule,
     AccountInfoModule,

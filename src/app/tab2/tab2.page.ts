@@ -1,6 +1,7 @@
 import { ShopService } from './shared/services/shop.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AllProducts } from './../shared/models/allProducts';
+// import { slideInOutAnimation } from './../animations/slide-in-out';
 
 @Component({
   selector: 'app-tab2',

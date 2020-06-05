@@ -45,7 +45,7 @@ export class SneakersComponent implements OnInit {
   this.pageActual = pageIndex;
   this.startIndex = (pageIndex - 1) * this.numPerPage;
   this.menSneakersProductsPagination(this.startIndex, this.numPerPage);
-}
+ }
 
   menSneakersProductsPagination(startIndex, numPerPage) {
   this.sneakersService
@@ -56,7 +56,6 @@ export class SneakersComponent implements OnInit {
     .catch((error) => {
       console.log(error);
   });
-}
-
+ }
 
 }

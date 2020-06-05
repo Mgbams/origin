@@ -10,6 +10,11 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 export class EditCustomersComponent implements AfterViewInit, OnInit {
   public customers: Customers[] = [];
 
+  public pageActual = 1; // Actual page by default for pagination is page
+  public totalProducts;
+  public startIndex = 0; // default startIndex value used for getting items from database
+  public numPerPage = 12; // Number of products per page
+
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {}

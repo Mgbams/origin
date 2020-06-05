@@ -17,10 +17,10 @@
 
         <ion-grid>
             <ion-row>
-                <ion-col size="3" *ngFor="let product of products; index as productId">
+                <ion-col size="3" *ngFor="let product of products | paginate: {id: 'kidsShirts', itemsPerPage: numPerPage, currentPage: pageActual, totalItems: totalProducts}; index as productId">
                     <ion-card class="shoppingProducts">
                         <ion-card-header>
-                            <img class="productImage" [src]="'http://localhost/origin/src/public/images/' + imageArrays[productId][1]" />
+                            <img class="productImage" [src]="'http://localhost/origin/src/public/images/' + product.image.split(',').slice(0, 1)" />
                             <ion-card-title>
                                 <h3>
                                     {{ product.product_name }}
@@ -37,6 +37,8 @@
                     </ion-card>
                 </ion-col>
             </ion-row>
+            <pagination-controls id='kidsShirts' maxSize="5" directionLinks="true" (pageChange)="changeHandler($event)" autoHide="true" responsive="true">
+            </pagination-controls>
         </ion-grid>
     </div>
 </ion-content>

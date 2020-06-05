@@ -7,10 +7,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccessoiresService {
   
-  private baseUrl = 'http://localhost/origin/src/application/controllers/men/';
+  private baseUrl = 'http://localhost/origin/src/application/controllers/kids/';
   constructor(private http: HttpClient) { }
 
-  public getAllMenProductsByPagination(startPage, numOfProducts): Promise< AllProducts[] > {
-    return this.http.get < AllProducts[] >(`${this.baseUrl}men-pagination.php/?start_page=` + startPage + '&num_of_products=' + numOfProducts).toPromise();
+  public getAccessoires(): Promise< AllProducts[] > {
+    return this.http.get < AllProducts[] >(`${this.baseUrl}get-accessoires.php`).toPromise();
+  } 
+
+  public getKidsAccessoiresByPagination(startPage, numOfProducts): Promise< AllProducts[] > {
+    return this.http.get < AllProducts[] >(`${this.baseUrl}kids-accessoires-pagination.php/?start_page=` + startPage + '&num_of_products=' + numOfProducts).toPromise();
 }
 }
