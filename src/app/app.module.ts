@@ -44,7 +44,7 @@ import { SneakersModule } from './kids/sneakers/sneakers.module';
 import { KidsModule } from './kids/kids.module';
 import { MenModule } from './men/men.module';
 import { WomenModule } from './women/women.module';
-import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent],

@@ -10,7 +10,6 @@ import { AllProducts } from './../../shared/models/allProducts';
 })
 export class AccessoiresComponent implements OnInit {
   public products;
-  public imageArrays = [];
 
   public pageActual = 1; // Actual page by default for pagination is page 
   public totalProducts;

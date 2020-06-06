@@ -97,7 +97,7 @@
 
                 <tbody>
 
-                    <tr *ngFor="let customer of customers; index as customerId">
+                    <tr *ngFor="let customer of customers | paginate: {id: 'customers', itemsPerPage: numPerPage, currentPage: pageActual, totalItems: totalCustomers}; index as customerId">
                         <td>
                             <ion-label>{{customer.customer_id}}</ion-label>
                         </td>
@@ -150,11 +150,12 @@
                                 <ion-button color="secondary">Modify</ion-button>
                             </div>
                         </td>
-
                     </tr>
                 </tbody>
             </table>
         </form>
+        <pagination-controls id='customers' maxSize="5" directionLinks="true" (pageChange)="changeHandler($event)" autoHide="true" responsive="true">
+        </pagination-controls>
     </div>
     <app-admin-footer></app-admin-footer>
 </ion-content>

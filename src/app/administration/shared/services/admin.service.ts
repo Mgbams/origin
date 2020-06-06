@@ -15,6 +15,10 @@ export class AdminService {
     return this.http.get < Customers[] >(`${this.baseUrl}customers/customers.php`).toPromise();
    }
 
+   public getCustomersByPagination(startPage, numOfCustomers): Promise< Customers[] > {
+    return this.http.get < Customers[] >(`${this.baseUrl}customers/get-customers-by-pagination.php/?start_page=` + startPage + '&num_of_customers=' + numOfCustomers).toPromise();
+  }
+
    deleteCustomerById(data) {
     return this.http.delete(`${this.baseUrl}customers/customers.php/?id=` + data ).toPromise();
    }

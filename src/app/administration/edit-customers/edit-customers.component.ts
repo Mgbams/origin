@@ -11,24 +11,49 @@ export class EditCustomersComponent implements AfterViewInit, OnInit {
   public customers: Customers[] = [];
 
   public pageActual = 1; // Actual page by default for pagination is page
-  public totalProducts;
+  public totalCustomers;
   public startIndex = 0; // default startIndex value used for getting items from database
-  public numPerPage = 12; // Number of products per page
+  public numPerPage = 20; // Number of products per page
 
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {}
 
   ngAfterViewInit() {
-    // Get product Suppliers from database
+    // Get customers from database
+    this.getAllCustomers();
+    this.allCustomersPagination(this.startIndex, this.numPerPage);
+  }
+
+  // This function is used to get the total counts of Customers in the database
+  getAllCustomers() {
     this.adminService
         .getCustomers()
-    .then((res: Customers[]) => {
-      this.customers = res;
-      console.log(this.customers);
+        .then((res: Customers[]) => {
+        this.customers = res;
+        this.totalCustomers = this.customers.length;
     })
-    .catch((error) => {
-      console.log(error);
+      .catch((error) => {
+        console.log(error);
+    });
+  }
+
+  // changeHandler() and allProductsPagination() functions handle pagination
+
+  changeHandler(pageIndex) {
+    this.pageActual = pageIndex;
+    this.startIndex = (pageIndex - 1) * this.numPerPage;
+    this.allCustomersPagination(this.startIndex, this.numPerPage);
+  }
+
+  allCustomersPagination(startIndex, numPerPage) {
+    this.adminService
+        .getCustomersByPagination(startIndex, numPerPage)
+        .then((res: Customers[]) => {
+        this.customers = res;
+    })
+      .catch((error) => {
+        console.log(error);
     });
   }
 

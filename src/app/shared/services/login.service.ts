@@ -12,8 +12,6 @@ export class LoginService {
   public user: Users;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   private baseUrl = 'http://localhost/origin/src/application/controllers/login/login.php';
-  // private serverUrl = 'http://localhost/origin/src/entity/';
-  // private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false'); // for session
   private loggedInStatus = false;
   constructor(private http: HttpClient) {}
 
@@ -31,32 +29,6 @@ export class LoginService {
         })
       );
   }
-
-  // token
- /* setToken(token: string) {
-    localStorage.setItem('token', token);
-  }
-
-  getToken() {
-    return localStorage.getItem('token');
-  }
-
-  deleteToken() {
-    localStorage.removeItem('token');
-  }
-
-  isLoggedIn() {
-    const usertoken = this.getToken();
-    if (usertoken != null) {
-      return true;
-    }
-    return false;
-  }
-
-  logout() {
-    this.deleteToken();
-    // add route here
-  } */
 
   // Session storage
   setId(id: string) {

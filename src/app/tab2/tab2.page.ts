@@ -10,7 +10,7 @@ import { AllProducts } from './../shared/models/allProducts';
 })
 export class Tab2Page implements OnInit, AfterViewInit {
   public products: AllProducts[] = [];
-  // public productImageArrays = [];
+
   public pageActual = 1; // Actual page by default for pagination is page 
   public totalProducts;
   public startIndex = 0; // default startIndex value used for getting items from database
@@ -51,11 +51,6 @@ export class Tab2Page implements OnInit, AfterViewInit {
         .getProductsByPagination(startIndex, numPerPage)
         .then((data: AllProducts[]) => {
           this.products = data;
-         // this.productImageArrays = []; // clear the initial contents of the image arrays before storing new images
-          /* for (let i = 0; i < this.products.length; i++) {
-          const slicedArray = this.products[i].image.split(',');
-         // this.productImageArrays.push(slicedArray);
-        } */
     })
       .catch((error) => {
         console.log(error);

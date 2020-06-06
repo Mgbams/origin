@@ -16,5 +16,5 @@ export class AccessoiresService {
 
   public getWomenProductsByPagination(startPage, numOfProducts): Promise< AllProducts[] > {
     return this.http.get < AllProducts[] >(`${this.baseUrl}women-accessoires-pagination.php/?start_page=` + startPage + '&num_of_products=' + numOfProducts).toPromise();
-}
+  }
 }

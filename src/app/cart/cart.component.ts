@@ -1,4 +1,3 @@
-import { CartModalComponent } from './cart-modal/cart-modal.component';
 import { CartService } from './../shared/services/cart.service';
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ToastController, ModalController } from '@ionic/angular';
