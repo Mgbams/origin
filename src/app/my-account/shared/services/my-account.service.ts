@@ -41,4 +41,5 @@ export class MyAccountService {
   getShippingAddressById(customerId): Promise< ShippingAddress[]> {
     return this.http.get< ShippingAddress[]>(`${this.baseUrl}shipping-address.php/?id=` + customerId).toPromise();
   }
+
 }

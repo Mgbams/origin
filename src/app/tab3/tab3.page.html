@@ -2,10 +2,31 @@
 
     <div class="settings-form">
         <div class="settings-list">
+            <ion-list *ngIf="customerData[0]">
+                <ion-list-header lines="inset">
+                    <ion-label>
+                        <h1>User Infos</h1>
+                    </ion-label>
+                </ion-list-header>
+
+                <ion-item>
+                    <ion-label>
+                        <strong>Name</strong> {{ customerData[0].first_name }}
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>
+                        <strong>Surname:</strong> {{ customerData[0].last_name }}
+                    </ion-label>
+                </ion-item>
+
+            </ion-list>
+
             <ion-list>
                 <ion-list-header lines="inset">
                     <ion-label>
-                        <h1>Account Settings</h1>
+                        <h2><b>Account Settings</b></h2>
                     </ion-label>
                 </ion-list-header>
 
@@ -91,19 +112,24 @@
                     <p><a routerLink="/myaccount/shipping-address">Manage Address book ></a></p>
                 </div>
 
-                <div>
+                <div *ngIf="customerData[0]">
                     <h3>Email</h3>
                     <p>
-                        < Email address here>
+                        {{ customerData[0].email }}
                     </p>
                     <p><a routerLink="/myaccount/profile/email/">Change E-mail ></a></p>
 
                     <h3>Phone Number:</h3>
                     <p>
-                        < phone number here>
+                        {{ customerData[0].phone }}
                     </p>
                     <p><a routerLink="/myaccount/profile/">Change Phone No. ></a></p>
                 </div>
+
+                <div *ngIf="customerData[0]">
+                    {{ customerData[0].address }}
+                </div>
+
             </div>
         </div>
     </div>

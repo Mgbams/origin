@@ -3,15 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Users } from './../models/customerInfos';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
+  public dataSource = new BehaviorSubject('');
+  currentData = this.dataSource.asObservable();
+
   public redirectUrl: string;
+  public loggedToAccount = false;
   public user: Users;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   private baseUrl = 'http://localhost/origin/src/application/controllers/login/login.php';
+  private myAccountUrl = 'http://localhost/origin/src/application/controllers/myaccount/';
   private loggedInStatus = false;
   constructor(private http: HttpClient) {}
 
@@ -72,4 +78,24 @@ export class LoginService {
     getUserStatus() {
       return sessionStorage.getItem('status');
     }
+
+   getCustomerInfosById(data): Promise<Users[]> {
+    return this.http.get<Users[]>(`${this.myAccountUrl}customer-infos.php/?id=` + data ).toPromise();
+   }
+
+   customerLoggedInDetails() {
+     this.getCustomerInfosById(this.getId())
+          .then(data => {
+            console.log(data);
+            this.geCustomerDetails(data);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+   }
+
+   geCustomerDetails(customerDetails) {
+    this.dataSource.next(customerDetails);
+  }
+
 }
