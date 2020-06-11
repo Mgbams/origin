@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'myaccount/profile/email', component: EmailComponent
+    path: 'myaccount/email', component: EmailComponent
   }
 ];
 

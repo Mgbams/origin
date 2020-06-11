@@ -70,8 +70,10 @@ ion-card {
 }
 
 // setting link properties to be used by routerLinkActive
-.a {
+a {
     text-decoration: none;
+    color: blue;
+    cursor: pointer;
 }
 
 a.active {

@@ -60,11 +60,13 @@
 }
 
 // setting link properties to be used by routerLinkActive
-ion-item ion-label .a {
+a {
     text-decoration: none;
+    color: blue;
+    cursor: pointer;
 }
 
-ion-item ion-label a.active {
+a.active {
     color: brown;
     cursor: pointer;
     text-decoration: underline;

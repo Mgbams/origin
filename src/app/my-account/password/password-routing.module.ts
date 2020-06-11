@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'myaccount/profile/password', component: PasswordComponent
+    path: 'myaccount/password', component: PasswordComponent
   }
 ];
 
