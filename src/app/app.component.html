@@ -40,7 +40,7 @@
             <!--End of accordion usage-->
 
             <ion-menu-toggle auto-hide="true">
-                <ng-container *ngIf="categories[0] && loginStatus === 'Admin'" >
+                <ng-container *ngIf="categories[0] && loginStatus === 'Admin'">
                     <nav class="sidemenu_list">
                         <h3>
                             <a routerLink="administration-panel">Dashboard</a>
@@ -57,7 +57,7 @@
                         <p>
                             <a class="admin-links" routerLink="administration-panel/add-suppliers/0" routerLinkActive="active">Add Supplier</a>
                         </p>
-                        
+
                         <p>
                             <a class="admin-links" routerLink="administration-panel/add-subcategory/0" routerLinkActive="active">Add SubCategory</a>
                         </p>
@@ -77,30 +77,43 @@
                 <ion-row>
                     <ion-col size="6" offset="6">
                         <div class="topBar">
-                            <nav class="topBarContents" >
-                                <a class="signin-link" routerLink="/contact" routerLinkActive="active">
-                                    Contact Us
-                                </a>
+                            <nav class="topBarContents">
+                                <div>
+                                    <a class="signin-link" routerLink="/contact" routerLinkActive="active">
+                                        Contact Us
+                                    </a>
+                                </div>
 
-                                <a class="signin-link" routerLink="/about-us" routerLinkActive="active">
-                                    About Us
-                                </a>
+                                <div>
+                                    <a class="signin-link" routerLink="/about-us" routerLinkActive="active">
+                                        About Us
+                                    </a>
+                                </div>
 
-                                <a class="signin-link signin" routerLink="/register-login" routerLinkActive="active">
-                                    <ion-icon name="create-outline"></ion-icon> <br />Sign in
-                                </a>
+                                <div>
+                                    <a class="signin-link signin" routerLink="/register-login" routerLinkActive="active">
+                                        Sign in
+                                    </a>
+                                </div>
+
+                                <div *ngIf="loginStatus === 'Admin'">
+                                    <a class="signin-link" routerLink="/administration-panel" routerLinkActive="active">
+                                        Admin
+                                    </a>
+                                </div>
+
                                 <div class="cart-container">
                                     <a routerLink="/cart">
                                         <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
                                     </a>
                                 </div>
                             </nav>
-                            
+
                             <div>
                                 <span color="primary" class="item-badge">{{ cartItemCount | async }}</span> <br />
                             </div>
                         </div>
-                        
+
                     </ion-col>
                 </ion-row>
 

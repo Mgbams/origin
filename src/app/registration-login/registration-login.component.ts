@@ -14,7 +14,7 @@ import {  Users } from './../shared/models/customerInfos';
 })
 export class RegistrationLoginComponent implements OnInit {
   public loginRegisterForm: FormGroup;
-  private returnUrl: string;
+  private returnUrl;
   public loading = false;
   public message;
   public passwordType = 'password'; // used to toggle password
@@ -32,7 +32,11 @@ export class RegistrationLoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+     // get return url from route parameters or default to '/tabs/tab1'
+    // tslint:disable-next-line: no-string-literal
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/tabs/tab1';
+  }
 
     guardRoute() {
       this.registrationInfo.accountSetUpAccess = true;
@@ -65,8 +69,8 @@ export class RegistrationLoginComponent implements OnInit {
       this.loginService.userlogin(formdata)
           .pipe(first())
           .subscribe(data => {
-            this.loading = false;
-            this.router.navigate(['cart']);
+            // this.loading = false;
+            this.router.navigateByUrl(this.returnUrl); // navigating to a previously clicked url
           },
             error => {
               console.log(error);

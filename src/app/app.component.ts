@@ -45,11 +45,13 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
-    this.loginStatus = this.loginService.getUserStatus();
+    // this.loginStatus = this.loginService.getUserStatus();
+    this.loginService.loggedInStatus.subscribe(infos => this.loginStatus = infos);
     this.cartItemCount = this.cartService.getCartItemCount();
   }
 
   ngAfterViewInit() {
+    this.loginStatus = this.loginService.getUserStatus();
     // Get product categories from database
     this.categoriesService
         .getCategories()

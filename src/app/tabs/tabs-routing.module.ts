@@ -1,3 +1,4 @@
+import { MyAccountGuard } from './../authentication-guards/my-account.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -33,7 +34,8 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../tab3/tab3.module').then(m => m.Tab3PageModule),
+              canActivate: [MyAccountGuard]
           }
         ]
       },

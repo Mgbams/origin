@@ -1,6 +1,6 @@
 import { CartService } from './../shared/services/cart.service';
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { ToastController, ModalController } from '@ionic/angular';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { AllProducts } from './../shared/models/allProducts';
 
@@ -34,7 +34,6 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   constructor(
     private cartService: CartService,
-    private modalCtrl: ModalController,
     private toastController: ToastController
     ) {}
  
@@ -42,8 +41,6 @@ export class CartComponent implements OnInit, AfterViewInit {
     this.products = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
-    console.log('this is my cart', this.cart);
-    // this.animateCSS('tada');
   }
 
   ngAfterViewInit(): void {

@@ -12,13 +12,16 @@ export class LoginService {
   public dataSource = new BehaviorSubject('');
   currentData = this.dataSource.asObservable();
 
+  public statusSource = new BehaviorSubject('');
+  loggedInStatus = this.statusSource.asObservable();
+
   public redirectUrl: string;
   public loggedToAccount = false;
   public user: Users;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   private baseUrl = 'http://localhost/origin/src/application/controllers/login/login.php';
   private myAccountUrl = 'http://localhost/origin/src/application/controllers/myaccount/';
-  private loggedInStatus = false;
+ // private loggedInStatus = false;
   constructor(private http: HttpClient) {}
 
   public userlogin(formdata) {
@@ -31,6 +34,7 @@ export class LoginService {
           this.setUserStatus(Users[0].status);
           this.setUserName(Users[0].first_name);
           this.getLoggedInName.emit(true);
+          this.statusSource.next(this.getUserStatus());
           return Users;
         })
       );

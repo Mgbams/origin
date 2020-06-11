@@ -7,7 +7,6 @@ import { Tab3Page } from './tab3.page';
 import { AdminFooterModule } from './../administration/admin-footer/admin-footer.module';
 import { SharedModule } from './../shared/shared.module';
 
-
 @NgModule({
   imports: [
     IonicModule,
