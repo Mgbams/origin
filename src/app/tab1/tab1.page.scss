@@ -214,8 +214,10 @@ a {
 .inner-solde-image-container {
     width: 86%;
     height: 55vh;
-    border: 1px solid green;
-    background-color: green;
+    .featuredProductsImages {
+        width: 100%;
+        height: 55vh;
+    }
 }
 
 .swipeButton {

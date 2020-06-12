@@ -21,7 +21,7 @@ export class LoginService {
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   private baseUrl = 'http://localhost/origin/src/application/controllers/login/login.php';
   private myAccountUrl = 'http://localhost/origin/src/application/controllers/myaccount/';
- // private loggedInStatus = false;
+
   constructor(private http: HttpClient) {}
 
   public userlogin(formdata) {
