@@ -29,6 +29,11 @@
                         </ion-card-header>
 
                         <ion-card-content>
+
+                            <div class="percentage-discount" *ngIf="product.product_discount > 0">
+                                {{ product.product_discount }}&#x25;
+                            </div>
+
                             <ion-button class="ion-activatable ripple-parent details-button" [routerLink]="['/products', product.product_id]">
                                 Details
                                 <ion-ripple-effect></ion-ripple-effect>

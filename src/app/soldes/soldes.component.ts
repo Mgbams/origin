@@ -21,6 +21,7 @@ export class SoldesComponent implements OnInit {
         .getAllSoldes()
         .then((data: AllProducts[]) => {
         this.products = data;
+        console.log('soldes products', this.products);
         this.imageArrays = [];
         for (let i = 0; i < this.products.length; i++) {
           const slicedArray = this.products[i].image.split(',');

@@ -46,6 +46,18 @@ h3 {
     }
 }
 
+.percentage-discount {
+    border: 1px solid red;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: 217px;
+    left: 167px;
+    text-align: center;
+    color: yellow;
+    background-color: red;
+}
+
 .details-button {
     --background: #9E15BF !important;
     --border-radius: 50px !important;

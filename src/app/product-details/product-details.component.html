@@ -82,7 +82,18 @@
                 <ion-card class="product_details_card">
                     <ion-card-content>
                         <h3 class="product-name">{{ product[0].product_name }}</h3>
-                        <p>{{ product[0].product_price | currency }}</p>
+
+                         <!--If discount is less than 1 then display price as shown below-->
+                        <div *ngIf="product[0].product_discount < 1">
+                            <p>{{ product[0].product_price | currency:'EUR' }}</p>
+                        </div>
+
+                         <!--If discount is greater than 0 then calculate and display price after discounting-->
+                        <div *ngIf="product[0].product_discount > 0" class="price-after-discount">
+                            <p><s>{{ product[0].product_price | currency:'EUR'}}</s></p>
+                            <p>{{ product[0].product_price - product[0].product_discount * product[0].product_price / 100 | currency:'EUR'}}</p>
+                        </div>
+
                         <div>
                             <p>Sizes: {{product[0].product_sizes}}</p>
                         </div>

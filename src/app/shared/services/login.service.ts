@@ -90,7 +90,7 @@ export class LoginService {
    customerLoggedInDetails() {
      this.getCustomerInfosById(this.getId())
           .then(data => {
-            console.log(data);
+            console.log('myaccount customer details', data);
             this.geCustomerDetails(data);
           })
           .catch(err => {

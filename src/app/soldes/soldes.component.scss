@@ -1,0 +1,30 @@
+.shoppingProducts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .productImage {
+        height: 130px;
+    }
+    .price-after-discount {
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+    
+    .details-button {
+        --background: #9E15BF !important;
+        --border-radius: 50px !important;
+        --box-shadow: 0px 8px 4px rgba(157, 21, 191, 0.5);
+    }
+    .percentage-discount {
+        border: 1px solid red;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        bottom: 260px;
+        left: 167px;
+        text-align: center;
+        color: yellow;
+        background-color: red;
+    }
+}
