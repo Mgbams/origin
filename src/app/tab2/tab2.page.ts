@@ -1,12 +1,18 @@
 import { ShopService } from './shared/services/shop.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AllProducts } from './../shared/models/allProducts';
-// import { slideInOutAnimation } from './../animations/slide-in-out';
+// import fade in animation
+import { slideInOutAnimation } from './../animations';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  styleUrls: ['tab2.page.scss'],
+  // make fade in animation available to this component
+  animations: [slideInOutAnimation],
+
+  // attach the fade in animation to the host (root) element of this component
+  host: { '[@slideInOutAnimation]': '' }
 })
 export class Tab2Page implements OnInit, AfterViewInit {
   public products: AllProducts[] = [];

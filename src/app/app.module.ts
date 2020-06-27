@@ -45,12 +45,14 @@ import { KidsModule } from './kids/kids.module';
 import { MenModule } from './men/men.module';
 import { WomenModule } from './women/women.module';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NgxPaginationModule,
     SharedModule,
     RegistrationLoginModule,

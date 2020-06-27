@@ -31,6 +31,7 @@ export class MyAccountGuard implements CanActivate {
         case '/myaccount/shipping-address':
         case '/tabs/tab3': {
             if (this.loginService.isLoggedIn()) {
+              console.log('destination', destination);
               return true;
            }
             break;
@@ -38,15 +39,12 @@ export class MyAccountGuard implements CanActivate {
 
         case '/cart': {
           if (this.loginService.isLoggedIn()) {
+            console.log('destination', destination);
             return true;
          }
           break;
         }
-
-        case '/administration-panel/add-products/:id':
-        case '/administration-panel/add-subcategory/:id':
-        case '/administration-panel/add-suppliers/:id':
-        case '/administration-panel/add-categories/:id':
+        
         case '/administration-panel/edit-categories':
         case '/administration-panel/edit-customers':
         case '/administration-panel/edit-products':
@@ -54,6 +52,7 @@ export class MyAccountGuard implements CanActivate {
         case '/administration-panel/edit-suppliers':
         case '/administration-panel': {
             if (this.loginService.isLoggedIn() && this.loginService.getUserStatus() === 'Admin') {
+              console.log('destination', destination);
               return true;
             }
             break;

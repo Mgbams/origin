@@ -19,12 +19,12 @@ export class RegistrationLoginGuard implements CanActivate {
 
   isLogin(routeurl: string) {
     if (this.loginService.isLoggedIn() && this.loginService.getUserStatus() === 'Admin') {
-      this.router.navigate(['/administration-panel']);
+      // this.router.navigate(['/administration-panel']);
       return true;
     } else if (this.loginService.isLoggedIn() && this.loginService.getUserStatus() === 'User') {
       this.router.navigate(['/tabs/tab1'], {queryParams: { returnUrl: routeurl }});
     }
-    this.loginService.redirectUrl = routeurl;
+    // this.loginService.redirectUrl = routeurl;
     this.router.navigate(['/login'], { queryParams: { returnUrl: routeurl }});
     }
 }
