@@ -13,7 +13,7 @@
         </div>
         <div class="addedProducts" *ngIf="products">
 
-            <ion-card *ngFor="let product of products; index as productId">
+            <ion-card *ngFor="let product of products; index as productId" @slide>
                 <ion-card-content *ngIf="!paidFor">
                     <div class="item_image">
                         <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + product[0].image.split(',').slice(0, 1)" />

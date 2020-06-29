@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { AllProducts } from './../shared/models/allProducts';
+import { slide } from './../animations'; 
 
 declare let paypal: any;
 /* Fake credit card generator website: http://ccardgenerator.com/generat-visa-card-numbers.php
@@ -24,7 +25,10 @@ declare let paypal: any;
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
+  animations: [  
+    slide  
+  ] 
 })
 export class CartComponent implements OnInit, AfterViewInit {
   public cart: AllProducts[] = [];
