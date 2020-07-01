@@ -67,3 +67,28 @@ h3 {
 .product-name {
     color:  #86C232;
 }
+
+/* 
+* Media Queries for Mobile S - 320px
+*/
+
+@media screen and (max-width: 320px) {
+  .shoppingProducts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40vh;
+    .productImage {
+        height: 18vh;
+    }
+  }
+  .product-name {
+      font-size: 0.9rem;
+      text-align: center;
+  }
+  .details-button {
+      margin-top: -15px;
+      margin-bottom: 30px;
+  }
+}

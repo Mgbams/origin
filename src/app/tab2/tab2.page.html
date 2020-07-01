@@ -17,7 +17,7 @@
 
         <ion-grid>
             <ion-row>
-                <ion-col size="3" *ngFor="let product of products | paginate: {id: 'shopProducts', itemsPerPage: numPerPage, currentPage: pageActual, totalItems: totalProducts}; index as productId">
+                <ion-col sizeLg="3" sizeMd="4" sizeXs="6" *ngFor="let product of products | paginate: {id: 'shopProducts', itemsPerPage: numPerPage, currentPage: pageActual, totalItems: totalProducts}; index as productId">
                     <ion-card class="shoppingProducts">
                         <ion-card-header>
                             <img class="productImage" [src]="'http://localhost/origin/src/public/images/' + product.image.split(',').slice(0, 1)" />
@@ -34,7 +34,7 @@
                                 {{ product.product_discount }}&#x25;
                             </div>
 
-                            <ion-button class="ion-activatable ripple-parent details-button" [routerLink]="['/products', product.product_id]">
+                            <ion-button class="ion-activatable ripple-parent details-button ion-margin-bottom" [routerLink]="['/products', product.product_id]">
                                 Details
                                 <ion-ripple-effect></ion-ripple-effect>
                             </ion-button>

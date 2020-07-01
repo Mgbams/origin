@@ -90,3 +90,12 @@ export let fade = trigger('fade', [
       animate(2000)  
     ])  
 ]);
+
+export let headerAnimation = trigger('headerAnimation', [  
+    transition(':enter', [  
+      query('h2', [  
+        style({ transform: 'translateY(-20px)' }),  
+        animate(1000)  
+      ]),   
+    ])  
+  ]);
