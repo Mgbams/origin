@@ -128,11 +128,11 @@ span {
 
 
 /* 
-* Media Queries for Mobile M - 375px i.e maximum width is 375px so it covers for
-* both Mobile S - 320px
+* Media Queries for Mobile L - 425px i.e maximum width is 425px so it covers for
+* both Mobile S - 320px and Mobile M - 375px
 */
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 425px) {
     .website-logo-container {
         display: none;
     } 
