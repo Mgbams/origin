@@ -94,6 +94,7 @@
 
 h6 {
     color: #AC3B61;
+    background-color: yellow;
 }
 
 span {
@@ -123,4 +124,32 @@ span {
 
 .copyright {
     color: white;
+}
+
+
+/* 
+* Media Queries for Mobile S - 320px
+*/
+
+@media screen and (max-width: 320px) {
+   .website-logo-container {
+       display: none;
+   } 
+   .footer-body {
+    flex-wrap: wrap;
+    p, span, ion-label {
+        font-size: 12px;
+    }
+  }
+  .footer-body>div {
+    width: 48%;
+  }
+
+  .social-network {
+    justify-content: space-evenly;
+  }
+  .copyright p {
+      text-align: left !important;
+  }
+ 
 }
