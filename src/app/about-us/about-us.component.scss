@@ -118,3 +118,58 @@ a:hover {
 .provider {
     color: #86C232;
 }
+
+/* 
+* Media Queries for Mobile S - 320px
+*/
+
+@media screen and (max-width: 320px) {
+    ion-label {
+        font-size: 4vw;
+    }
+    .one-stop-div {
+        width: 95vw;
+        margin: auto;
+    }
+    .market-place {
+        width: 80vw;
+        margin: auto;
+        .one-stop-centering {
+            display: flex;
+            justify-content: space-between;
+            color:white;
+            .one-stop {
+                width: 8rem;
+                height: 8rem;
+                border: 1px solid gray;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    
+    .product-offers {
+        display: flex;
+        justify-content: space-between;
+        width: 60vw;
+        margin: auto;
+        .exposures {
+            width: 10rem;
+            height: 10rem;
+            background-color: gray;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            ion-icon {
+                font-size: 2.5rem;
+                color: orange;
+            }
+        }
+    }
+   
+    
+}
