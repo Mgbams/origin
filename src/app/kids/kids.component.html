@@ -17,7 +17,7 @@
 
         <ion-grid>
             <ion-row>
-                <ion-col size="3" *ngFor="let product of products | paginate: {id: 'kidsProducts', itemsPerPage: numPerPage, currentPage: pageActual, totalItems: totalProducts}; index as productId">
+                <ion-col sizeLg="3" sizeMd="4" sizeXs="6" *ngFor="let product of products | paginate: {id: 'kidsProducts', itemsPerPage: numPerPage, currentPage: pageActual, totalItems: totalProducts}; index as productId">
                     <ion-card class="shoppingProducts">
                         <ion-card-header>
                             <img class="productImage" [src]="'http://localhost/origin/src/public/images/'  + product.image.split(',').slice(0, 1)" />
