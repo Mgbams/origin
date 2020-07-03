@@ -88,3 +88,15 @@ ion-button {
 }
 
 // matched and unmatched of password and email css starts here
+
+
+/* 
+* Media Queries for Mobile L - 425px which covers also for Mobile S - 320px and Mobile M - 375px
+*/
+
+@media screen and (max-width: 425px) {
+    .centerFormContents {
+        width: 90vw;
+    }
+    
+}
