@@ -203,6 +203,39 @@
                         </ion-slide>
                     </ion-slides>
                 </ion-row>
+
+                
+                <div class="swipeButton">
+                    <button type="submit" class="swiper-button-prev swiper-button-blue fourth-button-swiper" (click)="prevForFourthSlide()"></button>
+                    <button type="submit" class="swiper-button-next swiper-button-blue fourth-button-swiper" (click)="nextForFourthSlide()"></button>
+                </div>
+                <ion-row>
+                    <ion-slides #slides4 pager="true" class="fourthSlide" [options]="fourthSlideOpts">
+                        <ion-slide class="fourthSlide-slide" *ngFor="let product of latestArrivals; index as productId">
+                            <div class="slide-page-one">
+                                <div>
+                                    <div>
+                                        <img class="featuredProductsImages" [src]="'http://localhost/origin/src/public/images/' + latestArrivalsImageArrays[productId][0] " />
+                                    </div>
+
+                                    <div>
+                                        <h3 class="product-name">
+                                            {{ product.product_name }}
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', product.product_id]">
+                                        Details
+                                        <ion-ripple-effect></ion-ripple-effect>
+                                    </ion-button>
+                                </div>
+                            </div>
+                        </ion-slide>
+                    </ion-slides>
+                </ion-row>
+
                 <ion-row>
                     <div class="solde-container">
                         <div class="solde-texts">

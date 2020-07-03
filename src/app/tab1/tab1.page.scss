@@ -165,10 +165,22 @@ a {
     -webkit-animation: shrink-div 3s ease;
 }
 
+// This slide is only shown for bigger screens
 .thirdSlide {
     width: 90%;
     height: 55vh;
     margin: auto;
+    img {
+        height: 35vh;
+    }
+}
+
+// This slide is only shown for smaller screens
+.fourthSlide {
+    width: 90%;
+    height: 55vh;
+    margin: auto;
+    display: none;
     img {
         height: 35vh;
     }
@@ -237,6 +249,9 @@ a {
     width: 92%;
     left: 4%;
 }
+.fourth-button-swiper {
+    display: none;
+}
 
 .product-name {
     color: #86C232;
@@ -246,22 +261,11 @@ a {
 * Media Queries
 
 
-@media screen and (max-width: 425px) {
-  .displayed-image {
-      width: 100%;
-      ion-card {
-        width: 40%;
-    }
-  }
-}
-*/
-
-
 /* 
-* Media Queries for Mobile S - 320px
+* Media Queries for Mobile L - 425px which covers also for Mobile S - 320px and Mobile M - 375px
 */
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
     .product-name {
         font-size: 0.9rem;
         text-align: center;
@@ -272,5 +276,18 @@ a {
     .site-description {
         display: none;
     }
-  }
+
+    .thirdSlide {
+       display: none;
+    }
+
+    .fourthSlide {
+       display: block;
+    }
+    .fourth-button-swiper {
+        display: inline;
+    }
+    
+}
+
   

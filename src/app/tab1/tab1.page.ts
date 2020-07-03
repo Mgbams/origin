@@ -18,9 +18,11 @@ export class Tab1Page implements OnInit {
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
   @ViewChild('slides3', {static: false}) slides3: IonSlides;
+  @ViewChild('slides4', {static: false}) slides4: IonSlides;
   slideOpts: any;
   secondSlideOpts: any;
   thirdSlideOpts: any;
+  fourthSlideOpts: any;
   imageArrays = [];
   latestArrivalsImageArrays = [];
   promoImageArrays = [];
@@ -48,6 +50,12 @@ export class Tab1Page implements OnInit {
       slidesPerView: 4,
       spaceBetween: 10
     };
+
+    this.fourthSlideOpts = {
+      initialSlide: 0,
+      slidesPerView: 2,
+      spaceBetween: 10
+    };
   }
 
   slidesDidLoad(slides: IonSlides) {
@@ -58,12 +66,22 @@ export class Tab1Page implements OnInit {
     this.slides2.startAutoplay();
   }
 
+  // used for third slide
   next() {
     this.slides3.slideNext();
   }
 
   prev() {
     this.slides3.slidePrev();
+  }
+
+  // used for fourth slide
+  nextForFourthSlide() {
+    this.slides4.slideNext();
+  }
+
+  prevForFourthSlide() {
+    this.slides4.slidePrev();
   }
 
   ngOnInit() {
