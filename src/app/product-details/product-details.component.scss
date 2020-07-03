@@ -80,6 +80,35 @@ ion-button {
     }
 }
 
+// For smaller screens
+
+.suggestedProductsSectionThird {
+    height: 50vh;
+    margin-top: 30px;
+    display: none;
+    .suggestedProductsImages {
+        height: 70px;
+        width: 100%;
+    }
+    .suggested_products {
+        margin-top: 10px;
+        height: 48vh;
+        h3 {
+            text-transform: capitalize;
+            font-size: 0.9rem;
+        }
+        img {
+            height: 22vh;
+        }
+    }
+}
+
+.thirdSlide {
+    margin-right: 2%;
+}
+
+// For smaller screen code ends here
+
 .toast-bg {
     --border-radius: 50% !important;
 }
@@ -97,4 +126,17 @@ ion-button {
 }
 .product-name {
     color: #86C232;
+}
+
+/* 
+* Media Queries for Mobile L - 425px which covers also for Mobile S - 320px and Mobile M - 375px
+*/
+
+@media screen and (max-width: 425px) {
+    .suggestedProductsSectionThird {
+        display: block;
+    }
+    .suggestedProductsSection {
+        display: none;
+    }
 }

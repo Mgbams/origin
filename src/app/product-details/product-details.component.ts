@@ -23,8 +23,10 @@ export class ProductDetailsComponent implements OnInit {
   public SuggestedProductsImageArrays = []; // Stores suggested products images
   @ViewChild('slides', {static: false}) slides: IonSlides;
   @ViewChild('slides2', {static: false}) slides2: IonSlides;
+  @ViewChild('slides3', {static: false}) slides3: IonSlides;
   slideOpts: any;
   secondSlideOpts: any;
+  thirdSlideOpts: any;
   constructor(
     private toastController: ToastController,
     private route: ActivatedRoute,
@@ -46,7 +48,14 @@ export class ProductDetailsComponent implements OnInit {
         speed: 1000,
         spaceBetween: 10
       };
-     }
+
+      this.thirdSlideOpts = {
+        initialSlide: 0,
+        slidesPerView: 2,
+        speed: 1000,
+        spaceBetween: 10
+      };
+    }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -63,6 +72,11 @@ export class ProductDetailsComponent implements OnInit {
 
   slidesDidLoad2(slides2: IonSlides) {
     this.slides2.startAutoplay();
+  }
+
+  // Used for slides on a lower screen
+  slidesDidLoad3(slides3: IonSlides) {
+    this.slides3.startAutoplay();
   }
 
   getDetailsOfProducts(productId) {

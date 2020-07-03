@@ -114,10 +114,40 @@
             </ng-container>
         </div>
 
+        <!--Displays for screens of min-width: 768x-->
         <div class="suggestedProductsSection">
             <h3 class="ion-text-center">PRODUCTS YOU MIGHT LIKE</h3>
             <ion-slides #slides2 pager="true" class="sliderBelow" [options]="secondSlideOpts" (ionSlidesDidLoad)="slidesDidLoad2(slider)" loop="true">
                 <ion-slide class="secondSlide" *ngFor="let product of listsOfSuggestedProducts; index as productId">
+                    <div class="suggested_products">
+                        <div>
+                            <div>
+                                <img [src]="'http://localhost/origin/src/public/images/' + SuggestedProductsImageArrays[productId][0]" />
+                                <div>
+                                    <h3 class="product-name">
+                                        {{ product.product_name }}
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <div>
+                                <ion-button class="ion-activatable ripple-parent" [routerLink]="['/products', product.product_id]">
+                                    Details
+                                    <ion-ripple-effect></ion-ripple-effect>
+                                </ion-button>
+                            </div>
+                        </div>
+                    </div>
+
+                </ion-slide>
+            </ion-slides>
+        </div>
+
+        <!--Displays for screens of max-width: 425px-->
+        <div class="suggestedProductsSectionThird">
+            <h3 class="ion-text-center">PRODUCTS YOU MIGHT LIKE</h3>
+            <ion-slides #slides3 pager="true" class="sliderBelow" [options]="thirdSlideOpts" (ionSlidesDidLoad)="slidesDidLoad3(slider)" loop="true">
+                <ion-slide class="thirdSlide" *ngFor="let product of listsOfSuggestedProducts; index as productId">
                     <div class="suggested_products">
                         <div>
                             <div>
