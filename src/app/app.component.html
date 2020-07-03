@@ -75,7 +75,7 @@
             </ion-buttons>
             <ion-title>
                 <ion-row>
-                    <ion-col size="6" offset="6">
+                    <ion-col  offsetLg="5" sizeLg="6" sizeMd="8" offsetMd="2" sizeXs="8">
                         <div class="topBar">
                             <nav class="topBarContents">
                                 <div>
@@ -106,12 +106,11 @@
                                     <a routerLink="/cart">
                                         <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
                                     </a>
+                                    <div>
+                                        <span color="primary" class="item-badge">{{ cartItemCount | async }}</span> <br />
+                                    </div>
                                 </div>
                             </nav>
-
-                            <div>
-                                <span color="primary" class="item-badge">{{ cartItemCount | async }}</span> <br />
-                            </div>
                         </div>
 
                     </ion-col>

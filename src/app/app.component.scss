@@ -141,3 +141,32 @@ nav div a.hover {
 nav div a.active {
     color: #039be5;
 }
+
+ion-row {
+    width: 100%;
+}
+
+/* 
+* Media Queries for Mobile L - 425px which covers also for Mobile S - 320px and Mobile M - 375px
+*/
+
+@media screen and (max-width: 425px) {
+    ion-row {
+        font-size: 12px;
+    } 
+    .cart-container {
+        width: 60px;
+        height: 50px;
+        position: absolute;
+        left: 55vw;
+        .item-badge {
+            position: relative;
+            top: -5px;
+            left: -25px;
+        }
+        .cart-icon {
+            font-size: 3rem;
+        }
+    }
+    
+}
