@@ -3,7 +3,7 @@
         <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
             <ion-icon slot="end" class="down-arrow" name="chevron-down-outline" *ngIf="!item.open"></ion-icon>
             <ion-icon slot="end" class="up-arrow" name="chevron-up-outline" *ngIf="item.open"></ion-icon>
-            <ion-label>
+            <ion-label class="accordion-title">
                 {{item.name}}
             </ion-label>
         </ion-item>
@@ -43,12 +43,6 @@
 
                 <ion-col>
                     <ion-icon class="socials" name="logo-twitter"></ion-icon>
-                </ion-col>
-            </ion-row>
-
-            <ion-row class="desktop-site-row">
-                <ion-col class="ion-text-center">
-                    <a class="desktop-site" href="#">View desktop site</a>
                 </ion-col>
             </ion-row>
 

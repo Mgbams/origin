@@ -3,7 +3,7 @@
             "name": "Company",
             "children": [{
                 "name": "About-us",
-                "link": "/"
+                "link": "/about-us"
             }]
         },
         {
@@ -26,43 +26,24 @@
             "name": "Categories",
             "children": [{
                     "name": "Women",
-                    "link": "/"
-                },
-                {
-                    "name": "Shoes",
-                    "link": "/"
+                    "link": "/women"
                 },
                 {
                     "name": "Men",
-                    "link": "/"
-                },
-                {
-                    "name": "Accessories",
-                    "link": "/"
+                    "link": "/men"
                 },
                 {
                     "name": "Kids",
-                    "link": "/"
-                },
-                {
-                    "name": "Clothes",
-                    "link": "/"
+                    "link": "/kids"
                 }
             ]
         },
         {
             "name": "Special Pages",
-            "children": [{
-                    "name": "New Arrivals",
-                    "link": "/"
-                },
+            "children": [
                 {
-                    "name": "Popular Items",
-                    "link": "/"
-                },
-                {
-                    "name": "Sales",
-                    "link": "/"
+                    "name": "Soldes",
+                    "link": "/soldes"
                 }
             ]
         }

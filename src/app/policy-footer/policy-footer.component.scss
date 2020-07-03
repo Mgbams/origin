@@ -1,11 +1,13 @@
 ion-content {
-    --background: gray;
+    --background: black;
     color: white;
-    height: 440px;
+    height: 350px;
+    .accordion-title {
+        color: yellowgreen;
+    }
 }
 
 .accordion-list {
-    // margin-bottom: 4px;
     padding: 0px;
     margin: 0px;
     .section,
@@ -15,7 +17,7 @@ ion-content {
 }
 
 .section {
-    --ion-item-background: gray;
+    --ion-item-background: black;
     --ion-item-color: white;
 }
 
@@ -65,13 +67,4 @@ ion-grid {
     color: #AD2266 !important;
     font-size: 40px;
     border-radius: 50%;
-}
-
-.desktop-site {
-    text-decoration: underline !important;
-}
-
-.desktop-site-row {
-    margin-top: 20px;
-    margin-bottom: 8px;
 }
