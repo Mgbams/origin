@@ -22,7 +22,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   public categories: ProductCategories[] = [];
   public loginStatus;
   public subCategories: SubCategory[] = [];
- public cartItemCount: BehaviorSubject<number>;
+  public cartItemCount: BehaviorSubject<number>;
 
   // @ViewChild( Tab1Page, {static: false}) tab1Page: Tab1Page;
   constructor(

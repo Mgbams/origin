@@ -5,3 +5,59 @@ ion-content div {
 ion-text {
     padding-bottom: 10px;
 }
+
+
+// For accordion in a small screen
+.accordion-list {
+    padding: 0px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.section {
+    --ion-item-background: white;
+    --ion-item-color: black;
+}
+
+.section-active {
+    font-weight: 600;
+}
+
+.child-list {
+    padding: 0px;
+    margin: 0px auto;
+    width: 98vw;
+    position: relative;
+    bottom: 50px;
+}
+.different-terms {
+    position: relative;
+    top: -40px;
+}
+
+.child {
+    --ion-item-background: white;
+    --ion-item-color: black;
+}
+
+.down-arrow,
+.up-arrow {
+    color: black;
+}
+.child-list ion-label {
+    background-color: rgba(128, 128, 128, 0.1);
+    padding: 10px;
+}
+
+/* 
+* Media Queries for Mobile L - 425px which covers also for Mobile S - 320px and Mobile M - 375px
+*/
+
+@media screen and (max-width: 425px) {
+    .accordion-list {
+        display: block;
+    }
+    .different-terms {
+        display: none;
+    }
+}
