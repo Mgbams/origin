@@ -28,12 +28,6 @@ ion-item {
 
 .item-badge {
     color: yellow;
-    // margin-left: 8px;
-    // margin-top: 10px;
-    position: absolute;
-    top: 12px;
-    left: 589px;
-    // font-size: 1.5rem;
 }
 
 .signin-link {
@@ -153,6 +147,7 @@ ion-row {
 @media screen and (max-width: 425px) {
     ion-row {
         font-size: 12px;
+        padding: 15px 0px;
     } 
     .cart-container {
         width: 60px;
@@ -169,4 +164,107 @@ ion-row {
         }
     }
     
+}
+
+/* 
+* Media Queries for Tablet 768px
+*/
+
+@media screen and (min-width: 768px) {
+    ion-row {
+        font-size: 18px;
+        padding: 15px 0px;
+    } 
+    .cart-container {
+        width: 60px;
+        height: 50px;
+        position: absolute;
+        left: 60vw;
+        .item-badge {
+            position: relative;
+            top: -6px;
+            left: -3.7vw;
+        }
+        .cart-icon {
+            font-size: 3.5rem;
+        }
+    }  
+}
+
+/* 
+* Media Queries for Laptop - 1024px 
+*/
+
+@media screen and (min-width: 1024px) {
+    ion-row {
+        font-size: 20px;
+        padding: 12px 0px;
+    } 
+    .cart-container {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 60vw;
+        .item-badge {
+            position: relative;
+            top: -8px;
+            left: -2.4vw;
+            font-size: 1rem;
+        }
+        .cart-icon {
+            font-size: 3.5rem;
+        }
+    }
+}
+
+/* 
+* Media Queries for Laptop L - 1440px 
+*/
+
+@media screen and (min-width: 1440px) {
+    ion-row {
+        font-size: 32px;
+        padding: 30px 0px;
+    } 
+    .cart-container {
+        width: 60px;
+        height: 50px;
+        position: absolute;
+        left: 60vw;
+        .item-badge {
+            position: relative;
+            top: -12px;
+            left: -3.7vw;
+            font-size: 1.8rem;
+        }
+        .cart-icon {
+            font-size: 6rem;
+        }
+    }
+}
+
+/* 
+* Media Queries for 4K - 2560px 
+*/
+
+@media screen and (min-width: 2560px) {
+    ion-row {
+        font-size: 52px;
+        padding: 50px 0px;
+    } 
+    .cart-container {
+        width: 60px;
+        height: 50px;
+        position: absolute;
+        left: 60vw;
+        .item-badge {
+            position: relative;
+            top: -21px;
+            left: -3.5vw;
+            font-size: 3rem;
+        }
+        .cart-icon {
+            font-size: 10rem;
+        }
+    }
 }
