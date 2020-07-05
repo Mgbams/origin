@@ -71,3 +71,86 @@ a.active {
     cursor: pointer;
     text-decoration: underline;
 }
+
+/* 
+* Media Queries for Mobile L - 425px
+*/
+
+@media screen and (max-width: 425px) {
+    .card-container {
+        width: 100vw !important;
+    }
+    .settings-list {
+        width: 100vw !important;
+        border: none !important;
+    }
+    .profile-header {
+        width: 100vw !important;
+    }
+    .info-spacer {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+    span {
+        width: 40vw !important;
+    }
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    }
+    .settings-form {
+        flex-direction: column;
+    }
+    .ion-card-content {
+        width: 96vw;
+    }
+    ion-card {
+        width: 94vw !important;
+    }
+}
+
+
+/* 
+* Media Queries for Tablet - 768px
+*/
+
+@media screen and (min-width: 768px) {
+   
+}
+
+/* 
+* Media Queries for Laptop L - 1440px
+*/
+
+@media screen and (min-width: 1440px) {
+   
+}
+
+/* 
+* Media Queries for Laptop - 1024px
+*/
+
+@media screen and (min-width: 1024px) {
+    p, ion-label, ion-select {
+        font-size: 1.7rem !important;
+    }
+    .row-formater ion-label {
+        margin-bottom: 40px;
+    }
+ }
+
+ /* 
+* Media Queries for 4K - 2560px
+*/
+
+@media screen and (min-width: 2560px) {
+    p, ion-label, ion-select {
+        font-size: 3rem !important;
+    }
+    .row-formater ion-label {
+        margin-bottom: 40px;
+    }
+ }
