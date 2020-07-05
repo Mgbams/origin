@@ -26,7 +26,7 @@
             <ion-list>
                 <ion-list-header lines="inset">
                     <ion-label>
-                        <h2><b>Account Settings</b></h2>
+                        <h2 class="account-settings"><b>Account Settings</b></h2>
                     </ion-label>
                 </ion-list-header>
 
@@ -65,29 +65,24 @@
 
         <div class="myaccount-container">
             <div class="top-bars">
-                <div class="first-div">
-                    1
+                <div class="first-div orders">
+                    <p>Pending Orders</p>
+                    <p class="order-quantities">0</p>
                 </div>
 
-                <div class="second-div">
-                    2
+                <div class="second-div orders">
+                    <p>Amount spent</p>
+                    <p class="order-quantities">0.00 &euro;</p>
                 </div>
 
-                <div class="third-div">
-                    3
-                </div>
-
-                <div class="fourth-div">
-                    4
-                </div>
-
-                <div class="fifth-div">
-                    5
+                <div class="third-div orders">
+                    <p>Orders made</p>
+                    <p class="order-quantities">0</p>
                 </div>
             </div>
 
             <div>
-                <h1>Recent Orders</h1>
+                <h1 class="recent-orders">Recent Orders</h1>
             </div>
 
             <div class="order-table">
@@ -106,9 +101,13 @@
 
             <div class="adress-email-container">
                 <div>
-                    <h3>My Information</h3>
-                    <h5>Shipping Addresses:</h5>
-                    <p>No shipping Addresses</p>
+                    <h3>Shipping Addresses:</h3>
+                    <div *ngIf="!customerData[0]">
+                        <p>No shipping Addresses</p>
+                    </div>
+                    <div *ngIf="customerData[0]">
+                        {{ customerData[0].address }}
+                    </div>
                     <p><a routerLink="/myaccount/shipping-address">Manage Address book ></a></p>
                 </div>
 
@@ -124,10 +123,6 @@
                         {{ customerData[0].phone }}
                     </p>
                     <p><a routerLink="/myaccount/profile/">Change Phone No. ></a></p>
-                </div>
-
-                <div *ngIf="customerData[0]">
-                    {{ customerData[0].address }}
                 </div>
 
             </div>
