@@ -179,3 +179,19 @@ a.active {
      font-size: 2rem !important;
      }
  }
+
+ /* 
+* Media Queries for 4K - 2560px
+*/
+
+@media screen and (min-width: 2560px) {
+    p, ion-label, ion-select {
+        font-size: 3rem !important;
+    }
+    .row-formater ion-label {
+        margin-bottom: 40px;
+    }
+    .cardType {
+     font-size: 3rem !important;
+     }
+ }
