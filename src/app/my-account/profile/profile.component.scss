@@ -118,7 +118,27 @@ a.active {
 */
 
 @media screen and (min-width: 768px) {
-   
+    .ion-card-content {
+        width: 65vw !important;
+    }
+    .settings-list {
+        width: 31vw !important;
+    }
+    ion-card {
+        width: 62vw !important;
+    }
+    p {
+        font-size: 1.7rem !important;
+    }
+    ion-label, small, span  {
+        font-size: 1rem !important;
+    }
+    small {
+        width: 68vw !important;
+    }
+    span {
+        width: 30vw !important;
+    }
 }
 
 /* 
