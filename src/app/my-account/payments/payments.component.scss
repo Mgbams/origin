@@ -81,3 +81,101 @@ a.active {
     cursor: pointer;
     text-decoration: underline;
 }
+
+/* 
+* Media Queries for Mobile L - 425px
+*/
+
+@media screen and (max-width: 425px) {
+    .ion-card-content  {
+        width: 96vw;
+    }
+    .ion-card-content, .settings-list {
+        width: 100vw !important;
+    }
+    .settings-list {
+        margin-top: -70px;
+        margin-bottom: 10px;
+    }
+    .settings-form {
+        flex-direction: column;
+    }
+    ion-card {
+        width: 94vw;  
+    }
+    .row-formater {
+        flex-direction: column;
+    }
+    #paymentCards {
+        display: flex;
+        flex-direction: row;
+        width: 60vw;
+    }
+    #paymentCards img {
+        width: 12vw;
+        height: 8vh;
+    }
+}
+
+/* 
+* Media Queries for Tablet - 768px
+*/
+
+@media screen and (min-width: 768px) {
+    #paymentCards img {
+        width: 12vw;
+        height: 8vh;
+    }
+    .ion-card-content  {
+        width: 65vw;
+    }
+    .settings-list {
+        width: 29vw !important;
+    }
+    #paymentCards {
+        display: flex;
+        flex-direction: row;
+        width: 60vw;
+    }
+    ion-card {
+        width: 63vw;  
+    }
+    .month-year {
+        width: 80vw;
+    }
+    .cardType {
+        font-size: 1.5rem;
+    }
+}
+
+/* 
+* Media Queries for Laptop L - 1440px
+*/
+
+@media screen and (min-width: 1440px) {
+   p, ion-label, ion-select {
+       font-size: 1.7rem !important;
+   }
+   .row-formater ion-label {
+       margin-bottom: 40px;
+   }
+   .cardType {
+    font-size: 2rem !important;
+    }
+}
+
+/* 
+* Media Queries for Laptop - 1024px
+*/
+
+@media screen and (min-width: 1024px) {
+    p, ion-label, ion-select {
+        font-size: 1.7rem !important;
+    }
+    .row-formater ion-label {
+        margin-bottom: 40px;
+    }
+    .cardType {
+     font-size: 2rem !important;
+     }
+ }
