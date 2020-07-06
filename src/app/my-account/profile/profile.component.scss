@@ -26,7 +26,7 @@
     width: 52vw;
     margin: auto;
     padding: 12px 0px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: yellowgreen;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -146,7 +146,15 @@ a.active {
 */
 
 @media screen and (min-width: 1440px) {
-   
+    small, span  {
+        font-size: 1.6rem !important;
+    }
+    ion-label, h1 {
+        font-size: 2rem !important;
+    }
+    ion-select {
+        margin-bottom: 40px !important;
+    }
 }
 
 /* 
@@ -154,11 +162,14 @@ a.active {
 */
 
 @media screen and (min-width: 1024px) {
-    p, ion-label, ion-select {
-        font-size: 1.7rem !important;
+    small, span  {
+        font-size: 1.6rem !important;
     }
-    .row-formater ion-label {
-        margin-bottom: 40px;
+    ion-label, h1 {
+        font-size: 1.4rem !important;
+    }
+    ion-select {
+        margin-bottom: 40px !important;
     }
  }
 
@@ -167,10 +178,13 @@ a.active {
 */
 
 @media screen and (min-width: 2560px) {
-    p, ion-label, ion-select {
-        font-size: 3rem !important;
+    small, span  {
+        font-size: 1.6rem !important;
     }
-    .row-formater ion-label {
-        margin-bottom: 40px;
+    ion-label, h1 {
+        font-size: 2rem !important;
+    }
+    ion-select {
+        margin-bottom: 40px !important;
     }
  }
