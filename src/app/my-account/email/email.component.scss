@@ -1,12 +1,12 @@
 .email-container {
-    margin-top: 120px;
+    margin-top: 70px;
 }
 
 .ion-card-content {
     width: 52vw;
     margin: 30px auto;
     padding: 12px 0px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: yellowgreen;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -58,3 +58,141 @@ a {
     background-color: yellow;
     color: red;
 }
+
+/* 
+* Media Queries for Mobile L - 425px
+*/
+
+@media screen and (max-width: 425px) {
+    .email-container {
+        margin-top: 80px;
+    }
+    small {
+        font-size: 1rem !important;
+    }
+    .profile-header {
+      width: 100vw;
+    }
+    .settings-form {
+        flex-direction: column;
+    }
+    .ion-card-content, .settings-list {
+        width: 98vw !important;
+        margin:  0px auto !important;
+    }
+    .settings-list {
+        border: none !important;
+        margin-top: 20px;
+    }
+    ion-card {
+        width: 90vw !important;
+    }
+}
+
+
+/* 
+* Media Queries for Tablet - 768px
+*/
+
+@media screen and (min-width: 768px) {
+  .email-container {
+     margin-top: 80px;
+  }
+  .settings-list {
+      width: 32vw !important;
+  }
+  .ion-card-content {
+      width: 65vw;
+  }
+  small {
+    font-size: 1.4rem !important;
+  }
+  ion-card {
+    width: 60vw !important;
+  }
+}
+
+/* 
+* Media Queries for Laptop L - 1440px
+*/
+
+@media screen and (min-width: 1440px) {
+    .email-container {
+        margin-top: 130px;
+    }
+    .settings-list {
+        width: 27vw !important;
+    }
+    .profile-header {
+        p {
+            font-size: 1.8rem !important;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+    }
+    small {
+        font-size: 3rem !important;
+    }
+    ion-label {
+        font-size: 4rem !important;
+    }
+    .ion-card-content {
+        width: 54vw;
+    }
+    ion-card {
+        width: 50vw !important;
+    }
+}
+
+/* 
+* Media Queries for Laptop - 1024px
+*/
+
+@media screen and (min-width: 1024px) {
+    .settings-list {
+        width: 30vw !important;
+    }
+    small {
+        font-size: 1.7rem !important;
+    }
+    ion-label, p {
+        font-size: 1.4rem !important;
+    }
+ }
+
+ /* 
+* Media Queries for 4K - 2560px
+*/
+
+@media screen and (min-width: 2560px) {
+    .profile-header {
+        p {
+            font-size: 3rem !important;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+    }
+    .email-container {
+        margin-top: 200px;
+    }
+    .settings-list {
+        width: 26vw !important;
+    }
+    small, h1 {
+        font-size: 4rem !important;
+    }
+    ion-label {
+        font-size: 3rem !important;
+    }
+    .ion-card-content {
+        width: 58vw;
+    }
+    ion-card {
+        width: 50vw !important;
+        ion-label {
+            margin-bottom: 40px !important;
+        }
+    }
+ }
