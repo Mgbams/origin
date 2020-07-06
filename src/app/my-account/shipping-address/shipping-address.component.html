@@ -71,7 +71,7 @@
                                     <p>Add New Address</p>
                                 </div>
                                 <div class="required">
-                                    <p><span color="danger">*</span>required field</p>
+                                    <p><span class="red">*</span>required field</p>
                                 </div>
                             </div>
                             <div class="row-formater">
@@ -87,7 +87,7 @@
                             </div>
 
                             <div>
-                                <ion-item>
+                                <ion-item class="country">
                                     <ion-label position="floating">Country</ion-label>
                                     <ion-select formControlName="country" name="country">
                                         <ion-select-option *ngFor="let country of countries; index as countryId" [value]="country.name_en" selected>
@@ -99,7 +99,7 @@
 
                             <div>
                                 <ion-item>
-                                    <ion-label position="floating">Address<sup><ion-text class="red">* </ion-text></sup></ion-label>
+                                    <ion-label position="floating" class="address">Address<sup><ion-text class="red">* </ion-text></sup></ion-label>
                                     <ion-input formControlName="address" name="address" type="text"></ion-input>
                                 </ion-item>
                             </div>
@@ -118,7 +118,7 @@
 
                             <div>
                                 <ion-item>
-                                    <ion-label position="floating">Phone No<sup><ion-text color="danger">*</ion-text></sup></ion-label>
+                                    <ion-label class="phone" position="floating">Phone No<sup><ion-text color="danger">*</ion-text></sup></ion-label>
                                     <ion-input formControlName="phone" name="phone" type="tel"></ion-input>
                                 </ion-item>
                             </div>

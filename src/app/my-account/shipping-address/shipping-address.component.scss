@@ -1,5 +1,5 @@
 .shipping-container {
-    margin-top: 120px;
+    margin-top: 70px;
     margin-bottom: 30px;
     .top-bar-headings {
         display: flex;
@@ -33,7 +33,7 @@ ion-card {
     width: 52vw;
     margin: auto;
     padding: 12px 0px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: yellowgreen;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -50,7 +50,7 @@ ion-card {
         width: 80%;
     }
     .required {
-        width: 15%;
+        width: 25%;
     }
 }
 
@@ -85,3 +85,124 @@ a.active {
     cursor: pointer;
     text-decoration: underline;
 }
+
+/* 
+* Media Queries for Mobile L - 425px
+*/
+
+@media screen and (max-width: 425px) {
+    .shipping-container {
+        margin-top: 120px;
+    }
+    .required-fields {
+        flex-direction: column;
+        .required {
+            width: 50vw;
+        }
+    }
+    .ion-card-content  {
+        width: 96vw;
+        margin: 0px auto;
+    }
+    .ion-card-content, .settings-list {
+        width: 100vw !important;
+    }
+    .settings-list {
+        margin-top: -70px;
+        margin-bottom: 10px;
+        border: none !important;
+    }
+    .settings-form {
+        flex-direction: column;
+    }
+    ion-card {
+        width: 94vw;  
+    }
+    .row-formater {
+        flex-direction: column;
+    }
+}
+
+/* 
+* Media Queries for Tablet - 768px
+*/
+
+@media screen and (min-width: 768px) {
+    .ion-card-content  {
+        width: 65vw;
+    }
+    .settings-list {
+        width: 29vw !important;
+    }
+    ion-card {
+        width: 63vw;  
+    }
+}
+
+/* 
+* Media Queries for Laptop L - 1440px
+*/
+
+@media screen and (min-width: 1440px) {
+   p, ion-label, ion-select {
+       font-size: 1.7rem !important;
+   }
+   .row-formater ion-label {
+       margin-bottom: 40px;
+   }
+}
+
+/* 
+* Media Queries for Laptop - 1024px
+*/
+
+@media screen and (min-width: 1024px) {
+    p, ion-label, ion-button {
+        font-size: 1.4rem !important;
+    }
+    .country {
+        ion-label{
+            margin-bottom: 25px !important;
+        }
+    }
+    .required-fields {
+        .required {
+            width: 30vw;
+        }
+    }
+ }
+
+ /* 
+* Media Queries for 4K - 2560px
+*/
+
+@media screen and (min-width: 2560px) {
+    .shipping-container {
+        margin-top: 200px;
+    }
+    p, ion-label {
+        font-size: 3rem !important;
+    }
+    .row-formater ion-label {
+        margin-bottom: 40px;
+    }
+    .country {
+        ion-label{
+            margin-bottom: 80px !important;
+        }
+    }
+    .ion-card-content {
+        ion-card-title {
+            font-size: 1.6rem !important;
+        }
+    }
+    ion-list-header ion-label h1 {
+            font-size: 2rem !important;
+    }
+    ion-item .phone {
+        margin-bottom: 40px !important;
+    }
+    ion-item .address {
+        margin-bottom: 40px !important;
+    }
+ }
