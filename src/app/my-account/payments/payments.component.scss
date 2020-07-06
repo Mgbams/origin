@@ -45,7 +45,7 @@ ion-card {
     width: 52vw;
     margin: auto;
     padding: 12px 0px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: yellowgreen;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -89,6 +89,7 @@ a.active {
 @media screen and (max-width: 425px) {
     .ion-card-content  {
         width: 96vw;
+        margin: 0px auto;
     }
     .ion-card-content, .settings-list {
         width: 100vw !important;
@@ -96,6 +97,7 @@ a.active {
     .settings-list {
         margin-top: -70px;
         margin-bottom: 10px;
+        border: none !important;
     }
     .settings-form {
         flex-direction: column;
