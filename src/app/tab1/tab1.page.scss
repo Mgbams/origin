@@ -59,7 +59,7 @@ ion-button {
 }
 
 .home-page-container {
-    margin-top: 71px;
+    margin-top: 58px;
     margin-bottom: 30px;
 }
 
@@ -282,6 +282,32 @@ a {
     }
     .fourth-button-swiper {
         display: inline;
+    }
+    .home-page-container {
+        margin-top: 39px;
+    }
+    
+}
+
+/* 
+* Media Queries for Mobile M - 375px  settings for the top slider
+*/
+
+@media screen and (max-width: 375px) {
+    .home-page-container {
+        margin-top: 19px;
+    }
+    
+}
+
+
+/* 
+* Media Queries for Mobile S - 320px  settings for the top slider
+*/
+
+@media screen and (max-width: 320px) {
+    .home-page-container {
+        margin-top: -7px;
     }
     
 }
